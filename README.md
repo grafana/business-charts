@@ -3,7 +3,7 @@
 >
 >We have republished under the same plugin ID, keeping the community signature. This means you can simply update your plugin version. A new ID would have required manual updates to your dashboards. For additional information on the changes, see the [Notices](/NOTICES).
 
-⚠️ This project is not actively maintained by Grafana Labs. Pull requests are welcome and will be reviewed on a best-effort basis. Contact integrations@grafana.com if you are interested in taking on this project longer term. We will be happy to work with and eventually hand over to people who are interested in maintaining it again.
+This project is now maintained by Grafana Labs. Pull requests are welcome and will be reviewed on a best-effort basis.
 
 ![Business Charts Dashboard](https://github.com/VolkovLabs/business-charts/raw/main/src/img/dashboard.png)
 
