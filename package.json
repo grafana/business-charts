@@ -86,6 +86,7 @@
     "test:ci": "jest --maxWorkers 4 --coverage",
     "test:e2e": "npx playwright test",
     "test:e2e:docker": "docker compose --profile e2e up",
+    "typecheck": "tsc --noEmit",
     "upgrade": "npm upgrade --save"
   },
   "version": "7.1.0"
