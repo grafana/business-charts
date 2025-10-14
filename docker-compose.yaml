@@ -10,7 +10,7 @@ services:
     volumes:
       - ./dist:/var/lib/grafana/plugins/volkovlabs-echarts-panel
       - ./provisioning:/etc/grafana/provisioning
-      - ./echarts.volkovlabs.io:/etc/grafana/provisioning/dashboards/echarts
+      - ./echarts:/etc/grafana/provisioning/dashboards/echarts
     profiles:
       - dev
 
@@ -25,7 +25,7 @@ services:
     volumes:
       - ./dist:/var/lib/grafana/plugins/volkovlabs-echarts-panel
       - ./provisioning:/etc/grafana/provisioning
-      - ./echarts.volkovlabs.io:/etc/grafana/provisioning/dashboards/echarts
+      - ./echarts:/etc/grafana/provisioning/dashboards/echarts
     profiles:
       - main
 
@@ -40,7 +40,7 @@ services:
     volumes:
       - ./dist:/var/lib/grafana/plugins/volkovlabs-echarts-panel
       - ./provisioning:/etc/grafana/provisioning
-      - ./echarts.volkovlabs.io:/etc/grafana/provisioning/dashboards/echarts
+      - ./echarts:/etc/grafana/provisioning/dashboards/echarts
     profiles:
       - dependency
 
