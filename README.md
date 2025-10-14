@@ -1,4 +1,8 @@
 # Business Charts for Grafana
+[![CI](https://github.com/grafana/business-charts/actions/workflows/push.yml/badge.svg)](https://github.com/grafana/business-charts/actions/workflows/push.yml)
+[![CD](https://github.com/grafana/business-charts/actions/workflows/publish.yml/badge.svg)](https://github.com/grafana/business-charts/actions/workflows/publish.yml)
+[![License](https://img.shields.io/github/license/grafana/business-charts)](LICENSE)
+
 >This project was originally contributed by [VolkovLabs Business Charts](https://github.com/volkovlabs/business-charts) - thanks for all your great work!
 >
 >We have republished under the same plugin ID, keeping the community signature. This means you can simply update your plugin version. A new ID would have required manual updates to your dashboards. For additional information on the changes, see the [Notices](/NOTICES).
