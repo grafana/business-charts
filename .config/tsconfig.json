@@ -21,6 +21,6 @@
     },
     "transpileOnly": true
   },
-  "include": ["../src", "./types", "./jest-setup.ts"],
+  "include": ["../src", "./types"],
   "extends": "@grafana/tsconfig"
 }
