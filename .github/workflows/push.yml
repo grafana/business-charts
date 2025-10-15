@@ -23,4 +23,5 @@ jobs:
       playwright-docker-compose-file: docker-compose.yaml
       upload-playwright-artifacts: true
       run-playwright-with-skip-grafana-dev-image: true
+      signature-type: community
       # playwright-config: e2e/playwright.config.ts
