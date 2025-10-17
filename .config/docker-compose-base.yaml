@@ -2,7 +2,7 @@ services:
   grafana:
     user: root
     container_name: 'volkovlabs-echarts-panel'
-    image: grafana/${GRAFANA_IMAGE:-grafana-enterprise}:${GRAFANA_VERSION:-11.5.3}
+    image: grafana/${GRAFANA_IMAGE:-grafana-enterprise}:${GRAFANA_VERSION:-latest}
     ports:
       - 3000:3000/tcp
     volumes:

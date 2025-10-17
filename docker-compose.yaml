@@ -51,15 +51,16 @@ services:
     profiles:
       - dependency
 
-  test:
+  playwright:
     build:
       context: .
       dockerfile: test/Dockerfile
     environment:
-      - GRAFANA_URL=http://127.0.0.1:3000
+      - GRAFANA_URL=http://grafana:3000
     volumes:
       - ./test:/app/test
       - ./playwright-report:/app/playwright-report
-    network_mode: host
+    depends_on:
+      - grafana
     profiles:
-      - e2e
+      - playwright
