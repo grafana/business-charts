@@ -1,5 +1,12 @@
 services:
   grafana:
+    extends:
+      file: .config/docker-compose-base.yaml
+      service: grafana
+    ports:
+      - 3000:3000/tcp
+
+  grafana-dev:
     image: ghcr.io/volkovlabs/app:latest
     ports:
       - 3000:3000/tcp
