@@ -9,7 +9,6 @@ services:
       - ../dist:/var/lib/grafana/plugins/volkovlabs-echarts-panel
       - ../provisioning:/etc/grafana/provisioning
       - ../echarts:/etc/grafana/provisioning/dashboards/echarts
-
     environment:
       NODE_ENV: development
       GF_AUTH_ANONYMOUS_ORG_ROLE: Admin
