@@ -7,7 +7,7 @@
 >
 >We have republished under the same plugin ID, keeping the community signature. This means you can simply update your plugin version. A new ID would have required manual updates to your dashboards. For additional information on the changes, see the [Notices](/NOTICES).
 
-This project is now maintained by Grafana Labs. Pull requests are welcome and will be reviewed on a best-effort basis. Contact [integrations@grafana.com](mailto:integrations@grafana.com) if you are interested in taking on this project longer term. We will be happy to work with and eventually hand over to people who are interested in maintaining it again.
+This project is currently maintained by Grafana Labs. We welcome pull requests and will review them on a best-effort basis. If you're interested in taking on this project long-term, contact [integrations@grafana.com](mailto:integrations@grafana.com). We're eager to work with new maintainers and eventually hand over the project.
 
 **Business Charts** is a powerful Grafana plugin that integrates the [Apache ECharts library](https://echarts.apache.org/en/index.html) to create dynamic, interactive visualizations for your dashboards. Built with pure JavaScript and lightweight rendering via [zrender](http://ecomfe.github.io/zrender/), this plugin offers a wide variety of chart types and advanced statistical tools to enhance business data analysis.
 
