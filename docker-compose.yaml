@@ -1,5 +1,12 @@
 services:
   grafana:
+    extends:
+      file: .config/docker-compose-base.yaml
+      service: grafana
+    ports:
+      - 3000:3000/tcp
+
+  grafana-dev:
     image: ghcr.io/volkovlabs/app:latest
     ports:
       - 3000:3000/tcp
@@ -10,7 +17,7 @@ services:
     volumes:
       - ./dist:/var/lib/grafana/plugins/volkovlabs-echarts-panel
       - ./provisioning:/etc/grafana/provisioning
-      - ./echarts.volkovlabs.io:/etc/grafana/provisioning/dashboards/echarts
+      - ./echarts:/etc/grafana/provisioning/dashboards/echarts
     profiles:
       - dev
 
@@ -25,7 +32,7 @@ services:
     volumes:
       - ./dist:/var/lib/grafana/plugins/volkovlabs-echarts-panel
       - ./provisioning:/etc/grafana/provisioning
-      - ./echarts.volkovlabs.io:/etc/grafana/provisioning/dashboards/echarts
+      - ./echarts:/etc/grafana/provisioning/dashboards/echarts
     profiles:
       - main
 
@@ -40,19 +47,20 @@ services:
     volumes:
       - ./dist:/var/lib/grafana/plugins/volkovlabs-echarts-panel
       - ./provisioning:/etc/grafana/provisioning
-      - ./echarts.volkovlabs.io:/etc/grafana/provisioning/dashboards/echarts
+      - ./echarts:/etc/grafana/provisioning/dashboards/echarts
     profiles:
       - dependency
 
-  test:
+  playwright:
     build:
       context: .
       dockerfile: test/Dockerfile
     environment:
-      - GRAFANA_URL=http://127.0.0.1:3000
+      - GRAFANA_URL=http://grafana:3000
     volumes:
       - ./test:/app/test
       - ./playwright-report:/app/playwright-report
-    network_mode: host
+    depends_on:
+      - grafana
     profiles:
-      - e2e
+      - playwright

@@ -1,0 +1,27 @@
+name: Plugins - CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+permissions: {}
+
+jobs:
+  ci:
+    name: CI
+    uses: grafana/plugin-ci-workflows/.github/workflows/ci.yml@main # zizmor: ignore[unpinned-uses]
+    permissions:
+      contents: read
+      id-token: write
+    with:
+      plugin-version-suffix: ${{ github.event_name == 'pull_request' && github.event.pull_request.head.sha || '' }}
+      run-playwright-with-grafana-dependency: ">=12.0 <13.0"
+      run-playwright: false
+      run-playwright-docker: true
+      playwright-docker-compose-file: docker-compose.yaml
+      upload-playwright-artifacts: true
+      run-playwright-with-skip-grafana-dev-image: true
+      signature-type: community
+      # playwright-config: e2e/playwright.config.ts

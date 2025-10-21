@@ -7,25 +7,12 @@
   "id": "volkovlabs-echarts-panel",
   "info": {
     "author": {
-      "name": "Volkov Labs",
-      "url": "https://volkovlabs.io"
+      "name": "Grafana Labs",
+      "url": "https://grafana.com"
     },
     "description": "Powerful visualizations powered by Apache ECharts.",
     "keywords": ["business", "echarts"],
-    "links": [
-      {
-        "name": "Documentation",
-        "url": "https://volkovlabs.io/plugins/business-charts/"
-      },
-      {
-        "name": "Examples",
-        "url": "https://echarts.volkovlabs.io"
-      },
-      {
-        "name": "Sponsor",
-        "url": "https://volkovlabs.io/pricing/"
-      }
-    ],
+    "links": [],
     "logos": {
       "large": "img/logo.svg",
       "small": "img/logo.svg"
