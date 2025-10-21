@@ -36,3 +36,4 @@ jobs:
       docs-only: ${{ fromJSON(github.event.inputs.docs-only) }}
       attestation: true
       signature-type: community
+      run-playwright: false
