@@ -2,6 +2,12 @@
 
 All notable changes to **Business Charts** will be documented in this file. This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [7.2.0] - 2025-10-22
+
+### Project Updates
+
+- Project now maintained by Grafana Labs.
+
 ## [7.1.0] - 2025-08-31
 
 ### Enhancements
