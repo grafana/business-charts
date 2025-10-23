@@ -6,7 +6,7 @@ All notable changes to **Business Charts** will be documented in this file. This
 
 ### Project Updates
 
-- Project now maintained by Grafana Labs.
+- Grafana Labs fork.
 
 ## [7.1.0] - 2025-08-31
 
