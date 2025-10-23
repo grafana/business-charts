@@ -89,5 +89,5 @@
     "typecheck": "tsc --noEmit",
     "upgrade": "npm upgrade --save"
   },
-  "version": "7.2.0"
+  "version": "7.2.1"
 }
