@@ -1,5 +1,4 @@
-import { DataFrame, FieldType, SelectableValue } from '@grafana/data';
-import { findField } from '@volkovlabs/components';
+import { DataFrame, Field, FieldType, SelectableValue } from '@grafana/data';
 import { v4 as uuidv4 } from 'uuid';
 
 import { SUNBURST_DEFAULT } from '../constants';
@@ -7,6 +6,22 @@ import { DatasetItem, RadarChartOptions, SeriesByType, SeriesItem, SeriesType, V
 import { convertScatterOptions } from './convert-scatter-options';
 import { convertSunburstOptions } from './convert-sunburst-options';
 import { getFieldValues } from './data-frame';
+
+const findField = <TValue = unknown>(
+  series: DataFrame[],
+  predicateFn: (field: Field, frame: DataFrame) => boolean
+): Field<TValue> | undefined => {
+  for (let i = 0; i < series.length; i += 1) {
+    const frame = series[i];
+    const field = frame.fields.find((field) => predicateFn(field, frame));
+
+    if (field) {
+      return field;
+    }
+  }
+
+  return undefined;
+};
 
 /**
  * Get field based on option value
