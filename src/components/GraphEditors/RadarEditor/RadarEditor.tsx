@@ -1,5 +1,5 @@
 import { Button, IconButton, InlineField, InlineFieldRow, Input, Label, Select, useStyles2 } from '@grafana/ui';
-import React, { useCallback, useState } from 'react';
+import React, { useCallback, useId, useState } from 'react';
 
 import { TEST_IDS } from '../../../constants';
 import { DatasetItem, SeriesByType, SeriesItem, SeriesType } from '../../../types';
@@ -37,6 +37,9 @@ interface Props {
  * Radar editor
  */
 export const RadarEditor: React.FC<Props> = ({ value, onChange, dataset }) => {
+  const dimensionNameId = useId();
+  const dimensionValueId = useId();
+  const newDimensionId = useId();
   /**
    * Styles and Theme
    */
@@ -76,6 +79,7 @@ export const RadarEditor: React.FC<Props> = ({ value, onChange, dataset }) => {
           <InlineFieldRow key={dimension.uid}>
             <InlineField label="Dimension Name" labelWidth={25}>
               <Input
+                id={dimensionNameId}
                 placeholder="Name"
                 value={dimension.name}
                 onChange={(event) => {
@@ -96,6 +100,7 @@ export const RadarEditor: React.FC<Props> = ({ value, onChange, dataset }) => {
             </InlineField>
             <InlineField label="Dimension Value" labelWidth={25} grow>
               <Select
+                inputId={dimensionValueId}
                 value={dimension.value}
                 options={dataset.map((item) => ({
                   value: getDatasetItemUniqueName(item),
@@ -138,6 +143,7 @@ export const RadarEditor: React.FC<Props> = ({ value, onChange, dataset }) => {
       <InlineFieldRow className={styles.new}>
         <InlineField label="New Dimension" grow={true}>
           <Input
+            id={newDimensionId}
             placeholder="Dimension Name"
             value={newRadarItemName}
             onChange={(event) => setNewRadarItemName(event.currentTarget.value)}
@@ -146,7 +152,7 @@ export const RadarEditor: React.FC<Props> = ({ value, onChange, dataset }) => {
         </InlineField>
         <Button
           icon="plus"
-          title="Add new Radar item"
+          aria-label="Add new Radar item"
           onClick={addNewDimension}
           disabled={!newRadarItemName}
           data-testid={TEST_IDS.seriesEditor.radarDimensionButtonAddNew}

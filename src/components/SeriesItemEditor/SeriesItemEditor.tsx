@@ -1,5 +1,5 @@
 import { InlineField, InlineFieldRow, Input, Select } from '@grafana/ui';
-import React from 'react';
+import React, { useId } from 'react';
 
 import { SERIES_TYPE_OPTIONS, TEST_IDS } from '../../constants';
 import { DatasetItem, SeriesItem, SeriesType } from '../../types';
@@ -33,6 +33,10 @@ interface Props {
 }
 
 export const SeriesItemEditor: React.FC<Props> = ({ value, onChange, dataset }) => {
+  const idInputId = useId();
+  const typeInputId = useId();
+  const nameInputId = useId();
+
   /**
    * Render Series Editor
    */
@@ -68,6 +72,7 @@ export const SeriesItemEditor: React.FC<Props> = ({ value, onChange, dataset }) 
       <InlineFieldRow>
         <InlineField label="ID" labelWidth={labelWidth} grow={true}>
           <Input
+            id={idInputId}
             value={value.id}
             onChange={(event) => {
               onChange({
@@ -80,6 +85,7 @@ export const SeriesItemEditor: React.FC<Props> = ({ value, onChange, dataset }) 
         </InlineField>
         <InlineField label="Type" labelWidth={labelWidth} grow={true}>
           <Select
+            inputId={typeInputId}
             value={value.type}
             options={SERIES_TYPE_OPTIONS}
             onChange={(event) => {
@@ -94,6 +100,7 @@ export const SeriesItemEditor: React.FC<Props> = ({ value, onChange, dataset }) 
       <InlineFieldRow>
         <InlineField label="Name" labelWidth={labelWidth} grow={true}>
           <Input
+            id={nameInputId}
             value={value.name}
             onChange={(event) => {
               onChange({

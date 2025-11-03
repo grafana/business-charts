@@ -1,6 +1,6 @@
 import { SelectableValue } from '@grafana/data';
 import { InlineField, InlineFieldRow, Select } from '@grafana/ui';
-import React from 'react';
+import React, { useId } from 'react';
 
 import { SCATTER_SYMBOL_OPTIONS, TEST_IDS } from '../../../constants';
 import { DatasetItem, SeriesByType, SeriesItem, SeriesType } from '../../../types';
@@ -42,11 +42,17 @@ interface Props {
  * Scatter editor
  */
 export const ScatterEditor: React.FC<Props> = ({ value, onChange, dataset }) => {
+  const encodeY = useId();
+  const encodeX = useId();
+  const sizeField = useId();
+  const symbolType = useId();
+  const tooltipField = useId();
   return (
     <>
       <InlineFieldRow>
         <InlineField label="Encode Y" labelWidth={labelWidth} grow={true}>
           <Select
+            inputId={encodeY}
             value={value.encode?.y}
             options={dataset.map((item) => ({
               value: getDatasetItemUniqueName(item),
@@ -71,6 +77,7 @@ export const ScatterEditor: React.FC<Props> = ({ value, onChange, dataset }) => 
       <InlineFieldRow>
         <InlineField label="Encode X" labelWidth={labelWidth} grow={true}>
           <Select
+            inputId={encodeX}
             value={value.encode?.x}
             options={dataset.map((item) => ({
               value: getDatasetItemUniqueName(item),
@@ -95,6 +102,7 @@ export const ScatterEditor: React.FC<Props> = ({ value, onChange, dataset }) => 
       <InlineFieldRow>
         <InlineField label="Size" labelWidth={labelWidth} grow={true}>
           <Select
+            inputId={sizeField}
             value={value.sizeField}
             options={dataset.map((item) => ({
               value: getDatasetItemUniqueName(item),
@@ -115,6 +123,7 @@ export const ScatterEditor: React.FC<Props> = ({ value, onChange, dataset }) => 
       <InlineFieldRow>
         <InlineField label="Symbol Type" labelWidth={25} grow={true}>
           <Select
+            inputId={symbolType}
             value={value.symbol}
             options={SCATTER_SYMBOL_OPTIONS}
             onChange={(event) => {
@@ -131,6 +140,7 @@ export const ScatterEditor: React.FC<Props> = ({ value, onChange, dataset }) => 
       <InlineFieldRow>
         <InlineField label="Tooltip" labelWidth={labelWidth} grow={true}>
           <Select
+            inputId={tooltipField}
             value={value.encode?.tooltip}
             options={dataset.map((item) => ({
               value: getDatasetItemUniqueName(item),

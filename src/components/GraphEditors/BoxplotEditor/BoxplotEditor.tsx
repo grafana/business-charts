@@ -1,6 +1,6 @@
 import { SelectableValue } from '@grafana/data';
 import { InlineField, InlineFieldRow, Select } from '@grafana/ui';
-import React from 'react';
+import React, { useId } from 'react';
 
 import { TEST_IDS } from '../../../constants';
 import { DatasetItem, SeriesByType, SeriesItem, SeriesType } from '../../../types';
@@ -42,11 +42,14 @@ interface Props {
  * Boxplot editor
  */
 export const BoxplotEditor: React.FC<Props> = ({ value, onChange, dataset }) => {
+  const encodeY = useId();
+  const encodeX = useId();
   return (
     <>
       <InlineFieldRow>
         <InlineField label="Encode Y" labelWidth={labelWidth} grow={true}>
           <Select
+            inputId={encodeY}
             value={value.encode?.y}
             options={dataset.map((item) => ({
               value: getDatasetItemUniqueName(item),
@@ -71,6 +74,7 @@ export const BoxplotEditor: React.FC<Props> = ({ value, onChange, dataset }) => 
       <InlineFieldRow>
         <InlineField label="Encode X" labelWidth={labelWidth} grow={true}>
           <Select
+            inputId={encodeX}
             value={value.encode?.x}
             options={dataset.map((item) => ({
               value: getDatasetItemUniqueName(item),
