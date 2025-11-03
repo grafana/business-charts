@@ -5,6 +5,10 @@ import React from 'react';
 
 import {
   SUNBURST_DEFAULT,
+  SUNBURST_EMPHASIS_FOCUS_OPTIONS,
+  SUNBURST_LABEL_ROTATE_OPTIONS,
+  SUNBURST_SHOW_LABEL_OPTIONS,
+  SUNBURST_SORT_OPTIONS,
   SunburstEmphasisFocusOption,
   SunburstLabelRotate,
   SunburstSortOption,
@@ -191,7 +195,7 @@ describe('Series Editor', () => {
         })
       );
 
-      expect(screen.getByText(' [line2]')).toBeInTheDocument();
+      expect(screen.getByText('[line2]')).toBeInTheDocument();
 
       /**
        * Should clean new item id field
@@ -969,7 +973,7 @@ describe('Series Editor', () => {
 
         expect(screen.getByTestId(TEST_IDS.seriesEditor.sunburstNewLevelButtonAddNew)).toBeDisabled();
 
-        expect(screen.getByTestId(TEST_IDS.seriesEditor.sunburstLevelItem(false, 'Level 3'))).toBeInTheDocument();
+        expect(screen.getByText('Level 3')).toBeInTheDocument();
       });
 
       it('Should remove Level', async () => {
@@ -1145,17 +1149,16 @@ describe('Series Editor', () => {
 
         openItem('Sunburst [sunburst]');
 
-        const radiusField = screen.getByLabelText(SunburstSortOption.DESC);
-        expect(radiusField).toBeInTheDocument();
-
-        expect(screen.getByLabelText(SunburstSortOption.DESC)).toBeChecked();
+        const section = screen.getByRole('radiogroup', { name: 'Sunburst Sort' });
+        expect(within(section).getByRole('radio', { name: SUNBURST_SORT_OPTIONS[1].label! })).toBeChecked();
 
         /**
          * Change target
          */
-        await act(() => fireEvent.click(screen.getByLabelText(SunburstSortOption.ASC)));
+        await act(() => fireEvent.click(within(section).getByRole('radio', { name: SUNBURST_SORT_OPTIONS[0].label! })));
 
-        expect(screen.getByLabelText(SunburstSortOption.ASC)).toHaveValue(SunburstSortOption.ASC);
+        expect(within(section).getByRole('radio', { name: SUNBURST_SORT_OPTIONS[0].label! })).toBeChecked();
+        expect(within(section).getByRole('radio', { name: SUNBURST_SORT_OPTIONS[1].label! })).not.toBeChecked();
       });
 
       it('Should Emphasis Focus', async () => {
@@ -1171,14 +1174,16 @@ describe('Series Editor', () => {
 
         openItem('Sunburst [sunburst]');
 
-        expect(item.emphasisFocusOption(false, SunburstEmphasisFocusOption.NONE)).toBeChecked();
+        const section = screen.getByRole('radiogroup', { name: 'Emphasis Focus' });
+        expect(within(section).getByRole('radio', { name: SUNBURST_EMPHASIS_FOCUS_OPTIONS[2].label! })).toBeChecked();
 
         /**
          * Change target
          */
-        await act(() => fireEvent.click(item.emphasisFocusOption(false, SunburstEmphasisFocusOption.ANCESTOR)));
+        await act(() => fireEvent.click(within(section).getByRole('radio', { name: SUNBURST_EMPHASIS_FOCUS_OPTIONS[0].label! })));
 
-        expect(item.emphasisFocusOption(false, SunburstEmphasisFocusOption.ANCESTOR)).toBeChecked();
+        expect(within(section).getByRole('radio', { name: SUNBURST_EMPHASIS_FOCUS_OPTIONS[0].label! })).toBeChecked();
+        expect(within(section).getByRole('radio', { name: SUNBURST_EMPHASIS_FOCUS_OPTIONS[2].label! })).not.toBeChecked();
       });
 
       it('Should change Show Label', async () => {
@@ -1192,19 +1197,18 @@ describe('Series Editor', () => {
           })
         );
 
-        openItem(sunburstItem.id);
+        openItem('Sunburst [sunburst]');
 
-        const showLabelField = item.sunburstShowLabel();
-
-        expect(showLabelField).toBeInTheDocument();
-        expect(item.showLabelOption(false, true)).toBeChecked();
+        const section = screen.getByRole('radiogroup', { name: 'Show label' });
+        expect(within(section).getByRole('radio', { name: SUNBURST_SHOW_LABEL_OPTIONS[0].label! })).toBeChecked();
 
         /**
          * Change target
          */
-        await act(() => fireEvent.click(item.showLabelOption(false, false)));
+        await act(() => fireEvent.click(within(section).getByRole('radio', { name: SUNBURST_SHOW_LABEL_OPTIONS[1].label! })));
 
-        expect(item.showLabelOption(false, false)).toBeChecked();
+        expect(within(section).getByRole('radio', { name: SUNBURST_SHOW_LABEL_OPTIONS[1].label! })).toBeChecked();
+        expect(within(section).getByRole('radio', { name: SUNBURST_SHOW_LABEL_OPTIONS[0].label! })).not.toBeChecked();
       });
 
       it('Should change rotate option Label', async () => {
@@ -1218,19 +1222,18 @@ describe('Series Editor', () => {
           })
         );
 
-        openItem(sunburstItem.id);
+        openItem('Sunburst [sunburst]');
 
-        const rotateField = item.sunburstLabelRotate();
-
-        expect(rotateField).toBeInTheDocument();
-        expect(item.labelRotateOption(false, SunburstLabelRotate.RADIAL)).toBeChecked();
+        const section = screen.getByRole('radiogroup', { name: 'Label rotate' });
+        expect(within(section).getByRole('radio', { name: SUNBURST_LABEL_ROTATE_OPTIONS[0].label! })).toBeChecked();
 
         /**
          * Change target
          */
-        await act(() => fireEvent.click(item.labelRotateOption(false, SunburstLabelRotate.TANGENTIAL)));
+        await act(() => fireEvent.click(within(section).getByRole('radio', { name: SUNBURST_LABEL_ROTATE_OPTIONS[1].label! })));
 
-        expect(item.labelRotateOption(false, SunburstLabelRotate.TANGENTIAL)).toBeChecked();
+        expect(within(section).getByRole('radio', { name: SUNBURST_LABEL_ROTATE_OPTIONS[1].label! })).toBeChecked();
+        expect(within(section).getByRole('radio', { name: SUNBURST_LABEL_ROTATE_OPTIONS[0].label! })).not.toBeChecked();
       });
     });
 

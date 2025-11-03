@@ -273,6 +273,7 @@ export const SunburstEditor: React.FC<Props> = ({ value, onChange, dataset }) =>
       <InlineFieldRow>
         <InlineField label="Sunburst Sort" grow labelWidth={20} data-testid={TEST_IDS.seriesEditor.sunburstSort}>
           <RadioButtonGroup
+            aria-label="Sunburst Sort"
             id={sortInputId}
             options={SUNBURST_SORT_OPTIONS}
             value={value.sort}
@@ -294,6 +295,7 @@ export const SunburstEditor: React.FC<Props> = ({ value, onChange, dataset }) =>
           data-testid={TEST_IDS.seriesEditor.sunburstEmphasisFocus}
         >
           <RadioButtonGroup
+            aria-label="Emphasis Focus"
             id={emphasisFocusInputId}
             options={SUNBURST_EMPHASIS_FOCUS_OPTIONS}
             value={value.emphasis.focus}
@@ -313,6 +315,7 @@ export const SunburstEditor: React.FC<Props> = ({ value, onChange, dataset }) =>
       <InlineFieldRow>
         <InlineField label="Show label" grow labelWidth={20} data-testid={TEST_IDS.seriesEditor.sunburstShowLabel}>
           <RadioButtonGroup
+            aria-label="Show label"
             id={showLabelInputId}
             options={SUNBURST_SHOW_LABEL_OPTIONS}
             value={value.label.show}
@@ -331,6 +334,7 @@ export const SunburstEditor: React.FC<Props> = ({ value, onChange, dataset }) =>
       <InlineFieldRow>
         <InlineField label="Label rotate" grow labelWidth={20} data-testid={TEST_IDS.seriesEditor.sunburstLabelRotate}>
           <RadioButtonGroup
+            aria-label="Label rotate"
             id={labelRotateInputId}
             options={SUNBURST_LABEL_ROTATE_OPTIONS}
             value={value.label.rotate}
