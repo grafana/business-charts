@@ -9,9 +9,6 @@ import {
   SUNBURST_LABEL_ROTATE_OPTIONS,
   SUNBURST_SHOW_LABEL_OPTIONS,
   SUNBURST_SORT_OPTIONS,
-  SunburstEmphasisFocusOption,
-  SunburstLabelRotate,
-  SunburstSortOption,
   TEST_IDS,
 } from '../../constants';
 import { SeriesType } from '../../types';
@@ -1275,7 +1272,7 @@ describe('Series Editor', () => {
     });
 
     describe('Radar', () => {
-      const radarItem = {
+      let radarItem = {
         uid: 'radar',
         id: 'radar',
         name: 'Radar',
@@ -1288,7 +1285,7 @@ describe('Series Editor', () => {
           },
         ],
       };
-      const radarItems = [
+      let radarItems = [
         radarItem,
         {
           uid: 'other',
@@ -1296,6 +1293,30 @@ describe('Series Editor', () => {
           name: 'Other',
         },
       ];
+
+      beforeEach(() => {
+        radarItem = {
+          uid: 'radar',
+          id: 'radar',
+          name: 'Radar',
+          type: SeriesType.RADAR,
+          radarDimensions: [
+            {
+              name: 'Test',
+              uid: 'Dimension-Test',
+              value: 'A:Value',
+            },
+          ],
+        };
+        radarItems = [
+          radarItem,
+          {
+            uid: 'other',
+            id: 'other',
+            name: 'Other',
+          },
+        ];
+      })
 
       it('Should add new dimension', async () => {
         const { value, onChange } = createOnChangeHandler(radarItems);
@@ -1339,7 +1360,9 @@ describe('Series Editor', () => {
         /**
          * Should add new dimension for radar
          */
-        expect(screen.getByLabelText('Dimension Name')).toHaveValue('Test-2');
+        const dimensionNames = await screen.findAllByLabelText('Dimension Name');
+        expect(dimensionNames).toHaveLength(2);
+        expect(dimensionNames[1]).toHaveValue('Test-2');
 
         /**
          * Should clean new item id field
@@ -1372,21 +1395,23 @@ describe('Series Editor', () => {
           })
         );
 
-        openItem(radarItem.id);
+        openItem('Radar [radar]');
 
         /**
          * Initial state
          */
-        expect(item.radarDimensionButtonAddNew()).toBeInTheDocument();
-        expect(item.radarDimensionNewItemId()).toBeInTheDocument();
-        expect(item.radarDimensionButtonAddNew()).toBeDisabled();
+        expect(screen.getByRole('button', { name: 'Add new Radar item' })).toBeInTheDocument();
+        expect(screen.getByLabelText('New Dimension')).toBeInTheDocument();
+        expect(screen.getByRole('button', { name: 'Add new Radar item' })).toBeDisabled();
 
-        fireEvent.change(item.radarDimensionNewItemId(), { target: { value: 'Test-2' } });
+        await act(async() => {
+          fireEvent.change(screen.getByLabelText('New Dimension'), { target: { value: 'Test-2' } });
+        });
 
-        expect(item.radarDimensionButtonAddNew()).not.toBeDisabled();
+        expect(screen.getByRole('button', { name: 'Add new Radar item' })).not.toBeDisabled();
 
         await act(async () => {
-          fireEvent.click(item.radarDimensionButtonAddNew());
+          fireEvent.click(screen.getByRole('button', { name: 'Add new Radar item' }));
         });
 
         /**
@@ -1400,14 +1425,16 @@ describe('Series Editor', () => {
         );
 
         /**
-         * Should add new dimensioon for radar
+         * Should add new dimension for radar
          */
-        expect(item.radarDimensionName(false, 'Test-2')).toBeInTheDocument();
+        const dimensionNames = await screen.findAllByLabelText('Dimension Name');
+        expect(dimensionNames).toHaveLength(1);
+        expect(dimensionNames[0]).toHaveValue('Test-2');
 
         /**
          * Should clean new item id field
          */
-        expect(item.radarDimensionNewItemId()).toHaveValue('');
+        expect(screen.getByLabelText('New Dimension')).toHaveValue('');
       });
 
       it('Should update dimension name', async () => {
@@ -1420,17 +1447,22 @@ describe('Series Editor', () => {
           })
         );
 
-        openItem(radarItem.id);
+        openItem('Radar [radar]');
 
         /**
          * Initial state
          */
-        expect(item.radarDimensionButtonAddNew()).toBeInTheDocument();
-        expect(item.radarDimensionNewItemId()).toBeInTheDocument();
-        expect(item.radarDimensionButtonAddNew()).toBeDisabled();
-        expect(item.radarDimensionName(false, 'Test')).toBeInTheDocument();
+        expect(screen.getByRole('button', { name: 'Add new Radar item' })).toBeInTheDocument();
+        expect(screen.getByLabelText('New Dimension')).toBeInTheDocument();
+        expect(screen.getByRole('button', { name: 'Add new Radar item' })).toBeDisabled();
 
-        fireEvent.change(item.radarDimensionName(false, 'Test'), { target: { value: 'Test-New' } });
+        const dimensionNames = await screen.findAllByLabelText('Dimension Name');
+        expect(dimensionNames).toHaveLength(1);
+        expect(dimensionNames[0]).toHaveValue('Test');
+
+        await act(async() => {
+          fireEvent.change(dimensionNames[0], { target: { value: 'Test-New' } });
+        });
 
         /**
          * Rerender
@@ -1445,9 +1477,9 @@ describe('Series Editor', () => {
         /**
          * Changes
          */
-        expect(item.radarDimensionName(true, 'Test')).not.toBeInTheDocument();
-        expect(item.radarDimensionName(false, 'Test-New')).toBeInTheDocument();
-        expect(item.radarDimensionName(false, 'Test-New')).toHaveValue('Test-New');
+        const newDimensionNames = await screen.findAllByLabelText('Dimension Name');
+        expect(newDimensionNames).toHaveLength(1);
+        expect(dimensionNames[0]).toHaveValue('Test-New');
       });
 
       it('Should update dimension value', async () => {
@@ -1460,17 +1492,22 @@ describe('Series Editor', () => {
           })
         );
 
-        openItem(radarItem.id);
+        openItem('Radar [radar]');
 
         /**
          * Initial state
          */
-        expect(item.radarDimensionButtonAddNew()).toBeInTheDocument();
-        expect(item.radarDimensionNewItemId()).toBeInTheDocument();
-        expect(item.radarDimensionButtonAddNew()).toBeDisabled();
-        expect(item.radarDimensionValue(false, 'A:Value')).toBeInTheDocument();
+        expect(screen.getByRole('button', { name: 'Add new Radar item' })).toBeInTheDocument();
+        expect(screen.getByLabelText('New Dimension')).toBeInTheDocument();
+        expect(screen.getByRole('button', { name: 'Add new Radar item' })).toBeDisabled();
 
-        fireEvent.change(item.radarDimensionValue(false, 'A:Value'), { target: { value: 'A:Time' } });
+        const dimensionValues = await screen.findAllByLabelText('Dimension Value');
+        expect(dimensionValues).toHaveLength(1);
+        expect(dimensionValues[0]).toHaveValue('A:Value');
+
+        await act(async() => {
+          fireEvent.change(dimensionValues[0], { target: { value: 'A:Time' } });
+        });
 
         /**
          * Rerender
@@ -1485,8 +1522,9 @@ describe('Series Editor', () => {
         /**
          * Changes
          */
-        expect(item.radarDimensionName(true, 'A:Value')).not.toBeInTheDocument();
-        expect(item.radarDimensionValue(false, 'A:Time')).toBeInTheDocument();
+        const newDimensionValues = await screen.findAllByLabelText('Dimension Value');
+        expect(newDimensionValues).toHaveLength(1);
+        expect(newDimensionValues[0]).toHaveValue('A:Time');
       });
 
       it('Should remove dimension', async () => {
@@ -1527,19 +1565,20 @@ describe('Series Editor', () => {
           })
         );
 
-        openItem(radarItem.id);
+        openItem('Radar-2 [radar-2]');
 
         /**
          * Initial state
          */
-        expect(item.radarDimensionButtonAddNew()).toBeInTheDocument();
-        expect(item.radarDimensionNewItemId()).toBeInTheDocument();
-        expect(item.radarDimensionButtonAddNew()).toBeDisabled();
-        expect(item.radarDimensionButtonRemove(false, 'Dimension-Test-2')).toBeInTheDocument();
-        expect(item.radarDimensionButtonRemove(false, 'Dimension-Test')).toBeInTheDocument();
+        expect(screen.getByRole('button', { name: 'Add new Radar item' })).toBeInTheDocument();
+        expect(screen.getByLabelText('New Dimension')).toBeInTheDocument();
+        expect(screen.getByRole('button', { name: 'Add new Radar item' })).toBeDisabled();
+
+        expect(screen.getByTestId(TEST_IDS.seriesEditor.radarDimensionButtonRemove('Dimension-Test'))).toBeInTheDocument();
+        expect(screen.getByTestId(TEST_IDS.seriesEditor.radarDimensionButtonRemove('Dimension-Test-2'))).toBeInTheDocument();
 
         await act(async () => {
-          fireEvent.click(item.radarDimensionButtonRemove(false, 'Dimension-Test-2'));
+          fireEvent.click(screen.getByTestId(TEST_IDS.seriesEditor.radarDimensionButtonRemove('Dimension-Test-2')));
         });
 
         /**
@@ -1555,8 +1594,8 @@ describe('Series Editor', () => {
         /**
          * Changes
          */
-        expect(item.radarDimensionButtonRemove(true, 'Dimension-Test-2')).not.toBeInTheDocument();
-        expect(item.radarDimensionButtonRemove(false, 'Dimension-Test')).toBeInTheDocument();
+        expect(screen.queryByTestId(TEST_IDS.seriesEditor.radarDimensionButtonRemove('Dimension-Test-2'))).not.toBeInTheDocument();
+        expect(screen.getByTestId(TEST_IDS.seriesEditor.radarDimensionButtonRemove('Dimension-Test'))).toBeInTheDocument();
       });
     });
   });

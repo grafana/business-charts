@@ -74,12 +74,12 @@ export const RadarEditor: React.FC<Props> = ({ value, onChange, dataset }) => {
       <Label className={styles.label} description="Set Radar data">
         Data fields
       </Label>
-      {value.radarDimensions?.map((dimension) => {
+      {value.radarDimensions?.map((dimension, index) => {
         return (
           <InlineFieldRow key={dimension.uid}>
             <InlineField label="Dimension Name" labelWidth={25}>
               <Input
-                id={dimensionNameId}
+                id={`${dimensionNameId}-${index}`}
                 placeholder="Name"
                 value={dimension.name}
                 onChange={(event) => {
@@ -100,7 +100,7 @@ export const RadarEditor: React.FC<Props> = ({ value, onChange, dataset }) => {
             </InlineField>
             <InlineField label="Dimension Value" labelWidth={25} grow>
               <Select
-                inputId={dimensionValueId}
+                inputId={`${dimensionValueId}-${index}`}
                 value={dimension.value}
                 options={dataset.map((item) => ({
                   value: getDatasetItemUniqueName(item),
