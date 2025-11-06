@@ -60,23 +60,23 @@ This is the first video we created about Business Charts after the plugin rebran
 
 To get you started quicker we prepared the [web resource](https://echarts.volkovlabs.io/) with numerous ready-to-use examples. In the video, Daria demonstrates how to work with this resource.
 
-The main obstacle for many plugin users is the data transmission from the Grafana data frame(s) into the [Charts function](/plugins/business-charts/options/). In the video, in addition to the resource with how-to examples, Daria introduces the Visual Editor - the mechanism we started to work on to simplify the transmission.
+The main obstacle for many plugin users is the data transmission from the Grafana data frame(s) into the [Charts function](https://grafana.com/docs/plugins/volkovlabs-echarts-panel/<PLUGINS_VERSION>/charts-function/). In the video, in addition to the resource with how-to examples, Daria introduces the Visual Editor - the mechanism we started to work on to simplify the transmission.
 
 {{< youtube id="adOjUxrfysc" >}}
 
-We have many other tutorials that you can find helpful. You can review all related to this plugin tutorials [here](/plugins/business-charts/tutorials).
+We have many other tutorials that you can find helpful. You can review all related to this plugin tutorials [here](https://grafana.com/docs/plugins/volkovlabs-echarts-panel/<PLUGINS_VERSION>/tutorials/).
 
 ## Documentation
 
 | Section                       | Description                                                              |
 | ----------------------------- | ------------------------------------------------------------------------ |
-| [Charts function](options)    | Explains how to configure the main Apache ECharts library function.      |
-| [Visual editor](visualeditor) | Explains how to work with the Visual Editor.                             |
-| [Examples](examples)          | Explains how to get started with the Apache ECharts Examples in Grafana. |
-| [Features](features)          | Demonstrates the Business Charts panel features.                         |
-| [Maps](maps)                  | Demonstrates how to work with different maps.                            |
-| [Tutorials](tutorials)        | Tutorials for the Business Charts panel.                                 |
-| [Release notes](release)      | Stay up to date with the latest features and updates.                    |
+| [Charts function](https://grafana.com/docs/plugins/volkovlabs-echarts-panel/<PLUGINS_VERSION>/charts-function/)    | Explains how to configure the main Apache ECharts library function.      |
+| [Visual editor](https://grafana.com/docs/plugins/volkovlabs-echarts-panel/<PLUGINS_VERSION>/visual-editor/) | Explains how to work with the Visual Editor.                             |
+| [Examples](https://grafana.com/docs/plugins/volkovlabs-echarts-panel/<PLUGINS_VERSION>/examples/)          | Explains how to get started with the Apache ECharts Examples in Grafana. |
+| [Features](https://grafana.com/docs/plugins/volkovlabs-echarts-panel/<PLUGINS_VERSION>/features/)          | Demonstrates the Business Charts panel features.                         |
+| [Maps](https://grafana.com/docs/plugins/volkovlabs-echarts-panel/<PLUGINS_VERSION>/maps/)                  | Demonstrates how to work with different maps.                            |
+| [Tutorials](https://grafana.com/docs/plugins/volkovlabs-echarts-panel/<PLUGINS_VERSION>/tutorials/)        | Tutorials for the Business Charts panel.                                 |
+| [Release notes](https://grafana.com/docs/plugins/volkovlabs-echarts-panel/<PLUGINS_VERSION>/release/)      | Stay up to date with the latest features and updates.                    |
 
 ## Acknowledgment
 
@@ -84,4 +84,4 @@ The Apache Software Foundation Apache ECharts, ECharts, Apache, the Apache feath
 
 ## License
 
-Apache License Version 2.0, see [LICENSE](https://github.com/volkovlabs/business-charts/blob/main/LICENSE).
+Apache License Version 2.0, see [LICENSE](https://github.com/grafana/business-charts/blob/main/LICENSE).
