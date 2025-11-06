@@ -11,7 +11,7 @@ The Business Charts panel allows you to use maps as a basis for generating chart
 
 | Section            | Description                                |
 | ------------------ | ------------------------------------------ |
-| [GeoJSON](geojson) | Explains how to work with GeoJSON Maps.    |
-| [Baidu](baidu)     | Explains how to work with Baidu Maps API.  |
-| [Gaode](gaode)     | Explains how to work with Gaode Maps API.  |
-| [Google](google)   | Explains how to work with Google Maps API. |
+| [GeoJSON](https://grafana.com/docs/plugins/volkovlabs-echarts-panel/<PLUGINS_VERSION>/maps/geojson/) | Explains how to work with GeoJSON Maps.    |
+| [Baidu](https://grafana.com/docs/plugins/volkovlabs-echarts-panel/<PLUGINS_VERSION>/maps/baidu/)     | Explains how to work with Baidu Maps API.  |
+| [Gaode](https://grafana.com/docs/plugins/volkovlabs-echarts-panel/<PLUGINS_VERSION>/maps/gaode/)     | Explains how to work with Gaode Maps API.  |
+| [Google](https://grafana.com/docs/plugins/volkovlabs-echarts-panel/<PLUGINS_VERSION>/maps/google/)   | Explains how to work with Google Maps API. |
