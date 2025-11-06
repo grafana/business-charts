@@ -1,7 +1,7 @@
 ---
 title: Code Editor toolbar
 description: Learn how to use the expandable code editor toolbar and its features for chart development.
-weight: 140
+weight: 20
 ---
 
 # Code Editor toolbar

@@ -1,7 +1,7 @@
 ---
 title: Variables
 description: Learn how to replace dashboard and global variables in business charts using the replaceVariables function.
-weight: 120
+weight: 130
 ---
 
 # Variables

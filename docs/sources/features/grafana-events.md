@@ -1,7 +1,7 @@
 ---
 title: Grafana events
 description: Learn how to handle Grafana events using the EventBus for publishing and subscribing to application events.
-weight: 80
+weight: 70
 ---
 
 # Grafana events

@@ -1,7 +1,7 @@
 ---
 title: Extended result
 description: Learn how to return extended result objects with additional properties and subscribe functions for enhanced chart functionality.
-weight: 70
+weight: 60
 ---
 
 # Extended result

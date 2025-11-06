@@ -1,7 +1,7 @@
 ---
 title: Library imports
 description: Learn how to import NPM libraries and external resources including promise-based libraries for enhanced chart functionality.
-weight: 50
+weight: 80
 ---
 
 # Library imports

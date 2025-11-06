@@ -1,7 +1,7 @@
 ---
 title: Data sources
 description: Learn how to use various data sources to query and retrieve data for building charts in the business charts panel.
-weight: 20
+weight: 30
 ---
 
 # Data sources

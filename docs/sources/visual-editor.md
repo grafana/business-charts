@@ -6,7 +6,7 @@ weight: 200
 
 # Visual Editor
 
-This is one of the most exciting features. We created the Visual Editor to simplify working with the Grafana data frames and facilitate intuitive data transmission into the [Charts function](/plugins/business-charts/options/).
+This is one of the most exciting features. We created the Visual Editor to simplify working with the Grafana data frames and facilitate intuitive data transmission into the [Charts function](https://grafana.com/docs/plugins/volkovlabs-echarts-panel/<PLUGINS_VERSION>/charts-function/).
 
 The Visual Editor should significantly help working with datasets, but it does not eliminate the need for the Charts function.
 
@@ -286,4 +286,4 @@ return {
 
 To get you started faster, we have prepared many examples of how the **Visual Editor** can be used.
 
-Please, check out the [Examples section](/plugins/business-charts/examples/) of the documentation.
+Please, check out the [Examples section](https://grafana.com/docs/plugins/volkovlabs-echarts-panel/<PLUGINS_VERSION>/examples/) of the documentation.

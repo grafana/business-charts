@@ -1,7 +1,7 @@
 ---
 title: ECharts instance
 description: Learn how to interact with the ECharts container instance to get dimensions, DOM elements, and handle chart operations.
-weight: 30
+weight: 40
 ---
 
 # ECharts instance

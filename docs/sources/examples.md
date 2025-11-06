@@ -16,7 +16,7 @@ Take a try of 100+ ready-to-use chart examples at our [demo site for the Busines
 2. Locate the chart that looks similar to the one you want to build.
 3. Open this chart in the edit mode (click on the three vertical dots located at the top-right corner and select the Edit menu).
 
-   - On the right-hand side find the Code section, then Function parameter. It is the so-called [Charts function](/plugins/business-charts/options/).
+   - On the right-hand side find the Code section, then Function parameter. It is the so-called [Charts function](https://grafana.com/docs/plugins/volkovlabs-echarts-panel/<PLUGINS_VERSION>/charts-function/).
    - Review and experiment with the code it contains. The chart dashboard is in the read-only mode so you cannot save your changes on our server.
    - Copy the Charts function code (everything in the Function parameter).
 
