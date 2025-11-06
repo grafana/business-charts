@@ -58,7 +58,7 @@ return {
 
 ## Update variables
 
-You can update dashboard variables with [event handlers](/plugins/business-charts/events), where
+You can update dashboard variables with [event handlers](https://grafana.com/docs/plugins/volkovlabs-echarts-panel/<PLUGINS_VERSION>/features/event-handling/), where
 
 - `name` is the name of the variable. Add `var-` to update the variable value in the URL.
 - `value` is the updated value.

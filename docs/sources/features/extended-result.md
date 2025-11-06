@@ -64,10 +64,10 @@ To find more details on configuration options, please see the [Apache ECharts li
 
 ## Option
 
-The option is the chart configuration in the JSON format described in the [Charts Functions](../options).
+The option is the chart configuration in the JSON format described in the [Charts Functions](https://grafana.com/docs/plugins/volkovlabs-echarts-panel/<PLUGINS_VERSION>/charts-function/).
 
 ## Unsubscribe
 
 The unsubscribe section allows the addition of JavaScript code which is executed before the object is destroyed.
 
-One of the use cases relates to unsubscription from [Grafana events using an event bus](../eventbus).
+One of the use cases relates to unsubscription from [Grafana events using an event bus](https://grafana.com/docs/plugins/volkovlabs-echarts-panel/<PLUGINS_VERSION>/features/grafana-events/).

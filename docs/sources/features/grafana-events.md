@@ -9,12 +9,12 @@ weight: 70
 Grafana uses an event bus to publish application events for notifying different parts of Grafana when the user interacts with the chart. Business Charts panel can react to these actions by subscribing to one or more events.
 
 {{< admonition type="note" >}}
-The Business Charts 5.0.0 allows you to unsubscribe from events to avoid memory leaks by returning an [extended result object](../extended).
+The Business Charts 5.0.0 allows you to unsubscribe from events to avoid memory leaks by returning an [extended result object](https://grafana.com/docs/plugins/volkovlabs-echarts-panel/<PLUGINS_VERSION>/features/extended-result/).
 {{< /admonition >}}
 
 ## Predefined events
 
-A full list of events is available in our [Grafana Crash Course](/grafana/developer/eventbus).
+A full list of events is available in our [Grafana Crash Course](https://volkovlabs.io/grafana/developer/eventbus/).
 
 ## Subscribe to events
 
