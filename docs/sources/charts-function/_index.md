@@ -33,21 +33,25 @@ The `return` clause is where you need to specify the `options` parameter to be p
 
 ## Parameters
 
-| Parameter                                                                                                                           | Description                                                                      |
-| ----------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
-| [`context.echarts`](/plugins/business-charts/code/panel/#contextecharts)                                                            | Apache ECharts library.                                                          |
-| [`context.ecStat`](/plugins/business-charts/code/panel/#contextecstat)                                                              | A statistical and data mining tool for Apache ECharts.                           |
-| [`context.editor.dataset`](/plugins/business-charts/code/panel/#editordataset)                                                      | **[Visual mode]** ECharts dataset.                                               |
-| [`context.editor.series`](/plugins/business-charts/code/panel/#editorseries)                                                        | **[Visual mode]** ECharts series.                                                |
-| [`context.grafana.eventBus`](/plugins/business-charts/code/panel/#grafanaeventbus)                                                  | Publish and subscribe to application events.                                     |
-| [`context.grafana.locationService`](/plugins/business-charts/code/panel/#grafanalocationservice)                                    | Works with browser location and history.                                         |
-| [`context.grafana.notifyError(['Header', 'Error Message'])`](/plugins/business-charts/code/panel/#grafananotifyerrorheader-message) | Display error notifications.                                                     |
-| [`context.grafana.notifySuccess(['Header', 'Message'])`](/plugins/business-charts/code/panel/#grafananotifysuccessheader-message)   | Display success notifications.                                                   |
-| [`context.grafana.refresh()`](/plugins/business-charts/code/panel/#grafanarefresh)                                                  | Function to refresh dashboard panels using application events.                   |
-| [`context.grafana.replaceVariables()`](/plugins/business-charts/code/panel/#grafanareplacevariables)                                | Function to interpolate variables.                                               |
-| [`context.grafana.theme`](/plugins/business-charts/code/panel/#grafanatheme)                                                        | Theme object.                                                                    |
-| [`context.panel.chart`](/plugins/business-charts/code/panel/#panelchart)                                                            | Instance of the Apache ECharts library. See the example in the screenshot above. |
-| [`context.panel.data`](/plugins/business-charts/code/panel/#paneldata)                                                              | Object containing a time range, series, and request information.                 |
+<!-- prettier-ignore-start -->
+
+| Parameter                                                                                                                           | Description                                      |
+| ----------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------ |
+| [`context.echarts`](https://grafana.com/docs/plugins/volkovlabs-echarts-panel/<PLUGINS_VERSION>/charts-function/context-parameters/#contextecharts) | Apache ECharts library. |
+| [`context.ecStat`](https://grafana.com/docs/plugins/volkovlabs-echarts-panel/<PLUGINS_VERSION>/charts-function/context-parameters/#contextecstat)   | A statistical and data mining tool for Apache ECharts. |
+| [`context.editor.dataset`](https://grafana.com/docs/plugins/volkovlabs-echarts-panel/<PLUGINS_VERSION>/charts-function/context-parameters/#editordataset) | **[Visual mode]** ECharts dataset. |
+| [`context.editor.series`](https://grafana.com/docs/plugins/volkovlabs-echarts-panel/<PLUGINS_VERSION>/charts-function/context-parameters/#editorseries) | **[Visual mode]** ECharts series. |
+| [`context.grafana.eventBus`](https://grafana.com/docs/plugins/volkovlabs-echarts-panel/<PLUGINS_VERSION>/charts-function/context-parameters/#grafanaeventbus) | Publish and subscribe to application events. |
+| [`context.grafana.locationService`](https://grafana.com/docs/plugins/volkovlabs-echarts-panel/<PLUGINS_VERSION>/charts-function/context-parameters/#grafanalocationservice) | Works with browser location and history. |
+| [`context.grafana.notifyError(['Header', 'Error Message'])`](https://grafana.com/docs/plugins/volkovlabs-echarts-panel/<PLUGINS_VERSION>/charts-function/context-parameters/#grafananotifyerrorheader-message)                                                                                                     | Display error notifications. |
+| [`context.grafana.notifySuccess(['Header', 'Message'])`](https://grafana.com/docs/plugins/volkovlabs-echarts-panel/<PLUGINS_VERSION>/charts-function/context-parameters/#grafananotifysuccessheader-message)                                                                                                   | Display success notifications. |
+| [`context.grafana.refresh()`](https://grafana.com/docs/plugins/volkovlabs-echarts-panel/<PLUGINS_VERSION>/charts-function/context-parameters/#grafanarefresh) | Function to refresh dashboard panels using application events. |
+| [`context.grafana.replaceVariables()`](https://grafana.com/docs/plugins/volkovlabs-echarts-panel/<PLUGINS_VERSION>/charts-function/context-parameters/#grafanareplacevariables) | Function to interpolate variables. |
+| [`context.grafana.theme`](https://grafana.com/docs/plugins/volkovlabs-echarts-panel/<PLUGINS_VERSION>/charts-function/context-parameters/#grafanatheme) | Theme object. |
+| [`context.panel.chart`](https://grafana.com/docs/plugins/volkovlabs-echarts-panel/<PLUGINS_VERSION>/charts-function/context-parameters/#panelchart) | Instance of the Apache ECharts library. See the example in the screenshot above. |
+| [`context.panel.data`](https://grafana.com/docs/plugins/volkovlabs-echarts-panel/<PLUGINS_VERSION>/charts-function/context-parameters/#paneldata) | Object containing a time range, series, and request information. |
+
+<!-- prettier-ignore-end -->
 
 ### Inspect
 
