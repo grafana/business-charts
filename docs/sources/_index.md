@@ -35,7 +35,7 @@ grafana cli plugins install volkovlabs-echarts-panel
 
 ## Highlights
 
-- Provides [Monaco Code Editor](https://microsoft.github.io/monaco-editor/) for:
+- Provides an in-panel code editor for:
   - Working with Grafana data frames (JavaScript).
   - Updating chart configurations in the JSON format.
   - Customizing theme configurations.
