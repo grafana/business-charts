@@ -11,6 +11,8 @@ labels:
 
 # Tutorials
 
+We're dedicated to crafting clear, step-by-step video tutorials that showcase new features and tackle the most common challenges our users face. Our goal is to make your experience with Business Suite as seamless and productive as possible.
+
 ## How to use Business Suite to create a release dashboard in Grafana
 
 In this video, Daria explains how the release dashboard has been configured and all the Business Suite panels used.
