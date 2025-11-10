@@ -2,6 +2,11 @@
 title: Wordcloud extension
 description: Learn how to visualize tag cloud presentations on a two-dimensional canvas using the Wordcloud extension.
 weight: 140
+labels:
+  products:
+    - cloud
+    - enterprise
+    - oss
 ---
 
 # Wordcloud extension

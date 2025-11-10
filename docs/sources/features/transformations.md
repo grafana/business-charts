@@ -2,6 +2,11 @@
 title: Transformations
 description: Learn how to work with Grafana transformations to modify and prepare data for use in business charts.
 weight: 120
+labels:
+  products:
+    - cloud
+    - enterprise
+    - oss
 ---
 
 # Transformations

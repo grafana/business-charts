@@ -2,6 +2,11 @@
 title: Grafana events
 description: Learn how to handle Grafana events using the EventBus for publishing and subscribing to application events.
 weight: 70
+labels:
+  products:
+    - cloud
+    - enterprise
+    - oss
 ---
 
 # Grafana events

@@ -2,6 +2,11 @@
 title: Annotations
 description: Learn how to use annotations including native annotations, alerts, and annotation queries in business charts with mark lines.
 weight: 10
+labels:
+  products:
+    - cloud
+    - enterprise
+    - oss
 ---
 
 # Annotations

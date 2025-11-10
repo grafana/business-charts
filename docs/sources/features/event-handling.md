@@ -2,6 +2,11 @@
 title: Event handling
 description: Learn how to handle triggered events in Business Charts including brush events, click interactions, and user interface events.
 weight: 50
+labels:
+  products:
+    - cloud
+    - enterprise
+    - oss
 ---
 
 # Event handling

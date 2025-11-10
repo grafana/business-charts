@@ -2,6 +2,11 @@
 title: Streaming
 description: Learn how to configure Apache ECharts for real-time data updates using streaming data sources and Grafana Live.
 weight: 100
+labels:
+  products:
+    - cloud
+    - enterprise
+    - oss
 ---
 
 # Streaming

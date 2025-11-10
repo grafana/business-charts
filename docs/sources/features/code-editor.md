@@ -2,6 +2,11 @@
 title: Code Editor toolbar
 description: Learn how to use the expandable code editor toolbar and its features for chart development.
 weight: 20
+labels:
+  products:
+    - cloud
+    - enterprise
+    - oss
 ---
 
 # Code Editor toolbar

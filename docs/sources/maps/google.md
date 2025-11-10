@@ -3,6 +3,11 @@ title: Google maps
 menuTitle: Google
 description: Learn how to use Google Maps API with access keys for geographical visualization in Business Charts.
 weight: 40
+labels:
+  products:
+    - cloud
+    - enterprise
+    - oss
 ---
 
 # Google maps

@@ -2,6 +2,11 @@
 title: Examples
 description: Learn how to get started with 100+ ready-to-use chart examples from the Business Charts demo site.
 weight: 300
+labels:
+  products:
+    - cloud
+    - enterprise
+    - oss
 ---
 
 # Examples

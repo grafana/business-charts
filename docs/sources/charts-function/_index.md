@@ -2,6 +2,11 @@
 title: Charts function
 description: Learn how to configure the charts function in the Business Charts panel, including the setOption() function, available parameters, and JavaScript code examples.
 weight: 100
+labels:
+  products:
+    - cloud
+    - enterprise
+    - oss
 ---
 
 # Charts function

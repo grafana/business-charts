@@ -2,6 +2,11 @@
 title: Release notes
 description: Learn about the latest features, enhancements, and fixes in Business Charts panel release notes across all versions.
 weight: 700
+labels:
+  products:
+    - cloud
+    - enterprise
+    - oss
 ---
 
 # Release notes

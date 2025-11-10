@@ -2,6 +2,11 @@
 title: Features
 description: Learn about the extensive set of features available in the Business Charts panel for building charts and graphs in Grafana.
 weight: 400
+labels:
+  products:
+    - cloud
+    - enterprise
+    - oss
 ---
 
 # Features

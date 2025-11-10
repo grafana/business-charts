@@ -3,6 +3,11 @@ title: Gaode maps
 menuTitle: Gaode
 description: Learn how to use Gaode Maps API v1.4.15 with access keys for geographical visualization in business charts.
 weight: 30
+labels:
+  products:
+    - cloud
+    - enterprise
+    - oss
 ---
 
 # Gaode maps

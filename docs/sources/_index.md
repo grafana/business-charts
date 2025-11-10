@@ -2,6 +2,11 @@
 title: Business Charts
 menuTitle: Business Charts
 description: Learn how to integrate Apache ECharts library charts and graphs into your Grafana dashboard using the Business Charts panel.
+labels:
+  products:
+    - cloud
+    - enterprise
+    - oss
 ---
 
 # Business Charts

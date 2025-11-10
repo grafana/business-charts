@@ -2,6 +2,11 @@
 title: Tutorials
 description: Learn how to use Business Charts through video tutorials covering dashboard creation, visual editor, and advanced features.
 weight: 600
+labels:
+  products:
+    - cloud
+    - enterprise
+    - oss
 ---
 
 # Tutorials

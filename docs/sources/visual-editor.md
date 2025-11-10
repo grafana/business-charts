@@ -2,6 +2,11 @@
 title: Visual editor
 description: Learn how to use the Visual editor to simplify working with Grafana data frames to create charts.
 weight: 200
+labels:
+  products:
+    - cloud
+    - enterprise
+    - oss
 ---
 
 # Visual Editor

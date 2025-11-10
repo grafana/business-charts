@@ -1,6 +1,11 @@
 ---
 title: Context parameters
 description: Learn about the context parameters available in the Business Charts panel including echarts, ecStat, panel data, and Grafana services.
+labels:
+  products:
+    - cloud
+    - enterprise
+    - oss
 ---
 
 # Context parameters

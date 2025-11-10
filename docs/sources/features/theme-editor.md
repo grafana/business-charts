@@ -2,6 +2,11 @@
 title: Theme Editor
 description: Learn how to use the theme editor to customize chart appearance with custom themes, colors, and styling options.
 weight: 110
+labels:
+  products:
+    - cloud
+    - enterprise
+    - oss
 ---
 
 # Theme Editor

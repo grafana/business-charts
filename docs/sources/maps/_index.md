@@ -3,6 +3,11 @@ title: Supported maps
 menuTitle: Maps
 description: Learn how to work with different map types including GeoJSON, Baidu, Gaode, and Google Maps in Business Charts.
 weight: 500
+labels:
+  products:
+    - cloud
+    - enterprise
+    - oss
 ---
 
 # Supported maps

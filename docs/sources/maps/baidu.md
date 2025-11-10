@@ -3,6 +3,11 @@ title: Baidu maps
 menuTitle: Baidu
 description: Learn how to use Baidu Maps API v3 with access keys for geographical visualization in business charts.
 weight: 20
+labels:
+  products:
+    - cloud
+    - enterprise
+    - oss
 ---
 
 # Baidu maps

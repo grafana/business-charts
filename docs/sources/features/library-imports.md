@@ -2,6 +2,11 @@
 title: Library imports
 description: Learn how to import NPM libraries and external resources including promise-based libraries for enhanced chart functionality.
 weight: 80
+labels:
+  products:
+    - cloud
+    - enterprise
+    - oss
 ---
 
 # Library imports

@@ -2,6 +2,11 @@
 title: GeoJSON
 description: Learn how to use GeoJSON maps including world and USA maps, and how to load additional maps dynamically.
 weight: 10
+labels:
+  products:
+    - cloud
+    - enterprise
+    - oss
 ---
 
 # GeoJSON

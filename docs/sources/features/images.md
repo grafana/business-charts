@@ -2,6 +2,11 @@
 title: Raster and vector images
 description: Learn how to use raster PNG and vector SVG images in Business Charts including base64 encoding and display options.
 weight: 90
+labels:
+  products:
+    - cloud
+    - enterprise
+    - oss
 ---
 
 # Raster and vector images

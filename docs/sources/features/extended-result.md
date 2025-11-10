@@ -2,6 +2,11 @@
 title: Extended result
 description: Learn how to return extended result objects with additional properties and subscribe functions for enhanced chart functionality.
 weight: 60
+labels:
+  products:
+    - cloud
+    - enterprise
+    - oss
 ---
 
 # Extended result
