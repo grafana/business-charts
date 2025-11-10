@@ -1,7 +1,7 @@
 import { AlertErrorPayload, AlertPayload, AppEvents, LoadingState, toDataFrame } from '@grafana/data';
 import { getAppEvents } from '@grafana/runtime';
 import { act, render, screen } from '@testing-library/react';
-import { useDashboardRefresh } from '@volkovlabs/components';
+import { useDashboardRefresh } from '../../hooks/useDashboardRefresh';
 import * as echarts from 'echarts';
 import React from 'react';
 
@@ -23,8 +23,8 @@ jest.mock('../../maps', () => ({
 /**
  * Mock @volkovlabs/components
  */
-jest.mock('@volkovlabs/components', () => ({
-  ...jest.requireActual('@volkovlabs/components'),
+jest.mock('../../hooks/useDashboardRefresh', () => ({
+  ...jest.requireActual('../../hooks/useDashboardRefresh'),
   useDashboardRefresh: jest.fn(),
 }));
 
