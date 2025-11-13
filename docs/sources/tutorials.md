@@ -23,7 +23,7 @@ _How to create a business dashboard in Grafana_
 
 ## Visual Charts Editor in Business Charts 6.4.0
 
-The Visual Editor simplifies working with the Grafana data frames and facilitate intuitive data transmission into the Charts function. This video provides line, bar, radar, boxplot, and sunburst types tutorials.
+The Visual Editor simplifies working with the Grafana data frames and facilitates intuitive data transmission into the Charts function. This video provides line, bar, radar, boxplot, and sunburst types tutorials.
 
 {{< youtube id="vda3jbtLnMM" >}}
 
