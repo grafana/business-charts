@@ -53,13 +53,13 @@ Dive into detailed guides to make the most of Business Charts:
 
 | Section                                                                      | Description                                        |
 | ---------------------------------------------------------------------------- | -------------------------------------------------- |
-| [Charts Function](https://volkovlabs.io/plugins/business-charts/options/)    | Configure core Apache ECharts functions.           |
-| [Visual Editor](https://volkovlabs.io/plugins/business-charts/visualeditor/) | Create charts effortlessly with the Visual Editor. |
-| [Examples](https://volkovlabs.io/plugins/business-charts/examples/)          | Start with ready-made Apache ECharts examples.     |
-| [Features](https://volkovlabs.io/plugins/business-charts/features/)          | Explore all plugin capabilities.                   |
-| [Maps](https://volkovlabs.io/plugins/business-charts/maps/)                  | Learn to work with various map types.              |
-| [Tutorials](https://volkovlabs.io/plugins/business-charts/tutorials/)        | Follow step-by-step guides.                        |
-| [Release Notes](https://volkovlabs.io/plugins/business-charts/release/)      | Stay updated with the latest features and fixes.   |
+| [Charts Function](https://grafana.com/docs/plugins/volkovlabs-echarts-panel/latest/charts-function/)    | Configure core Apache ECharts functions.           |
+| [Visual Editor](https://grafana.com/docs/plugins/volkovlabs-echarts-panel/latest/visual-editor/) | Create charts effortlessly with the Visual Editor. |
+| [Examples](https://grafana.com/docs/plugins/volkovlabs-echarts-panel/latest/examples/)          | Start with ready-made Apache ECharts examples.     |
+| [Features](https://grafana.com/docs/plugins/volkovlabs-echarts-panel/latest/features/)          | Explore all plugin capabilities.                   |
+| [Maps](https://grafana.com/docs/plugins/volkovlabs-echarts-panel/latest/maps/)                  | Learn to work with various map types.              |
+| [Tutorials](hhttps://grafana.com/docs/plugins/volkovlabs-echarts-panel/latest/tutorials/)        | Follow step-by-step guides.                        |
+| [Release Notes](https://grafana.com/grafana/plugins/volkovlabs-echarts-panel/?tab=changelog)      | Stay updated with the latest features and fixes.   |
 
 ## 🙏 Acknowledgments
 

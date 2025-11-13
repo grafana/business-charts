@@ -12,7 +12,12 @@
     },
     "description": "Powerful visualizations powered by Apache ECharts.",
     "keywords": ["business", "echarts"],
-    "links": [],
+    "links": [
+      {
+        "name": "Documentation",
+        "url": "https://grafana.com/docs/plugins/volkovlabs-echarts-panel/"
+      }  
+    ],
     "logos": {
       "large": "img/logo.svg",
       "small": "img/logo.svg"
