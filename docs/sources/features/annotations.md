@@ -17,7 +17,7 @@ Annotations is an umbrella term that includes several Grafana artifacts, as foll
 - Alerts
 - Annotations Queries
 
-We explained the differences between different types of annotations in the how-to tutorial within our [Grafana Crash Course](https://volkovlabs.io/grafana/annotations/).
+The differences between different types of annotations are explained in the how-to tutorial within the [Grafana Crash Course](https://volkovlabs.io/grafana/annotations/).
 
 ## Mark lines
 
