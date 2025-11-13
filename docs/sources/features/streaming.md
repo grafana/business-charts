@@ -72,7 +72,7 @@ return {
 
 ## WebSocket API
 
-To stream real-time data, we used the [WebSocket Data Source for Grafana](https://grafana.com/grafana/plugins/golioth-websocket-datasource/).
+To stream real-time data, the [WebSocket Data Source for Grafana](https://grafana.com/grafana/plugins/golioth-websocket-datasource/) was used.
 
 ![Streaming real-time events from Websocket Data source.](/media/docs/grafana/panels-visualizations/business-charts/websocket.png)
 

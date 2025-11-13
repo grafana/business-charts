@@ -11,7 +11,7 @@ labels:
 
 # Tutorials
 
-We're dedicated to crafting clear, step-by-step video tutorials that showcase new features and tackle the most common challenges our users face. Our goal is to make your experience with Business Suite as seamless and productive as possible.
+This page contains clear, step-by-step video tutorials that showcase new features and tackle the most common challenges our users face. Our goal is to make your experience with Business Suite as seamless and productive as possible.
 
 ## How to use Business Suite to create a release dashboard in Grafana
 
@@ -23,7 +23,7 @@ _How to create a business dashboard in Grafana_
 
 ## Visual Charts Editor in Business Charts 6.4.0
 
-We created the Visual Editor to simplify working with the Grafana data frames and facilitate intuitive data transmission into the Charts function. This video provides line, bar, radar, boxplot, and sunburst types tutorials.
+The Visual Editor simplifies working with the Grafana data frames and facilitate intuitive data transmission into the Charts function. This video provides line, bar, radar, boxplot, and sunburst types tutorials.
 
 {{< youtube id="vda3jbtLnMM" >}}
 
@@ -31,7 +31,7 @@ _Visual Charts Editor tutorial for Business Charts 6.4.0_
 
 ## Features overview of Business Charts 6.0.0
 
-This is the first video we created about Business Charts after the plugin rebranding. It features dazzling chart examples followed by a high-level plugin architecture. Knowing the basics of plugin architecture will help you create your custom charts.
+This is the first video created about Business Charts after the plugin rebranding. It features dazzling chart examples followed by a high-level plugin architecture. Knowing the basics of plugin architecture will help you create your custom charts.
 
 {{< youtube id="adOjUxrfysc" >}}
 
@@ -47,7 +47,7 @@ _How to use JSON data sources for Grafana_
 
 ## Explore possibilities
 
-We created this video to demonstrate what this panel is capable of, providing tons of helpful links to code snippets, playgrounds, and other projects.
+This video demonstrates what this panel is capable of, providing tons of helpful links to code snippets, playgrounds, and other projects.
 
 {{< youtube id="S3PiL1p1v5U" >}}
 

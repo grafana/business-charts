@@ -62,15 +62,15 @@ grafana cli plugins install volkovlabs-echarts-panel
 
 ## Tutorial
 
-This is the first video we created about Business Charts after the plugin rebranding. It features dazzling chart examples followed by a high-level plugin architecture. Knowing the basics of plugin architecture will help you create your custom charts.
+This is the first video created about Business Charts after the plugin rebranding. It features dazzling chart examples followed by a high-level plugin architecture. Knowing the basics of plugin architecture will help you create your custom charts.
 
-To get you started quicker we prepared the [web resource](https://echarts.volkovlabs.io/) with numerous ready-to-use examples. In the video, Daria demonstrates how to work with this resource.
+To get you started quicker the [web resource](https://echarts.volkovlabs.io/) has numerous ready-to-use examples. In the video, Daria demonstrates how to work with this resource.
 
-The main obstacle for many plugin users is the data transmission from the Grafana data frame(s) into the [Charts function](https://grafana.com/docs/plugins/volkovlabs-echarts-panel/<PLUGINS_VERSION>/charts-function/). In the video, in addition to the resource with how-to examples, Daria introduces the Visual Editor - the mechanism we started to work on to simplify the transmission.
+The main obstacle for many plugin users is the data transmission from the Grafana data frame(s) into the [Charts function](https://grafana.com/docs/plugins/volkovlabs-echarts-panel/<PLUGINS_VERSION>/charts-function/). In the video, in addition to the resource with how-to examples, Daria introduces the Visual Editor - the mechanism created to simplify the transmission.
 
 {{< youtube id="adOjUxrfysc" >}}
 
-We have many other tutorials that you can find helpful. You can review all related to this plugin tutorials [here](https://grafana.com/docs/plugins/volkovlabs-echarts-panel/<PLUGINS_VERSION>/tutorials/).
+There are many other tutorials that you can find helpful. You can review all related to this plugin tutorials [here](https://grafana.com/docs/plugins/volkovlabs-echarts-panel/<PLUGINS_VERSION>/tutorials/).
 
 ## Documentation
 

@@ -18,7 +18,7 @@ Additional buttons were added in 6.4.1.
 
 ## Expand the editor
 
-For a better user experience, we added the expand the editor area button.
+For a better user experience, the expand the editor area button was added.
 
 ![Expand the code area button.](/media/docs/grafana/panels-visualizations/business-charts/button.png)
 
