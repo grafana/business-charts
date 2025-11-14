@@ -9,12 +9,12 @@ import { css, cx } from '@emotion/css';
 import { AlertErrorPayload, AlertPayload, AppEvents, LoadingState, PanelProps } from '@grafana/data';
 import { getAppEvents, locationService } from '@grafana/runtime';
 import { Alert, useStyles2, useTheme2 } from '@grafana/ui';
-import { useDashboardRefresh } from '@volkovlabs/components';
 import * as echarts from 'echarts';
 import echartsStat from 'echarts-stat';
 import React, { useEffect, useRef, useState } from 'react';
 
 import { EditorMode, Map, TEST_IDS, Theme } from '../../constants';
+import { useDashboardRefresh } from '../../hooks/useDashboardRefresh';
 import { loadBaidu, loadGaode, loadGoogle, registerMaps } from '../../maps';
 import { CodeResult, PanelOptions } from '../../types';
 import { codeParameters, getDataSeries, getDatasetSource, getRadarOptions, visualCodeParameters } from '../../utils';
