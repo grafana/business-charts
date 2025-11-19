@@ -14,6 +14,10 @@
     "keywords": ["business", "echarts"],
     "links": [
       {
+        "name": "Repository",
+        "url": "https://github.com/grafana/business-charts"
+      },
+      {
         "name": "Documentation",
         "url": "https://grafana.com/docs/plugins/volkovlabs-echarts-panel/"
       }  
