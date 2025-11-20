@@ -41,6 +41,7 @@ jest.mock('@volkovlabs/components', () => ({
  * Mock @grafana/runtime
  */
 jest.mock('@grafana/runtime', () => ({
+  ...jest.requireActual('@grafana/runtime'),
   getTemplateSrv: jest.fn(),
 }));
 

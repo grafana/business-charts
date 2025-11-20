@@ -5,9 +5,10 @@ import React from 'react';
 
 import {
   SUNBURST_DEFAULT,
-  SunburstEmphasisFocusOption,
-  SunburstLabelRotate,
-  SunburstSortOption,
+  SUNBURST_EMPHASIS_FOCUS_OPTIONS,
+  SUNBURST_LABEL_ROTATE_OPTIONS,
+  SUNBURST_SHOW_LABEL_OPTIONS,
+  SUNBURST_SORT_OPTIONS,
   TEST_IDS,
 } from '../../constants';
 import { SeriesType } from '../../types';
@@ -64,29 +65,18 @@ describe('Series Editor', () => {
 
   /**
    * Open Item
-   * @param id
+   * @param name
    */
-  const openItem = (id: string): ReturnType<typeof getSelectors> => {
+  const openItem = (name: string) => {
     /**
      * Check item presence
      */
-    expect(selectors.itemHeader(false, id)).toBeInTheDocument();
+    expect(screen.getByText(name)).toBeInTheDocument();
 
     /**
      * Make Item is opened
      */
-    fireEvent.click(selectors.itemHeader(false, id));
-
-    /**
-     * Check if item content exists
-     */
-    const elementContent = selectors.itemContent(false, id);
-    expect(elementContent).toBeInTheDocument();
-
-    /**
-     * Return selectors for opened item
-     */
-    return getSelectors(within(elementContent));
+    fireEvent.click(screen.getByText(name));
   };
 
   it('Should render component', () => {
@@ -124,8 +114,8 @@ describe('Series Editor', () => {
     );
 
     expect(selectors.root()).toBeInTheDocument();
-    expect(selectors.itemHeader(false, 'line')).toBeInTheDocument();
-    expect(selectors.itemHeader(false, 'line2')).toBeInTheDocument();
+    expect(screen.getByText('Line [line]')).toBeInTheDocument();
+    expect(screen.getByText('Line 2 [line2]')).toBeInTheDocument();
   });
 
   it('Should remove item', () => {
@@ -150,9 +140,10 @@ describe('Series Editor', () => {
     );
 
     expect(selectors.root()).toBeInTheDocument();
-    const item = selectors.itemHeader(false, 'line');
+    expect(screen.getByText('Line [line]')).toBeInTheDocument();
+    const removeButtons = screen.getAllByTestId(TEST_IDS.seriesEditor.buttonRemove);
 
-    fireEvent.click(getSelectors(within(item)).buttonRemove());
+    fireEvent.click(removeButtons[0]);
 
     rerender(
       getComponent({
@@ -161,7 +152,7 @@ describe('Series Editor', () => {
       })
     );
 
-    expect(selectors.itemHeader(true, 'line')).not.toBeInTheDocument();
+    expect(screen.queryByText('Line [line]')).not.toBeInTheDocument();
   });
 
   describe('Add new item', () => {
@@ -201,7 +192,7 @@ describe('Series Editor', () => {
         })
       );
 
-      expect(selectors.itemHeader(false, 'line2')).toBeInTheDocument();
+      expect(screen.getByText('[line2]')).toBeInTheDocument();
 
       /**
        * Should clean new item id field
@@ -292,8 +283,8 @@ describe('Series Editor', () => {
        * Check if items order is changed
        */
       const items = screen.getAllByTestId('draggable');
-      expect(getSelectors(within(items[0])).itemHeader(false, 'line2')).toBeInTheDocument();
-      expect(getSelectors(within(items[1])).itemHeader(false, 'line')).toBeInTheDocument();
+      expect(within(items[0]).getByText('Line [line2]')).toBeInTheDocument();
+      expect(within(items[1]).getByText('Line [line]')).toBeInTheDocument();
     });
 
     it('Should not reorder items if drop outside the list', async () => {
@@ -344,8 +335,8 @@ describe('Series Editor', () => {
        * Check if items order is not changed
        */
       const items = screen.getAllByTestId('draggable');
-      expect(getSelectors(within(items[0])).itemHeader(false, 'line')).toBeInTheDocument();
-      expect(getSelectors(within(items[1])).itemHeader(false, 'line2')).toBeInTheDocument();
+      expect(within(items[0]).getByText('Line [line]')).toBeInTheDocument();
+      expect(within(items[1]).getByText('Line [line2]')).toBeInTheDocument();
     });
   });
 
@@ -379,9 +370,9 @@ describe('Series Editor', () => {
         })
       );
 
-      const item = openItem(lineItem.id);
+      openItem('Line [line]');
 
-      fireEvent.change(item.fieldId(), { target: { value: 'line123' } });
+      fireEvent.change(screen.getByLabelText('ID'), { target: { value: 'line123' } });
 
       rerender(
         getComponent({
@@ -390,7 +381,7 @@ describe('Series Editor', () => {
         })
       );
 
-      expect(selectors.itemHeader(false, 'line123')).toBeInTheDocument();
+      expect(screen.getByText('Line [line123]')).toBeInTheDocument();
     });
 
     it('Should update type', () => {
@@ -403,9 +394,9 @@ describe('Series Editor', () => {
         })
       );
 
-      const item = openItem(lineItem.id);
+      openItem('Line [line]');
 
-      fireEvent.change(item.fieldType(), { target: { value: SeriesType.PIE } });
+      fireEvent.change(screen.getByLabelText('Type'), { target: { value: SeriesType.PIE } });
 
       rerender(
         getComponent({
@@ -414,7 +405,7 @@ describe('Series Editor', () => {
         })
       );
 
-      expect(item.fieldType()).toHaveValue(SeriesType.PIE);
+      expect(screen.getByLabelText('Type')).toHaveValue(SeriesType.PIE);
     });
 
     it('Should update name', () => {
@@ -427,9 +418,9 @@ describe('Series Editor', () => {
         })
       );
 
-      const item = openItem(lineItem.id);
+      openItem('Line [line]');
 
-      fireEvent.change(item.fieldName(), { target: { value: '123' } });
+      fireEvent.change(screen.getByLabelText('Name'), { target: { value: '123' } });
 
       rerender(
         getComponent({
@@ -438,7 +429,7 @@ describe('Series Editor', () => {
         })
       );
 
-      expect(item.fieldName()).toHaveValue('123');
+      expect(screen.getByLabelText('Name')).toHaveValue('123');
     });
 
     describe('Line', () => {
@@ -453,9 +444,9 @@ describe('Series Editor', () => {
           })
         );
 
-        const item = openItem(lineItem.id);
+        openItem('Line [line]');
 
-        fireEvent.change(item.fieldEncodeY(), { target: { values: ['A:Value'] } });
+        fireEvent.change(screen.getByLabelText('Encode Y'), { target: { values: ['A:Value'] } });
 
         rerender(
           getComponent({
@@ -464,7 +455,7 @@ describe('Series Editor', () => {
           })
         );
 
-        expect(item.fieldEncodeY()).toHaveValue(['A:Value']);
+        expect(screen.getByLabelText('Encode Y')).toHaveValue(['A:Value']);
       });
 
       it('Should update encode X', () => {
@@ -478,9 +469,9 @@ describe('Series Editor', () => {
           })
         );
 
-        const item = openItem(lineItem.id);
+        openItem('Line [line]');
 
-        fireEvent.change(item.fieldEncodeX(), { target: { values: ['A:Value'] } });
+        fireEvent.change(screen.getByLabelText('Encode X'), { target: { values: ['A:Value'] } });
 
         rerender(
           getComponent({
@@ -489,7 +480,7 @@ describe('Series Editor', () => {
           })
         );
 
-        expect(item.fieldEncodeX()).toHaveValue(['A:Value']);
+        expect(screen.getByLabelText('Encode X')).toHaveValue(['A:Value']);
       });
     });
 
@@ -524,9 +515,9 @@ describe('Series Editor', () => {
           })
         );
 
-        const item = openItem(barItem.id);
+        openItem('BAR [bar]');
 
-        fireEvent.change(item.fieldEncodeY(), { target: { values: ['A:Value'] } });
+        fireEvent.change(screen.getByLabelText('Encode Y'), { target: { values: ['A:Value'] } });
 
         rerender(
           getComponent({
@@ -535,7 +526,7 @@ describe('Series Editor', () => {
           })
         );
 
-        expect(item.fieldEncodeY()).toHaveValue(['A:Value']);
+        expect(screen.getByLabelText('Encode Y')).toHaveValue(['A:Value']);
       });
 
       it('Should update encode X', () => {
@@ -549,9 +540,9 @@ describe('Series Editor', () => {
           })
         );
 
-        const item = openItem(barItem.id);
+        openItem('BAR [bar]');
 
-        fireEvent.change(item.fieldEncodeX(), { target: { values: ['A:Value'] } });
+        fireEvent.change(screen.getByLabelText('Encode X'), { target: { values: ['A:Value'] } });
 
         rerender(
           getComponent({
@@ -560,7 +551,7 @@ describe('Series Editor', () => {
           })
         );
 
-        expect(item.fieldEncodeX()).toHaveValue(['A:Value']);
+        expect(screen.getByLabelText('Encode X')).toHaveValue(['A:Value']);
       });
     });
 
@@ -595,9 +586,9 @@ describe('Series Editor', () => {
           })
         );
 
-        const item = openItem(boxplot.id);
+        openItem('box-1-1 [box-1]');
 
-        fireEvent.change(item.boxplotFieldEncodeY(), { target: { values: ['A:Value'] } });
+        fireEvent.change(screen.getByLabelText('Encode Y'), { target: { values: ['A:Value'] } });
 
         rerender(
           getComponent({
@@ -606,7 +597,7 @@ describe('Series Editor', () => {
           })
         );
 
-        expect(item.boxplotFieldEncodeY()).toHaveValue(['A:Value']);
+        expect(screen.getByLabelText('Encode Y')).toHaveValue(['A:Value']);
       });
 
       it('Should update encode X', () => {
@@ -620,9 +611,9 @@ describe('Series Editor', () => {
           })
         );
 
-        const item = openItem(boxplot.id);
+        openItem('box-1-1 [box-1]');
 
-        fireEvent.change(item.boxplotFieldEncodeX(), { target: { values: ['A:Value'] } });
+        fireEvent.change(screen.getByLabelText('Encode X'), { target: { values: ['A:Value'] } });
 
         rerender(
           getComponent({
@@ -631,7 +622,7 @@ describe('Series Editor', () => {
           })
         );
 
-        expect(item.boxplotFieldEncodeX()).toHaveValue(['A:Value']);
+        expect(screen.getByLabelText('Encode X')).toHaveValue(['A:Value']);
       });
     });
 
@@ -666,9 +657,9 @@ describe('Series Editor', () => {
           })
         );
 
-        const item = openItem(scatter.id);
+        openItem('scatter-1-1 [scatter-1]');
 
-        fireEvent.change(item.scatterFieldEncodeY(), { target: { values: ['A:Value'] } });
+        fireEvent.change(screen.getByLabelText('Encode Y'), { target: { values: ['A:Value'] } });
 
         rerender(
           getComponent({
@@ -677,7 +668,7 @@ describe('Series Editor', () => {
           })
         );
 
-        expect(item.scatterFieldEncodeY()).toHaveValue(['A:Value']);
+        expect(screen.getByLabelText('Encode Y')).toHaveValue(['A:Value']);
       });
 
       it('Should update encode X', () => {
@@ -691,9 +682,9 @@ describe('Series Editor', () => {
           })
         );
 
-        const item = openItem(scatter.id);
+        openItem('scatter-1-1 [scatter-1]');
 
-        fireEvent.change(item.scatterFieldEncodeX(), { target: { values: ['A:Value'] } });
+        fireEvent.change(screen.getByLabelText('Encode X'), { target: { values: ['A:Value'] } });
 
         rerender(
           getComponent({
@@ -702,7 +693,7 @@ describe('Series Editor', () => {
           })
         );
 
-        expect(item.scatterFieldEncodeX()).toHaveValue(['A:Value']);
+        expect(screen.getByLabelText('Encode X')).toHaveValue(['A:Value']);
       });
 
       it('Should update field size', () => {
@@ -716,9 +707,9 @@ describe('Series Editor', () => {
           })
         );
 
-        const item = openItem(scatter.id);
+        openItem('scatter-1-1 [scatter-1]');
 
-        fireEvent.change(item.scatterFieldSize(), { target: { value: 'A:Value' } });
+        fireEvent.change(screen.getByLabelText('Size'), { target: { value: 'A:Value' } });
 
         rerender(
           getComponent({
@@ -727,7 +718,7 @@ describe('Series Editor', () => {
           })
         );
 
-        expect(item.scatterFieldSize()).toHaveValue('A:Value');
+        expect(screen.getByLabelText('Size')).toHaveValue('A:Value');
       });
 
       it('Should update symbol type', () => {
@@ -741,11 +732,11 @@ describe('Series Editor', () => {
           })
         );
 
-        const item = openItem(scatter.id);
+        openItem('scatter-1-1 [scatter-1]');
 
-        expect(item.scatterFieldSymbolType()).toHaveValue('circle');
+        expect(screen.getByLabelText('Symbol Type')).toHaveValue('circle');
 
-        fireEvent.change(item.scatterFieldSymbolType(), { target: { value: 'triangle' } });
+        fireEvent.change(screen.getByLabelText('Symbol Type'), { target: { value: 'triangle' } });
 
         rerender(
           getComponent({
@@ -754,7 +745,7 @@ describe('Series Editor', () => {
           })
         );
 
-        expect(item.scatterFieldSymbolType()).toHaveValue('triangle');
+        expect(screen.getByLabelText('Symbol Type')).toHaveValue('triangle');
       });
 
       it('Should update encode tooltip', () => {
@@ -768,11 +759,11 @@ describe('Series Editor', () => {
           })
         );
 
-        const item = openItem(scatter.id);
+        openItem('scatter-1-1 [scatter-1]');
 
-        expect(item.scatterFieldTooltip()).toHaveValue(['']);
+        expect(screen.getByLabelText('Tooltip')).toHaveValue(['']);
 
-        fireEvent.change(item.scatterFieldTooltip(), { target: { values: ['A:Value'] } });
+        fireEvent.change(screen.getByLabelText('Tooltip'), { target: { values: ['A:Value'] } });
 
         rerender(
           getComponent({
@@ -781,7 +772,7 @@ describe('Series Editor', () => {
           })
         );
 
-        expect(item.scatterFieldTooltip()).toHaveValue(['A:Value']);
+        expect(screen.getByLabelText('Tooltip')).toHaveValue(['A:Value']);
       });
     });
 
@@ -852,9 +843,9 @@ describe('Series Editor', () => {
           })
         );
 
-        const item = openItem(sunburstItem.id);
+        openItem('Sunburst [sunburst]');
 
-        expect(item.sunburstLevelField()).toBeInTheDocument();
+        expect(screen.getByLabelText('Level value')).toBeInTheDocument();
       });
 
       it('Should change value level', async () => {
@@ -868,12 +859,12 @@ describe('Series Editor', () => {
           })
         );
 
-        const item = openItem(sunburstItem.id);
+        openItem('Sunburst [sunburst]');
 
-        expect(item.sunburstLevelField()).toBeInTheDocument();
-        expect(item.sunburstLevelField()).toHaveValue('1');
+        expect(screen.getByLabelText('Level value')).toBeInTheDocument();
+        expect(screen.getByLabelText('Level value')).toHaveValue('1');
 
-        fireEvent.change(item.sunburstLevelField(), { target: { value: 10 } });
+        fireEvent.change(screen.getByLabelText('Level value'), { target: { value: 10 } });
 
         rerender(
           getComponent({
@@ -882,7 +873,7 @@ describe('Series Editor', () => {
           })
         );
 
-        expect(item.sunburstLevelField()).toHaveValue('10');
+        expect(screen.getByLabelText('Level value')).toHaveValue('10');
       });
 
       it('Should change inner radius', async () => {
@@ -896,12 +887,12 @@ describe('Series Editor', () => {
           })
         );
 
-        const item = openItem(sunburstItem.id);
+        openItem('Sunburst [sunburst]');
 
-        expect(item.sunburstInnerRadius()).toBeInTheDocument();
-        expect(item.sunburstInnerRadius()).toHaveValue('0');
+        expect(screen.getByLabelText('Inner Radius')).toBeInTheDocument();
+        expect(screen.getByLabelText('Inner Radius')).toHaveValue('0');
 
-        fireEvent.change(item.sunburstInnerRadius(), { target: { value: 10 } });
+        fireEvent.change(screen.getByLabelText('Inner Radius'), { target: { value: 10 } });
 
         rerender(
           getComponent({
@@ -910,7 +901,7 @@ describe('Series Editor', () => {
           })
         );
 
-        expect(item.sunburstInnerRadius()).toHaveValue('10');
+        expect(screen.getByLabelText('Inner Radius')).toHaveValue('10');
       });
 
       it('Should change outer radius', async () => {
@@ -924,12 +915,12 @@ describe('Series Editor', () => {
           })
         );
 
-        const item = openItem(sunburstItem.id);
+        openItem('Sunburst [sunburst]');
 
-        expect(item.sunburstOuterRadius()).toBeInTheDocument();
-        expect(item.sunburstOuterRadius()).toHaveValue('100%');
+        expect(screen.getByLabelText('Outer Radius')).toBeInTheDocument();
+        expect(screen.getByLabelText('Outer Radius')).toHaveValue('100%');
 
-        fireEvent.change(item.sunburstOuterRadius(), { target: { value: 10 } });
+        fireEvent.change(screen.getByLabelText('Outer Radius'), { target: { value: 10 } });
 
         rerender(
           getComponent({
@@ -938,7 +929,7 @@ describe('Series Editor', () => {
           })
         );
 
-        expect(item.sunburstOuterRadius()).toHaveValue('10');
+        expect(screen.getByLabelText('Outer Radius')).toHaveValue('10');
       });
 
       it('Should add New Level', async () => {
@@ -952,18 +943,18 @@ describe('Series Editor', () => {
           })
         );
 
-        const item = openItem(sunburstItem.id);
+        openItem('Sunburst [sunburst]');
 
-        expect(item.sunburstNewLevelButtonAddNew()).toBeInTheDocument();
-        expect(item.sunburstNewLevelName()).toBeInTheDocument();
-        expect(item.sunburstNewLevelButtonAddNew()).toBeDisabled();
+        expect(screen.getByTestId(TEST_IDS.seriesEditor.sunburstNewLevelButtonAddNew)).toBeInTheDocument();
+        expect(screen.getByTestId(TEST_IDS.seriesEditor.sunburstNewLevelName)).toBeInTheDocument();
+        expect(screen.getByTestId(TEST_IDS.seriesEditor.sunburstNewLevelButtonAddNew)).toBeDisabled();
 
-        fireEvent.change(item.sunburstNewLevelName(), { target: { value: 'A:Level 3' } });
+        fireEvent.change(screen.getByTestId(TEST_IDS.seriesEditor.sunburstNewLevelName), { target: { value: 'A:Level 3' } });
 
-        expect(item.sunburstNewLevelButtonAddNew()).not.toBeDisabled();
+        expect(screen.getByTestId(TEST_IDS.seriesEditor.sunburstNewLevelButtonAddNew)).not.toBeDisabled();
 
         await act(async () => {
-          fireEvent.click(item.sunburstNewLevelButtonAddNew());
+          fireEvent.click(screen.getByTestId(TEST_IDS.seriesEditor.sunburstNewLevelButtonAddNew));
         });
 
         /**
@@ -977,9 +968,9 @@ describe('Series Editor', () => {
           })
         );
 
-        expect(item.sunburstNewLevelButtonAddNew()).toBeDisabled();
+        expect(screen.getByTestId(TEST_IDS.seriesEditor.sunburstNewLevelButtonAddNew)).toBeDisabled();
 
-        expect(item.sunburstLevelItem(false, 'Level 3')).toBeInTheDocument();
+        expect(screen.getByText('Level 3')).toBeInTheDocument();
       });
 
       it('Should remove Level', async () => {
@@ -993,16 +984,14 @@ describe('Series Editor', () => {
           })
         );
 
-        const item = openItem(sunburstItem.id);
-        const field2 = item.sunburstLevelItem(false, 'Level 2');
-
-        expect(field2).toBeInTheDocument();
+        openItem('Sunburst [sunburst]');
+        const removeButtons = screen.getAllByTestId(TEST_IDS.seriesEditor.sunburstLevelItemRemoveButton);
 
         /**
          * Remove
          */
         await act(() =>
-          fireEvent.click(within(field2).getByTestId(TEST_IDS.seriesEditor.sunburstLevelItemRemoveButton))
+          fireEvent.click(removeButtons[2])
         );
 
         expect(onChange).toHaveBeenCalledWith([
@@ -1044,8 +1033,8 @@ describe('Series Editor', () => {
           })
         );
 
-        const item = openItem(sunburstItem.id);
-        const field2 = item.sunburstLevelItem(false, 'Level 2');
+        openItem('Sunburst [sunburst]');
+        const field2 = screen.getByText('Level 2');
 
         expect(field2).toBeInTheDocument();
 
@@ -1081,8 +1070,8 @@ describe('Series Editor', () => {
           })
         );
 
-        const item = openItem(sunburstItem.id);
-        const field2 = item.sunburstLevelItem(false, 'Level 2');
+        openItem('Sunburst [sunburst]');
+        const field2 = screen.getByText('Level 2');
 
         expect(field2).toBeInTheDocument();
 
@@ -1155,19 +1144,18 @@ describe('Series Editor', () => {
           })
         );
 
-        const item = openItem(sunburstItem.id);
+        openItem('Sunburst [sunburst]');
 
-        const radiusField = item.sunburstSort();
-
-        expect(radiusField).toBeInTheDocument();
-        expect(item.sortOption(false, SunburstSortOption.DESC)).toBeChecked();
+        const section = screen.getByRole('radiogroup', { name: 'Sunburst Sort' });
+        expect(within(section).getByRole('radio', { name: SUNBURST_SORT_OPTIONS[1].label! })).toBeChecked();
 
         /**
          * Change target
          */
-        await act(() => fireEvent.click(item.sortOption(false, SunburstSortOption.ASC)));
+        await act(() => fireEvent.click(within(section).getByRole('radio', { name: SUNBURST_SORT_OPTIONS[0].label! })));
 
-        expect(item.sortOption(false, SunburstSortOption.ASC)).toBeChecked();
+        expect(within(section).getByRole('radio', { name: SUNBURST_SORT_OPTIONS[0].label! })).toBeChecked();
+        expect(within(section).getByRole('radio', { name: SUNBURST_SORT_OPTIONS[1].label! })).not.toBeChecked();
       });
 
       it('Should Emphasis Focus', async () => {
@@ -1181,19 +1169,18 @@ describe('Series Editor', () => {
           })
         );
 
-        const item = openItem(sunburstItem.id);
+        openItem('Sunburst [sunburst]');
 
-        const focusField = item.sunburstEmphasisFocus();
-
-        expect(focusField).toBeInTheDocument();
-        expect(item.emphasisFocusOption(false, SunburstEmphasisFocusOption.NONE)).toBeChecked();
+        const section = screen.getByRole('radiogroup', { name: 'Emphasis Focus' });
+        expect(within(section).getByRole('radio', { name: SUNBURST_EMPHASIS_FOCUS_OPTIONS[2].label! })).toBeChecked();
 
         /**
          * Change target
          */
-        await act(() => fireEvent.click(item.emphasisFocusOption(false, SunburstEmphasisFocusOption.ANCESTOR)));
+        await act(() => fireEvent.click(within(section).getByRole('radio', { name: SUNBURST_EMPHASIS_FOCUS_OPTIONS[0].label! })));
 
-        expect(item.emphasisFocusOption(false, SunburstEmphasisFocusOption.ANCESTOR)).toBeChecked();
+        expect(within(section).getByRole('radio', { name: SUNBURST_EMPHASIS_FOCUS_OPTIONS[0].label! })).toBeChecked();
+        expect(within(section).getByRole('radio', { name: SUNBURST_EMPHASIS_FOCUS_OPTIONS[2].label! })).not.toBeChecked();
       });
 
       it('Should change Show Label', async () => {
@@ -1207,19 +1194,18 @@ describe('Series Editor', () => {
           })
         );
 
-        const item = openItem(sunburstItem.id);
+        openItem('Sunburst [sunburst]');
 
-        const showLabelField = item.sunburstShowLabel();
-
-        expect(showLabelField).toBeInTheDocument();
-        expect(item.showLabelOption(false, true)).toBeChecked();
+        const section = screen.getByRole('radiogroup', { name: 'Show label' });
+        expect(within(section).getByRole('radio', { name: SUNBURST_SHOW_LABEL_OPTIONS[0].label! })).toBeChecked();
 
         /**
          * Change target
          */
-        await act(() => fireEvent.click(item.showLabelOption(false, false)));
+        await act(() => fireEvent.click(within(section).getByRole('radio', { name: SUNBURST_SHOW_LABEL_OPTIONS[1].label! })));
 
-        expect(item.showLabelOption(false, false)).toBeChecked();
+        expect(within(section).getByRole('radio', { name: SUNBURST_SHOW_LABEL_OPTIONS[1].label! })).toBeChecked();
+        expect(within(section).getByRole('radio', { name: SUNBURST_SHOW_LABEL_OPTIONS[0].label! })).not.toBeChecked();
       });
 
       it('Should change rotate option Label', async () => {
@@ -1233,19 +1219,18 @@ describe('Series Editor', () => {
           })
         );
 
-        const item = openItem(sunburstItem.id);
+        openItem('Sunburst [sunburst]');
 
-        const rotateField = item.sunburstLabelRotate();
-
-        expect(rotateField).toBeInTheDocument();
-        expect(item.labelRotateOption(false, SunburstLabelRotate.RADIAL)).toBeChecked();
+        const section = screen.getByRole('radiogroup', { name: 'Label rotate' });
+        expect(within(section).getByRole('radio', { name: SUNBURST_LABEL_ROTATE_OPTIONS[0].label! })).toBeChecked();
 
         /**
          * Change target
          */
-        await act(() => fireEvent.click(item.labelRotateOption(false, SunburstLabelRotate.TANGENTIAL)));
+        await act(() => fireEvent.click(within(section).getByRole('radio', { name: SUNBURST_LABEL_ROTATE_OPTIONS[1].label! })));
 
-        expect(item.labelRotateOption(false, SunburstLabelRotate.TANGENTIAL)).toBeChecked();
+        expect(within(section).getByRole('radio', { name: SUNBURST_LABEL_ROTATE_OPTIONS[1].label! })).toBeChecked();
+        expect(within(section).getByRole('radio', { name: SUNBURST_LABEL_ROTATE_OPTIONS[0].label! })).not.toBeChecked();
       });
     });
 
@@ -1279,15 +1264,15 @@ describe('Series Editor', () => {
           })
         );
 
-        const item = openItem(defaultItem.id);
+        openItem('Default [default]');
 
-        expect(item.fieldId()).toBeInTheDocument();
-        expect(item.fieldId()).toHaveValue('default');
+        expect(screen.getByLabelText('ID')).toBeInTheDocument();
+        expect(screen.getByLabelText('ID')).toHaveValue('default');
       });
     });
 
     describe('Radar', () => {
-      const radarItem = {
+      let radarItem = {
         uid: 'radar',
         id: 'radar',
         name: 'Radar',
@@ -1300,7 +1285,7 @@ describe('Series Editor', () => {
           },
         ],
       };
-      const radarItems = [
+      let radarItems = [
         radarItem,
         {
           uid: 'other',
@@ -1308,6 +1293,30 @@ describe('Series Editor', () => {
           name: 'Other',
         },
       ];
+
+      beforeEach(() => {
+        radarItem = {
+          uid: 'radar',
+          id: 'radar',
+          name: 'Radar',
+          type: SeriesType.RADAR,
+          radarDimensions: [
+            {
+              name: 'Test',
+              uid: 'Dimension-Test',
+              value: 'A:Value',
+            },
+          ],
+        };
+        radarItems = [
+          radarItem,
+          {
+            uid: 'other',
+            id: 'other',
+            name: 'Other',
+          },
+        ];
+      })
 
       it('Should add new dimension', async () => {
         const { value, onChange } = createOnChangeHandler(radarItems);
@@ -1319,21 +1328,23 @@ describe('Series Editor', () => {
           })
         );
 
-        const item = openItem(radarItem.id);
+        openItem('Radar [radar]');
 
         /**
          * Initial state
          */
-        expect(item.radarDimensionButtonAddNew()).toBeInTheDocument();
-        expect(item.radarDimensionNewItemId()).toBeInTheDocument();
-        expect(item.radarDimensionButtonAddNew()).toBeDisabled();
+        expect(screen.getByRole('button', { name: 'Add new Radar item' })).toBeInTheDocument();
+        expect(screen.getByLabelText('New Dimension')).toBeInTheDocument();
+        expect(screen.getByRole('button', { name: 'Add new Radar item' })).toBeDisabled();
 
-        fireEvent.change(item.radarDimensionNewItemId(), { target: { value: 'Test-2' } });
+        await act(async() => {
+          fireEvent.change(screen.getByLabelText('New Dimension'), { target: { value: 'Test-2' } });
+        });
 
-        expect(item.radarDimensionButtonAddNew()).not.toBeDisabled();
+        expect(screen.getByRole('button', { name: 'Add new Radar item' })).not.toBeDisabled();
 
         await act(async () => {
-          fireEvent.click(item.radarDimensionButtonAddNew());
+          fireEvent.click(screen.getByRole('button', { name: 'Add new Radar item' }));
         });
 
         /**
@@ -1347,14 +1358,16 @@ describe('Series Editor', () => {
         );
 
         /**
-         * Should add new dimensioon for radar
+         * Should add new dimension for radar
          */
-        expect(item.radarDimensionName(false, 'Test-2')).toBeInTheDocument();
+        const dimensionNames = await screen.findAllByLabelText('Dimension Name');
+        expect(dimensionNames).toHaveLength(2);
+        expect(dimensionNames[1]).toHaveValue('Test-2');
 
         /**
          * Should clean new item id field
          */
-        expect(item.radarDimensionNewItemId()).toHaveValue('');
+        expect(screen.getByLabelText('New Dimension')).toHaveValue('');
       });
 
       it('Should add new dimension if initial dimensions is empty', async () => {
@@ -1382,21 +1395,23 @@ describe('Series Editor', () => {
           })
         );
 
-        const item = openItem(radarItem.id);
+        openItem('Radar [radar]');
 
         /**
          * Initial state
          */
-        expect(item.radarDimensionButtonAddNew()).toBeInTheDocument();
-        expect(item.radarDimensionNewItemId()).toBeInTheDocument();
-        expect(item.radarDimensionButtonAddNew()).toBeDisabled();
+        expect(screen.getByRole('button', { name: 'Add new Radar item' })).toBeInTheDocument();
+        expect(screen.getByLabelText('New Dimension')).toBeInTheDocument();
+        expect(screen.getByRole('button', { name: 'Add new Radar item' })).toBeDisabled();
 
-        fireEvent.change(item.radarDimensionNewItemId(), { target: { value: 'Test-2' } });
+        await act(async() => {
+          fireEvent.change(screen.getByLabelText('New Dimension'), { target: { value: 'Test-2' } });
+        });
 
-        expect(item.radarDimensionButtonAddNew()).not.toBeDisabled();
+        expect(screen.getByRole('button', { name: 'Add new Radar item' })).not.toBeDisabled();
 
         await act(async () => {
-          fireEvent.click(item.radarDimensionButtonAddNew());
+          fireEvent.click(screen.getByRole('button', { name: 'Add new Radar item' }));
         });
 
         /**
@@ -1410,14 +1425,16 @@ describe('Series Editor', () => {
         );
 
         /**
-         * Should add new dimensioon for radar
+         * Should add new dimension for radar
          */
-        expect(item.radarDimensionName(false, 'Test-2')).toBeInTheDocument();
+        const dimensionNames = await screen.findAllByLabelText('Dimension Name');
+        expect(dimensionNames).toHaveLength(1);
+        expect(dimensionNames[0]).toHaveValue('Test-2');
 
         /**
          * Should clean new item id field
          */
-        expect(item.radarDimensionNewItemId()).toHaveValue('');
+        expect(screen.getByLabelText('New Dimension')).toHaveValue('');
       });
 
       it('Should update dimension name', async () => {
@@ -1430,17 +1447,22 @@ describe('Series Editor', () => {
           })
         );
 
-        const item = openItem(radarItem.id);
+        openItem('Radar [radar]');
 
         /**
          * Initial state
          */
-        expect(item.radarDimensionButtonAddNew()).toBeInTheDocument();
-        expect(item.radarDimensionNewItemId()).toBeInTheDocument();
-        expect(item.radarDimensionButtonAddNew()).toBeDisabled();
-        expect(item.radarDimensionName(false, 'Test')).toBeInTheDocument();
+        expect(screen.getByRole('button', { name: 'Add new Radar item' })).toBeInTheDocument();
+        expect(screen.getByLabelText('New Dimension')).toBeInTheDocument();
+        expect(screen.getByRole('button', { name: 'Add new Radar item' })).toBeDisabled();
 
-        fireEvent.change(item.radarDimensionName(false, 'Test'), { target: { value: 'Test-New' } });
+        const dimensionNames = await screen.findAllByLabelText('Dimension Name');
+        expect(dimensionNames).toHaveLength(1);
+        expect(dimensionNames[0]).toHaveValue('Test');
+
+        await act(async() => {
+          fireEvent.change(dimensionNames[0], { target: { value: 'Test-New' } });
+        });
 
         /**
          * Rerender
@@ -1455,9 +1477,9 @@ describe('Series Editor', () => {
         /**
          * Changes
          */
-        expect(item.radarDimensionName(true, 'Test')).not.toBeInTheDocument();
-        expect(item.radarDimensionName(false, 'Test-New')).toBeInTheDocument();
-        expect(item.radarDimensionName(false, 'Test-New')).toHaveValue('Test-New');
+        const newDimensionNames = await screen.findAllByLabelText('Dimension Name');
+        expect(newDimensionNames).toHaveLength(1);
+        expect(dimensionNames[0]).toHaveValue('Test-New');
       });
 
       it('Should update dimension value', async () => {
@@ -1470,17 +1492,22 @@ describe('Series Editor', () => {
           })
         );
 
-        const item = openItem(radarItem.id);
+        openItem('Radar [radar]');
 
         /**
          * Initial state
          */
-        expect(item.radarDimensionButtonAddNew()).toBeInTheDocument();
-        expect(item.radarDimensionNewItemId()).toBeInTheDocument();
-        expect(item.radarDimensionButtonAddNew()).toBeDisabled();
-        expect(item.radarDimensionValue(false, 'A:Value')).toBeInTheDocument();
+        expect(screen.getByRole('button', { name: 'Add new Radar item' })).toBeInTheDocument();
+        expect(screen.getByLabelText('New Dimension')).toBeInTheDocument();
+        expect(screen.getByRole('button', { name: 'Add new Radar item' })).toBeDisabled();
 
-        fireEvent.change(item.radarDimensionValue(false, 'A:Value'), { target: { value: 'A:Time' } });
+        const dimensionValues = await screen.findAllByLabelText('Dimension Value');
+        expect(dimensionValues).toHaveLength(1);
+        expect(dimensionValues[0]).toHaveValue('A:Value');
+
+        await act(async() => {
+          fireEvent.change(dimensionValues[0], { target: { value: 'A:Time' } });
+        });
 
         /**
          * Rerender
@@ -1495,8 +1522,9 @@ describe('Series Editor', () => {
         /**
          * Changes
          */
-        expect(item.radarDimensionName(true, 'A:Value')).not.toBeInTheDocument();
-        expect(item.radarDimensionValue(false, 'A:Time')).toBeInTheDocument();
+        const newDimensionValues = await screen.findAllByLabelText('Dimension Value');
+        expect(newDimensionValues).toHaveLength(1);
+        expect(newDimensionValues[0]).toHaveValue('A:Time');
       });
 
       it('Should remove dimension', async () => {
@@ -1537,19 +1565,20 @@ describe('Series Editor', () => {
           })
         );
 
-        const item = openItem(radarItem.id);
+        openItem('Radar-2 [radar-2]');
 
         /**
          * Initial state
          */
-        expect(item.radarDimensionButtonAddNew()).toBeInTheDocument();
-        expect(item.radarDimensionNewItemId()).toBeInTheDocument();
-        expect(item.radarDimensionButtonAddNew()).toBeDisabled();
-        expect(item.radarDimensionButtonRemove(false, 'Dimension-Test-2')).toBeInTheDocument();
-        expect(item.radarDimensionButtonRemove(false, 'Dimension-Test')).toBeInTheDocument();
+        expect(screen.getByRole('button', { name: 'Add new Radar item' })).toBeInTheDocument();
+        expect(screen.getByLabelText('New Dimension')).toBeInTheDocument();
+        expect(screen.getByRole('button', { name: 'Add new Radar item' })).toBeDisabled();
+
+        expect(screen.getByTestId(TEST_IDS.seriesEditor.radarDimensionButtonRemove('Dimension-Test'))).toBeInTheDocument();
+        expect(screen.getByTestId(TEST_IDS.seriesEditor.radarDimensionButtonRemove('Dimension-Test-2'))).toBeInTheDocument();
 
         await act(async () => {
-          fireEvent.click(item.radarDimensionButtonRemove(false, 'Dimension-Test-2'));
+          fireEvent.click(screen.getByTestId(TEST_IDS.seriesEditor.radarDimensionButtonRemove('Dimension-Test-2')));
         });
 
         /**
@@ -1565,8 +1594,8 @@ describe('Series Editor', () => {
         /**
          * Changes
          */
-        expect(item.radarDimensionButtonRemove(true, 'Dimension-Test-2')).not.toBeInTheDocument();
-        expect(item.radarDimensionButtonRemove(false, 'Dimension-Test')).toBeInTheDocument();
+        expect(screen.queryByTestId(TEST_IDS.seriesEditor.radarDimensionButtonRemove('Dimension-Test-2'))).not.toBeInTheDocument();
+        expect(screen.getByTestId(TEST_IDS.seriesEditor.radarDimensionButtonRemove('Dimension-Test'))).toBeInTheDocument();
       });
     });
   });

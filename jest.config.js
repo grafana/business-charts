@@ -9,4 +9,5 @@ module.exports = {
   ...require('./.config/jest.config'),
   // Inform jest to only transform specific node_module packages.
   transformIgnorePatterns: [nodeModulesToTransform([...grafanaESModules, 'echarts', 'zrender', 'echarts-wordcloud'])],
+  watchPathIgnorePatterns: ['node_modules'],
 };

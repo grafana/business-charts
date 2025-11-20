@@ -1,5 +1,5 @@
 import { FieldType } from '@grafana/data';
-import { fireEvent, render, screen, within } from '@testing-library/react';
+import { fireEvent, render, screen } from '@testing-library/react';
 import { getJestSelectors } from '@volkovlabs/jest-selectors';
 import React from 'react';
 
@@ -38,27 +38,16 @@ describe('Radar options', () => {
   /**
    * Open Item
    */
-  const openItem = (): ReturnType<typeof getSelectors> => {
+  const openItem = () => {
     /**
      * Check item presence
      */
-    expect(selectors.radarOptionsHeader(false)).toBeInTheDocument();
+    expect(screen.getByText('Radar Options')).toBeInTheDocument();
 
     /**
      * Make Item is opened
      */
-    fireEvent.click(selectors.radarOptionsHeader(false));
-
-    /**
-     * Check if item content exists
-     */
-    const elementContent = selectors.radarOptionsContent(false);
-    expect(elementContent).toBeInTheDocument();
-
-    /**
-     * Return selectors for opened item
-     */
-    return getSelectors(within(elementContent));
+    fireEvent.click(screen.getByText('Radar Options'));
   };
 
   /**
@@ -120,9 +109,9 @@ describe('Radar options', () => {
      */
     expect(selectors.radarOptionsRoot()).toBeInTheDocument();
 
-    const item = openItem();
-    expect(item.radarOptionsShape()).toHaveValue(RadarShapeType.CIRCLE);
-    fireEvent.change(item.radarOptionsShape(), { target: { value: RadarShapeType.POLYGON } });
+    openItem();
+    expect(screen.getByLabelText('Shape')).toHaveValue(RadarShapeType.CIRCLE);
+    fireEvent.change(screen.getByLabelText('Shape'), { target: { value: RadarShapeType.POLYGON } });
 
     expect(onChange).toHaveBeenCalledWith(
       expect.objectContaining({
@@ -157,14 +146,14 @@ describe('Radar options', () => {
      */
     expect(selectors.radarOptionsRoot()).toBeInTheDocument();
 
-    const item = openItem();
-    expect(item.radarOptionsShape()).toBeInTheDocument();
-    expect(item.radarOptionsShape()).toHaveValue('circle');
+    openItem();
+    expect(screen.getByLabelText('Shape')).toBeInTheDocument();
+    expect(screen.getByLabelText('Shape')).toHaveValue('circle');
 
     /**
      * Simulate a click on the X button
      */
-    fireEvent.change(item.radarOptionsShape(), { target: { value: 'clear' } });
+    fireEvent.change(screen.getByLabelText('Shape'), { target: { value: 'clear' } });
 
     expect(onChange).toHaveBeenCalledWith(
       expect.objectContaining({
@@ -199,9 +188,9 @@ describe('Radar options', () => {
      */
     expect(selectors.radarOptionsRoot()).toBeInTheDocument();
 
-    const item = openItem();
-    expect(item.radarOptionsIndicator()).toHaveValue('A:Value');
-    fireEvent.change(item.radarOptionsIndicator(), { target: { value: 'A:Value 2' } });
+    openItem();
+    expect(screen.getByLabelText('Indicator')).toHaveValue('A:Value');
+    fireEvent.change(screen.getByLabelText('Indicator'), { target: { value: 'A:Value 2' } });
 
     expect(onChange).toHaveBeenCalledWith(
       expect.objectContaining({
@@ -236,13 +225,13 @@ describe('Radar options', () => {
      */
     expect(selectors.radarOptionsRoot()).toBeInTheDocument();
 
-    const item = openItem();
-    expect(item.radarOptionsIndicator()).toHaveValue('A:Value');
+    openItem();
+    expect(screen.getByLabelText('Indicator')).toHaveValue('A:Value');
 
     /**
      * Simulate a click on the X button
      */
-    fireEvent.change(item.radarOptionsIndicator(), { target: { value: 'clear' } });
+    fireEvent.change(screen.getByLabelText('Indicator'), { target: { value: 'clear' } });
 
     expect(onChange).toHaveBeenCalledWith(
       expect.objectContaining({
@@ -277,10 +266,10 @@ describe('Radar options', () => {
      */
     expect(selectors.radarOptionsRoot()).toBeInTheDocument();
 
-    const item = openItem();
-    expect(item.radarOptionsRadius()).toHaveValue('0');
+    openItem();
+    expect(screen.getByLabelText('Radius')).toHaveValue('0');
 
-    fireEvent.change(item.radarOptionsRadius(), { target: { value: 50 } });
+    fireEvent.change(screen.getByLabelText('Radius'), { target: { value: 50 } });
 
     expect(onChange).toHaveBeenCalledWith(
       expect.objectContaining({
@@ -315,10 +304,10 @@ describe('Radar options', () => {
      */
     expect(selectors.radarOptionsRoot()).toBeInTheDocument();
 
-    const item = openItem();
-    expect(item.radarOptionsRadius()).toHaveValue('0');
+    openItem();
+    expect(screen.getByLabelText('Radius')).toHaveValue('0');
 
-    fireEvent.change(item.radarOptionsRadius(), { target: { value: 'abc' } });
+    fireEvent.change(screen.getByLabelText('Radius'), { target: { value: 'abc' } });
 
     expect(onChange).toHaveBeenCalledWith(
       expect.objectContaining({
