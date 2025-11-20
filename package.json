@@ -24,7 +24,7 @@
   },
   "description": "Powerful visualizations powered by Apache ECharts",
   "devDependencies": {
-    "@grafana/eslint-config": "^8.1.0",
+    "@grafana/eslint-config": "^9.0.0",
     "@grafana/plugin-e2e": "^2.1.7",
     "@grafana/tsconfig": "^2.0.0",
     "@playwright/test": "^1.56.1",
