@@ -1,6 +1,10 @@
+import { SceneObject } from '@grafana/scenes';
+
 /**
  * __grafanaSceneContext type to prevent TS error
  */
-interface Window {
-  __grafanaSceneContext: unknown;
+declare global {
+  interface Window {
+    __grafanaSceneContext?: SceneObject;
+  }
 }

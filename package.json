@@ -26,9 +26,9 @@
     "@grafana/eslint-config": "^8.1.0",
     "@grafana/plugin-e2e": "^2.1.7",
     "@grafana/tsconfig": "^2.0.0",
-    "@playwright/test": "^1.54.2",
-    "@stylistic/eslint-plugin": "^5.2.2",
-    "@swc/core": "^1.13.3",
+    "@playwright/test": "^1.56.1",
+    "@stylistic/eslint-plugin": "^5.5.0",
+    "@swc/core": "^1.15.1",
     "@swc/helpers": "^0.5.17",
     "@swc/jest": "^0.2.39",
     "@testing-library/jest-dom": "^6.6.4",
@@ -88,5 +88,5 @@
     "typecheck": "tsc --noEmit",
     "upgrade": "npm upgrade --save"
   },
-  "version": "7.2.2"
+  "version": "7.2.3"
 }
