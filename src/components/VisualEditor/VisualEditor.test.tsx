@@ -110,7 +110,7 @@ describe('Visual Editor', () => {
 
     const { rerender } = render(getComponent({ value, onChange }));
 
-    expect(seriesEditorSelectors.itemHeader(false, 'line')).toBeInTheDocument();
+    expect(screen.getByText('Line [line]')).toBeInTheDocument();
 
     /**
      * Remove series
@@ -119,6 +119,6 @@ describe('Visual Editor', () => {
 
     rerender(getComponent({ value, onChange }));
 
-    expect(seriesEditorSelectors.itemHeader(true, 'line')).not.toBeInTheDocument();
+    expect(screen.queryByText('Line [line]')).not.toBeInTheDocument();
   });
 });

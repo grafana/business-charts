@@ -1,7 +1,6 @@
 import { DataFrame, FieldType } from '@grafana/data';
-import { InlineField, InlineFieldRow, Input, Select, useStyles2 } from '@grafana/ui';
-import { Collapse } from '@volkovlabs/components';
-import React, { useMemo, useState } from 'react';
+import { Collapse, InlineField, InlineFieldRow, Input, Select, useStyles2 } from '@grafana/ui';
+import React, { useId, useMemo, useState } from 'react';
 
 import { RADAR_SHAPE_OPTIONS, TEST_IDS } from '../../../constants';
 import { VisualEditorOptions } from '../../../types';
@@ -51,19 +50,22 @@ export const RadarOptionsEditor: React.FC<Props> = ({ value, onChange, data }) =
    */
   const [isOpen, setIsOpen] = useState(false);
 
+  const shapeId = useId();
+  const radiusId = useId();
+  const indicatorId = useId();
+
   return (
     <div data-testid={TEST_IDS.seriesEditor.radarOptionsRoot} className={styles.root}>
       <Collapse
-        headerTestId={TEST_IDS.seriesEditor.radarOptionsHeader}
-        contentTestId={TEST_IDS.seriesEditor.radarOptionsContent}
         isOpen={isOpen}
         onToggle={() => setIsOpen((prevState) => !prevState)}
-        title="Radar Options"
+        label="Radar Options"
       >
         <>
           <InlineFieldRow>
             <InlineField label="Shape" labelWidth={20} grow={true}>
               <Select
+                inputId={shapeId}
                 value={value.radar?.shape}
                 options={RADAR_SHAPE_OPTIONS}
                 isClearable
@@ -88,6 +90,7 @@ export const RadarOptionsEditor: React.FC<Props> = ({ value, onChange, data }) =
               grow={true}
             >
               <Input
+                id={radiusId}
                 value={value.radar?.radius ?? ''}
                 onChange={(event) => {
                   let inputValue = event.currentTarget.value;
@@ -114,6 +117,7 @@ export const RadarOptionsEditor: React.FC<Props> = ({ value, onChange, data }) =
           <InlineFieldRow>
             <InlineField label="Indicator" tooltip="Select field for indicator names" labelWidth={20} grow={true}>
               <Select
+                inputId={indicatorId}
                 value={value.radar?.indicator}
                 options={options}
                 isClearable

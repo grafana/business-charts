@@ -11,7 +11,7 @@ import {
   useStyles2,
 } from '@grafana/ui';
 import { DragDropContext, Draggable, DraggingStyle, Droppable, DropResult, NotDraggingStyle } from '@hello-pangea/dnd';
-import React, { useCallback, useMemo, useState } from 'react';
+import React, { useCallback, useId, useMemo, useState } from 'react';
 
 import {
   SUNBURST_EMPHASIS_FOCUS_OPTIONS,
@@ -100,6 +100,15 @@ export const SunburstEditor: React.FC<Props> = ({ value, onChange, dataset }) =>
     [onChange, value]
   );
 
+  const levelValueInputId = useId();
+  const newLevelInputId = useId();
+  const innerRadiusInputId = useId();
+  const outerRadiusInputId = useId();
+  const sortInputId = useId();
+  const emphasisFocusInputId = useId();
+  const showLabelInputId = useId();
+  const labelRotateInputId = useId();
+
   /**
    * Options
    */
@@ -117,6 +126,7 @@ export const SunburstEditor: React.FC<Props> = ({ value, onChange, dataset }) =>
       <InlineFieldRow className={styles.valueLevel}>
         <InlineField label="Level value" grow tooltip="Applicable for levels without children">
           <Input
+            id={levelValueInputId}
             placeholder="value"
             value={value.levelValue}
             onChange={(event) => {
@@ -190,6 +200,7 @@ export const SunburstEditor: React.FC<Props> = ({ value, onChange, dataset }) =>
       <InlineFieldRow data-testid={TEST_IDS.seriesEditor.sunburstNewLevel} className={styles.add}>
         <InlineField label="New Level" grow={true}>
           <Select
+            inputId={newLevelInputId}
             options={availableOptions}
             value={newLevel?.value || null}
             data-testid={TEST_IDS.seriesEditor.sunburstNewLevelName}
@@ -231,6 +242,7 @@ export const SunburstEditor: React.FC<Props> = ({ value, onChange, dataset }) =>
       <InlineFieldRow>
         <InlineField label="Inner Radius" grow>
           <Input
+            id={innerRadiusInputId}
             placeholder="radius"
             value={value.innerRadius}
             onChange={(event) =>
@@ -244,6 +256,7 @@ export const SunburstEditor: React.FC<Props> = ({ value, onChange, dataset }) =>
         </InlineField>
         <InlineField label="Outer Radius" grow>
           <Input
+            id={outerRadiusInputId}
             placeholder="radius"
             value={value.outerRadius}
             onChange={(event) =>
@@ -260,6 +273,8 @@ export const SunburstEditor: React.FC<Props> = ({ value, onChange, dataset }) =>
       <InlineFieldRow>
         <InlineField label="Sunburst Sort" grow labelWidth={20} data-testid={TEST_IDS.seriesEditor.sunburstSort}>
           <RadioButtonGroup
+            aria-label="Sunburst Sort"
+            id={sortInputId}
             options={SUNBURST_SORT_OPTIONS}
             value={value.sort}
             onChange={(currentValue) => {
@@ -280,6 +295,8 @@ export const SunburstEditor: React.FC<Props> = ({ value, onChange, dataset }) =>
           data-testid={TEST_IDS.seriesEditor.sunburstEmphasisFocus}
         >
           <RadioButtonGroup
+            aria-label="Emphasis Focus"
+            id={emphasisFocusInputId}
             options={SUNBURST_EMPHASIS_FOCUS_OPTIONS}
             value={value.emphasis.focus}
             onChange={(currentValue) => {
@@ -298,6 +315,8 @@ export const SunburstEditor: React.FC<Props> = ({ value, onChange, dataset }) =>
       <InlineFieldRow>
         <InlineField label="Show label" grow labelWidth={20} data-testid={TEST_IDS.seriesEditor.sunburstShowLabel}>
           <RadioButtonGroup
+            aria-label="Show label"
+            id={showLabelInputId}
             options={SUNBURST_SHOW_LABEL_OPTIONS}
             value={value.label.show}
             onChange={(currentValue) => {
@@ -315,6 +334,8 @@ export const SunburstEditor: React.FC<Props> = ({ value, onChange, dataset }) =>
       <InlineFieldRow>
         <InlineField label="Label rotate" grow labelWidth={20} data-testid={TEST_IDS.seriesEditor.sunburstLabelRotate}>
           <RadioButtonGroup
+            aria-label="Label rotate"
+            id={labelRotateInputId}
             options={SUNBURST_LABEL_ROTATE_OPTIONS}
             value={value.label.rotate}
             onChange={(currentValue) => {

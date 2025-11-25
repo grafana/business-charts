@@ -1,6 +1,5 @@
-import { Button, Icon, InlineField, InlineFieldRow, Input, useTheme2 } from '@grafana/ui';
+import { Button, Collapse, Icon, InlineField, InlineFieldRow, Input, Stack, useTheme2 } from '@grafana/ui';
 import { DragDropContext, Draggable, DraggingStyle, Droppable, DropResult, NotDraggingStyle } from '@hello-pangea/dnd';
-import { Collapse } from '@volkovlabs/components';
 import React, { useCallback, useMemo, useState } from 'react';
 
 import { TEST_IDS } from '../../constants';
@@ -143,35 +142,33 @@ export const SeriesEditor: React.FC<Props> = ({ value, onChange, dataset }) => {
                       className={styles.item}
                     >
                       <Collapse
-                        headerTestId={TEST_IDS.seriesEditor.itemHeader(item.id)}
-                        contentTestId={TEST_IDS.seriesEditor.itemContent(item.id)}
                         isOpen={collapseState[item.uid]}
                         onToggle={() => onToggleItem(item)}
-                        title={
-                          <>
+                        label={
+                          <Stack flex={1} alignItems="center" justifyContent="space-between">
                             {item.name} [{item.id}]
-                          </>
-                        }
-                        actions={
-                          <>
-                            <Button
-                              icon="trash-alt"
-                              variant="secondary"
-                              fill="text"
-                              size="sm"
-                              className={styles.removeButton}
-                              onClick={() => {
-                                /**
-                                 * Remove Item
-                                 */
-                                onChangeItems(items.filter((series) => series.uid !== item.uid));
-                              }}
-                              data-testid={TEST_IDS.seriesEditor.buttonRemove}
-                            />
-                            <div {...provided.dragHandleProps}>
-                              <Icon name="draggabledots" className={styles.dragIcon} />
-                            </div>
-                          </>
+                            <Stack alignItems="center" gap={0.5}>
+                              <Button
+                                aria-label="Remove series"
+                                icon="trash-alt"
+                                variant="secondary"
+                                fill="text"
+                                size="sm"
+                                className={styles.removeButton}
+                                onClick={(event) => {
+                                  /**
+                                   * Remove Item
+                                   */
+                                  event.stopPropagation();
+                                  onChangeItems(items.filter((series) => series.uid !== item.uid));
+                                }}
+                                data-testid={TEST_IDS.seriesEditor.buttonRemove}
+                              />
+                              <div {...provided.dragHandleProps} onClick={(event) => event.stopPropagation()}>
+                                <Icon name="draggabledots" className={styles.dragIcon} />
+                              </div>
+                            </Stack>
+                          </Stack>
                         }
                       >
                         <SeriesItemEditor value={item} onChange={onChangeItem} dataset={dataset} />
