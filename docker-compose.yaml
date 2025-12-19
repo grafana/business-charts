@@ -37,7 +37,7 @@ services:
       - main
 
   grafana-dep:
-    image: grafana/grafana:11.0.0
+    image: grafana/grafana:11.6.9@sha256:8dbbae5093f40e622c66f7f96862f76bdb3764fcffc727ad9952ad5d1ed79f79
     ports:
       - 3000:3000/tcp
     environment:
