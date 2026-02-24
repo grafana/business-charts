@@ -1,7 +1,7 @@
 ---
-title: Business charts
-menuTitle: Business charts
-description: Learn how to integrate charts and graphs from the Apache ECharts library into your Grafana dashboard using the Business charts panel.
+title: Business Charts
+menuTitle: Business Charts
+description: Learn how to integrate charts and graphs from the Apache ECharts library into your Grafana dashboard using the Business Charts panel.
 labels:
   products:
     - cloud
@@ -9,24 +9,24 @@ labels:
     - oss
 ---
 
-# Business charts
+# Business Charts
 
 The Business charts panel lets you integrate charts and graphs created by the [Apache ECharts library](https://echarts.apache.org/en/index.html) into your Grafana dashboard.
 
 Apache ECharts is a versatile data visualization library. It provides a wide range of chart types, including statistical capabilities. It is written in pure JavaScript and based on [zrender](http://ecomfe.github.io/zrender/), a lightweight graphic library for chart rendering.
 
-The Business charts plugin lets you add interactive and customizable charts to your Grafana dashboard.
+The Business Charts plugin lets you add interactive and customizable charts to your Grafana dashboard.
 
 ## Requirements
 
-- Business charts panel 7.X requires **Grafana 11** or **Grafana 12**.
-- Business charts panel 6.X requires **Grafana 10** or **Grafana 11**.
+- Business Charts panel 7.X requires **Grafana 11** or **Grafana 12**.
+- Business Charts panel 6.X requires **Grafana 10** or **Grafana 11**.
 - Apache ECharts panel 5.X requires **Grafana 9** or **Grafana 10**.
 - Apache ECharts panel 3.X and 4.X require **Grafana 8.5** or **Grafana 9**.
 
 ## Getting started
 
-Install the Business charts panel from the [Grafana Plugins catalog](https://grafana.com/grafana/plugins/volkovlabs-echarts-panel/) or use the Grafana command line tool.
+Install the Business Charts panel from the [Grafana Plugins catalog](https://grafana.com/grafana/plugins/volkovlabs-echarts-panel/) or use the Grafana command line tool.
 
 {{< youtube id="1qYzHfPXJF8" >}}
 
