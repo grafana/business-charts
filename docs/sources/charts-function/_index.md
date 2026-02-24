@@ -26,7 +26,7 @@ Both parts can use parameters passed into the Charts function. You can find the 
 
 See the schema and the print screen below for illustration.
 
-![The Charts function receives many parameters from Grafana and sends one to the setOption() function.](/media/docs/grafana/panels-visualizations/business-charts/schema.png)
+{{< figure src="/media/docs/grafana/panels-visualizations/business-charts/schema.png" class="border" alt="The Charts function receives many parameters from Grafana and sends one to the setOption() function." >}}
 
 ![The Charts function.](/media/docs/grafana/panels-visualizations/business-charts/charts-function.png)
 
