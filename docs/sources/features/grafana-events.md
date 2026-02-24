@@ -40,9 +40,3 @@ return {
   }
 }
 ```
-
-## Panels interconnectivity in Grafana via EventBus
-
-This article describes the possibility of using ECharts Instance, Grafana Events, and Extended Result for panel communication by sending and receiving events in Grafana.
-
-[Panels interconnectivity in Grafana via EventBus](https://volkovlabs.io/blog/echarts-shared-crosshair-and-eventbus-20240520/)
