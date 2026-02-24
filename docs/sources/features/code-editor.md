@@ -20,7 +20,7 @@ Additional buttons were added in 6.4.1.
 
 For a better user experience, the expand the editor area button was added.
 
-{{< figure src="/media/docs/grafana/panels-visualizations/business-charts/button.png" class="border" alt="Expand the code area button." >}}
+{{< figure src="/media/docs/grafana/panels-visualizations/business-charts/button.png" max-width="175px" class="border" alt="Expand the code area button." >}}
 
 You can find this button at the top left corner of any JavaScript area parameter.
 
