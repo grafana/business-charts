@@ -11,9 +11,9 @@ labels:
 
 # Event handling
 
-You can handle specific events while viewing charts, for example, handle mouse events or any other event with the `context.panel.chart` ( early `echartsInstance` ) instance.
+You can handle specific events while viewing charts, such as mouse events, using the `context.panel.chart` (formerly `echartsInstance`) instance.
 
-For more examples and detailed descriptions, please check the Apache ECharts documentation about [Events and Actions](https://apache.github.io/echarts-handbook/en/concepts/event/).
+For more examples and details, see the Apache ECharts documentation on [Events and Actions](https://apache.github.io/echarts-handbook/en/concepts/event/).
 
 ## Mouse click
 

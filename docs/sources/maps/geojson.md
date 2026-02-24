@@ -11,7 +11,7 @@ labels:
 
 # GeoJSON
 
-The Business Charts panel supports the world and USA GeoJSON maps. You can load additional maps dynamically.
+The Business Charts panel supports world and USA GeoJSON maps. You can load additional maps dynamically.
 
 {{< figure src="/media/docs/grafana/panels-visualizations/business-charts/geojson.png" class="border" alt="Website Analytics displays requests per country." >}}
 

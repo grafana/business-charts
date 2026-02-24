@@ -11,15 +11,15 @@ labels:
 
 # ECharts instance
 
-The `context.panel.chart` ( early `echartsInstance` ) is a created instance (container) of the Apache ECharts library. It allows you to do the following:
+The `context.panel.chart` (formerly `echartsInstance`) is an instance (container) of the Apache ECharts library. It lets you:
 
-- Get the width and height of the ECharts container.
-- Get the DOM (Document Object Model) to include additional elements.
-- Resize the chart size.
-- Handle events.
-- Update options, etc.
+- Get the width and height of the ECharts container
+- Get the DOM (Document Object Model) to include additional elements
+- Resize the chart
+- Handle events
+- Update options
 
-For more details, please review the documentation for [echartsInstance](https://echarts.apache.org/en/api.html#echartsInstance).
+For more details, see the documentation for [echartsInstance](https://echarts.apache.org/en/api.html#echartsInstance).
 
 ## Scale when resizing
 

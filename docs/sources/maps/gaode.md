@@ -12,7 +12,7 @@ labels:
 
 # Gaode maps
 
-Gaode Maps is loaded via API v1.4.15 and require an access key.
+Gaode Maps loads using API v1.4.15 and requires an access key.
 
 ## Access key
 

@@ -11,7 +11,7 @@ labels:
 
 # Variables
 
-Use the `context.grafana.replaceVariables()` function to replace dashboard and global variables.
+Use the `context.grafana.replaceVariables()` function to replace dashboard and global variables in Business Charts.
 
 ```javascript
 const email = context.grafana.replaceVariables("${__user.email}");

@@ -11,20 +11,20 @@ labels:
 
 # Charts function
 
-`setOption(options)` is the primary function in the Apache ECharts library. It is depicted as a square on the right in the schema below. This function gets called by the Business Charts panel (the Charts Function) with only one required parameter `options`.
+The `setOption(options)` function is the primary method in the Apache ECharts library. The Business Charts panel calls this function with one required parameter: `options`.
 
-The parameter `options` describes the charts in the JSON format.
+The `options` parameter describes the chart in JSON format.
 
 ## Getting started
 
-To configure the Business Charts panel mainly means writing the Charts Function. Generally, this function contains two parts:
+To configure the Business Charts panel, write the Charts Function. This function usually has two parts:
 
-- JavaScript to read data points from the data source.
-- JSON to specify a graph as `options`.
+- JavaScript to read data points from the data source
+- JSON to specify a graph as `options`
 
-Both parts can use parameters passed into the Charts function. You can find the complete list of parameters in the table below.
+Both parts can use parameters passed into the Charts function. The following table lists all available parameters.
 
-See the schema and the print screen below for illustration.
+See the following schema and screenshot for illustration.
 
 {{< figure src="/media/docs/grafana/panels-visualizations/business-charts/schema.png" class="border" alt="The Charts function receives many parameters from Grafana and sends one to the setOption() function." >}}
 
@@ -32,7 +32,7 @@ See the schema and the print screen below for illustration.
 
 ## Options
 
-The `return` clause is where you need to specify the `options` parameter to be passed into the `setOption(options)` Apache ECharts library function.
+Specify the `options` parameter in the `return` clause. This parameter is passed to the `setOption(options)` function in the Apache ECharts library.
 
 {{< figure src="/media/docs/grafana/panels-visualizations/business-charts/function.png" class="border" alt="The Business Charts panel provides the code editor to specify the Charts function." >}}
 

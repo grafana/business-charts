@@ -11,17 +11,17 @@ labels:
 
 # Annotations
 
-Annotations is an umbrella term that includes several Grafana artifacts, as follows:
+Annotations is a general term for several Grafana artifacts:
 
-- Native Annotations
+- Native annotations
 - Alerts
-- Annotations Queries
+- Annotation queries
 
-The differences between different types of annotations are explained in the how-to tutorial within the [Grafana Crash Course](https://volkovlabs.io/grafana/annotations/).
+The differences between annotation types are explained in the how-to tutorial in the [Grafana Crash Course](https://volkovlabs.io/grafana/annotations/).
 
 ## Mark lines
 
-The Business Charts panel displays annotations with mark lines. Data for mark lines is retrieved from the `context.panel.data.annotations` object.
+The Business Charts panel displays annotations with mark lines. Data for mark lines comes from the `context.panel.data.annotations` object.
 
 {{< figure src="/media/docs/grafana/panels-visualizations/business-charts/annotations.png" class="border" alt="Annotations in the Business Charts look similar to the Time Series panels." >}}
 

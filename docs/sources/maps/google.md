@@ -12,7 +12,7 @@ labels:
 
 # Google maps
 
-Google Maps is loaded via Maps API and requires an access key.
+Google Maps loads using Maps API and requires an access key.
 
 ## Access key
 

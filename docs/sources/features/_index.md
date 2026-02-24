@@ -11,7 +11,7 @@ labels:
 
 # Features
 
-The Business Charts panel provides an extensive set of features that you can use to build myriads of charts and graphs in Grafana.
+The Business Charts panel provides a wide set of features for building many types of charts and graphs in Grafana.
 
 <!-- prettier-ignore-start -->
 

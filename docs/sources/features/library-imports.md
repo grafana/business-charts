@@ -12,12 +12,12 @@ labels:
 # Library imports
 
 {{< admonition type="note" >}}
-The Business Charts panel supports the npm library imports since version 6.0.0.
+The Business Charts panel supports NPM library imports starting from version 6.0.0.
 
-Since version 6.4.0 you can return `import` with options instead use `setOption(options)` method.
+Since version 6.4.0, you can return `import` with options instead of using the `setOption(options)` method.
 {{< /admonition >}}
 
-Additional NPM libraries can be imported to be used in Business Charts panel using `import` statement.
+You can import additional NPM libraries for use in the Business Charts panel using the `import` statement.
 
 ## ecStat library
 

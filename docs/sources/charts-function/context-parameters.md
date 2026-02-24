@@ -12,7 +12,7 @@ labels:
 
 ## `context.echarts`
 
-Apache ECharts library.
+The Apache ECharts library instance.
 
 ### Usage
 
@@ -28,7 +28,7 @@ const libraryECharts = context.echarts;
 
 ## `context.ecStat`
 
-A statistical and data mining tool for Apache ECharts.
+The statistical and data mining tool for Apache ECharts.
 
 ### Usage
 
@@ -38,7 +38,7 @@ context.ecStat;
 
 ### Example
 
-```javascript
+```
 context.echarts.registerTransform(context.ecStat.transform.regression);
 ```
 

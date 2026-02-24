@@ -9,17 +9,17 @@ labels:
     - oss
 ---
 
-# Visual Editor
+# Visual editor
 
-This is one of the most exciting features. The Visual Editor simplifies working with the Grafana data frames and facilitates intuitive data transmission into the [Charts function](https://grafana.com/docs/plugins/volkovlabs-echarts-panel/<PLUGINS_VERSION>/charts-function/).
+The Visual editor simplifies working with Grafana data frames and makes it easy to send data to the [Charts function](https://grafana.com/docs/plugins/volkovlabs-echarts-panel/<PLUGINS_VERSION>/charts-function/).
 
-The Visual Editor should significantly help working with datasets, but it does not eliminate the need for the Charts function.
+The Visual Editor helps you work with datasets, but you still need the Charts function for advanced use cases.
 
 {{< youtube id="vda3jbtLnMM" >}}
 
 _Visual Charts Editor tutorial for Business Charts 6.4.0_
 
-This feature is in the beta version. As of now, it should work for all charts enabled in the **Type** dropdown.
+This feature is in beta. It works for all charts enabled in the **Type** drop-down list.
 
 {{< figure src="/media/docs/grafana/panels-visualizations/business-charts/type-location.png" class="border" alt="The Type dropdown location." >}}
 
@@ -27,7 +27,7 @@ _In development_ means that this type is coming soon. All other types are availa
 
 If your use case requires complex logic, use the **Code** mode.
 
-{{< figure src="/media/docs/grafana/panels-visualizations/business-charts/vis-editor.png" class="border" alt="The Visual Editor is an exciting feature added in 6.0.0." >}}
+{{< figure src="/media/docs/grafana/panels-visualizations/business-charts/vis-editor.png" class="border" alt="The Visual Editor in 6.0.0." >}}
 
 ## Types
 

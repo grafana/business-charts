@@ -11,6 +11,6 @@ labels:
 
 # Release notes
 
-Stay updated with the Business Charts panel’s evolution through these release notes, highlighting key updates, new features, enhancements, and fixes across all versions.
+Explore the evolution of the Business Charts panel through the release notes, detailing new features, enhancements, fixes, and breaking changes across all versions.
 
-All notable changes to Business Charts are documented in the [changelog](https://grafana.com/grafana/plugins/volkovlabs-echarts-panel/?tab=changelog) found in the plugins catalog.
+All notable changes to Business Charts are documented in the [changelog](https://grafana.com/grafana/plugins/volkovlabs-echarts-panel/?tab=changelog) in the plugins catalog.

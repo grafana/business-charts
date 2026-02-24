@@ -11,7 +11,7 @@ labels:
 
 # Raster and vector images
 
-A quick guide on how to use images in the Business Charts panel depending on the source type.
+This guide explains how to use images in the Business Charts panel, depending on the source type.
 
 {{< youtube id="ygFDhmbPU-Y" >}}
 

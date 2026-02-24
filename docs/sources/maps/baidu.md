@@ -12,7 +12,7 @@ labels:
 
 # Baidu maps
 
-Baidu Maps is loaded via API v3 and require an access key.
+Baidu Maps loads using API v3 and requires an access key.
 
 ## Access key
 

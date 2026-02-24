@@ -11,7 +11,7 @@ labels:
 
 # Transformations
 
-Transformations can modify the returned data frames and may require code updates for retrieving values from `context.panel.data`.
+Transformations can modify the returned data frames and may require code updates to retrieve values from `context.panel.data`.
 
 ## Sort by
 

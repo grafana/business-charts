@@ -11,9 +11,9 @@ labels:
 
 # Data sources
 
-The Business Charts panel supports various data sources that you can use to query data for building charts.
+The Business Charts panel supports various data sources you can use to query data for building charts.
 
-The following code snippet demonstrates how you can retrieve data from your data source to use in the Business Charts panel.
+The following code snippet shows how to retrieve data from your data source for use in the Business Charts panel.
 
 ```javascript
 context.panel.data.series.map((s) => {

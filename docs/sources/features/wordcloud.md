@@ -12,7 +12,7 @@ labels:
 # Wordcloud extension
 
 {{< admonition type="note" >}}
-The Business Charts panel supports the Wordcloud Extension starting from version 5.1.0.
+The Business Charts panel supports the Wordcloud extension starting from version 5.1.0.
 {{< /admonition >}}
 
 The Wordcloud extension renders a tag cloud presentation on a two-dimensional canvas.
