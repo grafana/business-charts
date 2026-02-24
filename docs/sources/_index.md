@@ -11,7 +11,7 @@ labels:
 
 # Business Charts
 
-The Business charts panel lets you integrate charts and graphs created by the [Apache ECharts library](https://echarts.apache.org/en/index.html) into your Grafana dashboard.
+The Business Charts panel lets you integrate charts and graphs created by the [Apache ECharts library](https://echarts.apache.org/en/index.html) into your Grafana dashboard.
 
 Apache ECharts is a versatile data visualization library. It provides a wide range of chart types, including statistical capabilities. It is written in pure JavaScript and based on [zrender](http://ecomfe.github.io/zrender/), a lightweight graphic library for chart rendering.
 

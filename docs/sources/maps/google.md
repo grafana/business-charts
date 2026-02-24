@@ -10,7 +10,7 @@ labels:
     - oss
 ---
 
-# Google maps
+# Google Maps
 
 Google Maps loads using Maps API and requires an access key.
 
