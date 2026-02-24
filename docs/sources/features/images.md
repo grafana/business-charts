@@ -19,7 +19,7 @@ _The Business Charts panel supports base64 PNG and SVG (vector) images_
 
 ## Use Cases
 
-As Daria mentioned in the video tutorial, the typical cases when you may need to use images include:
+As mentioned in the video tutorial, the typical cases when you may need to use images include:
 
 - Data points
 - Simple labels

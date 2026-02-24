@@ -54,7 +54,7 @@ const series = context.panel.data.series.map((s) => {
 
 ## Pie chart using visual mode
 
-We use the [Business Input data source](/plugins/business-input/) for this example.
+We use the [Business Input data source](https://grafana.com/docs/plugins/marcusolsson-static-datasource/<PLUGINS_VERSION>/) for this example.
 
 {{< figure src="/media/docs/grafana/panels-visualizations/business-charts/pie-chart.png" class="border" alt="Build a Pie Chart using a data source." >}}
 

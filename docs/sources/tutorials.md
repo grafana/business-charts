@@ -11,11 +11,11 @@ labels:
 
 # Tutorials
 
-This page contains clear, step-by-step video tutorials that showcase new features and tackle the most common challenges our users face. Our goal is to make your experience with Business Suite as seamless and productive as possible.
+This page contains clear, step-by-step video tutorials that showcase new features and tackle the most common challenges users face. The goal is to make your experience with Business Suite as seamless and productive as possible.
 
 ## How to use Business Suite to create a release dashboard in Grafana
 
-In this video, Daria explains how the release dashboard has been configured and all the Business Suite panels used.
+This video explains how the release dashboard has been configured and all the Business Suite panels used.
 
 {{< youtube id="tUGRQBBZoRQ" >}}
 
@@ -77,9 +77,9 @@ _Histograms, Clustering. Regression in the Business Charts panel._
 
 ## Directed graph
 
-The Business Charts panel can render directed, undirected, and almost any other graph. Watch our tutorial to better understand the customization capabilities provided by the plugin.
+The Business Charts panel can render directed, undirected, and almost any other graph. Watch the tutorial to better understand the customization capabilities provided by the plugin.
 
-In two-part video tutorial, Daria explains how you can build and visualize directed graphs in Grafana with the Business Charts panel.
+This two-part video tutorial explains how you can build and visualize directed graphs in Grafana with the Business Charts panel.
 
 {{< youtube id="BcW7iyTadWE" >}}
 

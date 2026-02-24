@@ -19,7 +19,7 @@ The Business Charts 5.0.0 allows you to unsubscribe from events to avoid memory 
 
 ## Predefined events
 
-A full list of events is available in our [Grafana Crash Course](https://volkovlabs.io/grafana/developer/eventbus/).
+A full list of events is available in the [Grafana Crash Course](https://volkovlabs.io/grafana/developer/eventbus/).
 
 ## Subscribe to events
 

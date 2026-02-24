@@ -1,7 +1,7 @@
 ---
-title: Business Charts
-menuTitle: Business Charts
-description: Learn how to integrate Apache ECharts library charts and graphs into your Grafana dashboard using the Business Charts panel.
+title: Business charts
+menuTitle: Business charts
+description: Learn how to integrate charts and graphs from the Apache ECharts library into your Grafana dashboard using the Business charts panel.
 labels:
   products:
     - cloud
@@ -9,30 +9,30 @@ labels:
     - oss
 ---
 
-# Business Charts
+# Business charts
 
-The Business Charts panel allows you to integrate charts and graphs created by the [Apache ECharts library](https://echarts.apache.org/en/index.html) into your Grafana dashboard.
+The Business charts panel lets you integrate charts and graphs created by the [Apache ECharts library](https://echarts.apache.org/en/index.html) into your Grafana dashboard.
 
-Apache ECharts is a powerful and versatile data visualization library providing a wide range of chart types including statistical capabilities. It is written in pure JavaScript and based on [zrender](http://ecomfe.github.io/zrender/), a lightweight graphic library for chart rendering.
+Apache ECharts is a versatile data visualization library. It provides a wide range of chart types, including statistical capabilities. It is written in pure JavaScript and based on [zrender](http://ecomfe.github.io/zrender/), a lightweight graphic library for chart rendering.
 
-The Business Charts plugin offers an easy way of adding intuitive, interactive, and highly customizable charts to your Grafana dashboard.
+The Business charts plugin lets you add interactive and customizable charts to your Grafana dashboard.
 
 ## Requirements
 
-- Business Charts panel 7.X requires **Grafana 11** or **Grafana 12**.
-- Business Charts panel 6.X requires **Grafana 10** or **Grafana 11**.
+- Business charts panel 7.X requires **Grafana 11** or **Grafana 12**.
+- Business charts panel 6.X requires **Grafana 10** or **Grafana 11**.
 - Apache ECharts panel 5.X requires **Grafana 9** or **Grafana 10**.
 - Apache ECharts panel 3.X and 4.X require **Grafana 8.5** or **Grafana 9**.
 
 ## Getting started
 
-You can install the Business Charts panel from the [Grafana Plugins catalog](https://grafana.com/grafana/plugins/volkovlabs-echarts-panel/) or using the Grafana command line tool.
+Install the Business charts panel from the [Grafana Plugins catalog](https://grafana.com/grafana/plugins/volkovlabs-echarts-panel/) or use the Grafana command line tool.
 
 {{< youtube id="1qYzHfPXJF8" >}}
 
-_Install Business Suite plugins in Cloud, OSS, Enterprise. Getting started with the Business Suite._
+_Install Business Suite plugins in Cloud, OSS, and Enterprise. Get started with the Business Suite._
 
-For the latter, please use the following command.
+To install using the command line, run:
 
 ```sh
 grafana cli plugins install volkovlabs-echarts-panel
@@ -64,9 +64,9 @@ grafana cli plugins install volkovlabs-echarts-panel
 
 This is the first video created about Business Charts after the plugin rebranding. It features dazzling chart examples followed by a high-level plugin architecture. Knowing the basics of plugin architecture will help you create your custom charts.
 
-To get you started quicker the [web resource](https://echarts.volkovlabs.io/) has numerous ready-to-use examples. In the video, Daria demonstrates how to work with this resource.
+To get you started quicker the [web resource](https://echarts.volkovlabs.io/) has numerous ready-to-use examples. This video demonstrates how to work with this resource.
 
-The main obstacle for many plugin users is the data transmission from the Grafana data frame(s) into the [Charts function](https://grafana.com/docs/plugins/volkovlabs-echarts-panel/<PLUGINS_VERSION>/charts-function/). In the video, in addition to the resource with how-to examples, Daria introduces the Visual Editor - the mechanism created to simplify the transmission.
+The main obstacle for many plugin users is the data transmission from the Grafana data frame(s) into the [Charts function](https://grafana.com/docs/plugins/volkovlabs-echarts-panel/<PLUGINS_VERSION>/charts-function/). In addition to the resource with how-to examples, this video introduces the Visual Editor - the mechanism created to simplify the transmission.
 
 {{< youtube id="adOjUxrfysc" >}}
 

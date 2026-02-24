@@ -247,13 +247,13 @@ The scatter (also known as scatter graph, scatter plot, scattergram) is a chart 
 
 1. Required data frame. One data frame should consist of three columns, X and Y coordinates and then a value to display. For instance:
 
-  | Y-axis | X-axis | Size |
-  | ----- | ----- | ---- |
-  | 10    | 8.04  | 20   |
-  | 8.07  | 6.95  | 21   |
-  | 13.0  | 7.58  | 22   |
-  | 9.05  | 8.81  | 23   |
-  | 11    | 8.33  | 24   |
+   | Y-axis | X-axis | Size |
+   | ----- | ----- | ---- |
+   | 10    | 8.04  | 20   |
+   | 8.07  | 6.95  | 21   |
+   | 13.0  | 7.58  | 22   |
+   | 9.05  | 8.81  | 23   |
+   | 11    | 8.33  | 24   |
 
 1. Datasets. For the **Scatter**, you need to add three datasets.
 
