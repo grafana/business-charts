@@ -29,7 +29,7 @@ Try the panel with [Gaode Maps in the edit mode](https://echarts.volkovlabs.io/d
 - During the loading, you can show an animation using the code below.
 - You can load additional plugins through the panel options.
 
-![Gaode Maps is supported from Business Charts panel 3.8.0.](/media/docs/grafana/panels-visualizations/business-charts/gaode.png)
+{{< figure src="/media/docs/grafana/panels-visualizations/business-charts/gaode.png" class="border" alt="Gaode Maps is supported from Business Charts panel 3.8.0." >}}
 
 ## Example
 

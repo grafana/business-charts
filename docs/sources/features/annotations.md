@@ -23,7 +23,7 @@ The differences between different types of annotations are explained in the how-
 
 The Business Charts panel displays annotations with mark lines. Data for mark lines is retrieved from the `context.panel.data.annotations` object.
 
-![Annotations in the Business Charts look similar to the Time Series panels.](/media/docs/grafana/panels-visualizations/business-charts/annotations.png)
+{{< figure src="/media/docs/grafana/panels-visualizations/business-charts/annotations.png" class="border" alt="Annotations in the Business Charts look similar to the Time Series panels." >}}
 
 ## Example
 

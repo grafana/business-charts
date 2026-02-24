@@ -28,7 +28,7 @@ Try the panel with [Google Maps in the edit mode](https://echarts.volkovlabs.io/
 - The `gmapReady` callback function is executed during the loading. You can update the name in the panel options.
 - During the loading, you can show an animation using the code below.
 
-![Google Maps is supported from the Business Charts panel 3.8.0.](/media/docs/grafana/panels-visualizations/business-charts/google.png)
+{{< figure src="/media/docs/grafana/panels-visualizations/business-charts/google.png" class="border" alt="Google Maps is supported from the Business Charts panel 3.8.0." >}}
 
 ## Example
 

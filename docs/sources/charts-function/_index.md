@@ -28,13 +28,13 @@ See the schema and the print screen below for illustration.
 
 {{< figure src="/media/docs/grafana/panels-visualizations/business-charts/schema.png" class="border" alt="The Charts function receives many parameters from Grafana and sends one to the setOption() function." >}}
 
-![The Charts function.](/media/docs/grafana/panels-visualizations/business-charts/charts-function.png)
+{{< figure src="/media/docs/grafana/panels-visualizations/business-charts/charts-function.png" class="border" alt="The Charts function." >}}
 
 ## Options
 
 The `return` clause is where you need to specify the `options` parameter to be passed into the `setOption(options)` Apache ECharts library function.
 
-![The Business Charts panel provides the code editor to specify the Charts function.](/media/docs/grafana/panels-visualizations/business-charts/function.png)
+{{< figure src="/media/docs/grafana/panels-visualizations/business-charts/function.png" class="border" alt="The Business Charts panel provides the code editor to specify the Charts function." >}}
 
 ## Parameters
 

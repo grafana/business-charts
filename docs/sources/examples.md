@@ -13,7 +13,7 @@ labels:
 
 Take a try of 100+ ready-to-use chart examples at our [demo site for the Business Charts panel](https://echarts.volkovlabs.io).
 
-![The Apache ECharts Examples adopted to use in Grafana.](/media/docs/grafana/panels-visualizations/business-charts/examples.png)
+{{< figure src="/media/docs/grafana/panels-visualizations/business-charts/examples.png" class="border" alt="The Apache ECharts Examples adopted to use in Grafana." >}}
 
 ## Get started
 
@@ -30,4 +30,4 @@ Take a try of 100+ ready-to-use chart examples at our [demo site for the Busines
 
    - You may need to refresh the chart to update its state.
 
-![To get started: copy from one of our examples and paste to your dashboard.](/media/docs/grafana/panels-visualizations/business-charts/copy-paste.gif)
+{{< figure src="/media/docs/grafana/panels-visualizations/business-charts/copy-paste.gif" class="border" alt="To get started: copy from one of our examples and paste to your dashboard." >}}

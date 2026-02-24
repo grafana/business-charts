@@ -56,7 +56,7 @@ const series = context.panel.data.series.map((s) => {
 
 We use the [Business Input data source](/plugins/business-input/) for this example.
 
-![Build a Pie Chart using a data source.](/media/docs/grafana/panels-visualizations/business-charts/pie-chart.png)
+{{< figure src="/media/docs/grafana/panels-visualizations/business-charts/pie-chart.png" class="border" alt="Build a Pie Chart using a data source." >}}
 
 ### Example
 
@@ -93,7 +93,7 @@ The wind speed visualization is one of the advanced examples of what the Busines
 - The arrow color indicates the speed.
 - The direction where the arrow points indicates the wind direction.
 
-![Building a wind speed chart with custom arrows on the Grafana dashboard](/media/docs/grafana/panels-visualizations/business-charts/wind-speed.png)
+{{< figure src="/media/docs/grafana/panels-visualizations/business-charts/wind-speed.png" class="border" alt="Building a wind speed chart with custom arrows on the Grafana dashboard" >}}
 
 ### Example
 
@@ -149,7 +149,7 @@ return {
 
 We use the [Business Input data source](/plugins/business-input/) for this example.
 
-![Visualize a circular graph using a data source.](/media/docs/grafana/panels-visualizations/business-charts/circular-graph.png)
+{{< figure src="/media/docs/grafana/panels-visualizations/business-charts/circular-graph.png" class="border" alt="Visualize a circular graph using a data source." >}}
 
 ### Example
 

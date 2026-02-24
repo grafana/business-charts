@@ -85,7 +85,7 @@ In two-part video tutorial, Daria explains how you can build and visualize direc
 
 _Can the Business Charts render a directed graph?_
 
-![Display directed graphs in Grafana.](/media/docs/grafana/panels-visualizations/business-charts/graph.png)
+{{< figure src="/media/docs/grafana/panels-visualizations/business-charts/graph.png" class="border" alt="Display directed graphs in Grafana." >}}
 
 ### Part 1
 

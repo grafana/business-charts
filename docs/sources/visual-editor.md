@@ -21,13 +21,13 @@ _Visual Charts Editor tutorial for Business Charts 6.4.0_
 
 This feature is in the beta version. As of now, it should work for all charts enabled in the **Type** dropdown.
 
-![The Type dropdown location.](/media/docs/grafana/panels-visualizations/business-charts/type-location.png)
+{{< figure src="/media/docs/grafana/panels-visualizations/business-charts/type-location.png" class="border" alt="The Type dropdown location." >}}
 
 _In development_ means that this type is coming soon. All other types are available for selection.
 
 If your use case requires complex logic, use the **Code** mode.
 
-![The Visual Editor is an exciting feature added in 6.0.0.](/media/docs/grafana/panels-visualizations/business-charts/vis-editor.png)
+{{< figure src="/media/docs/grafana/panels-visualizations/business-charts/vis-editor.png" class="border" alt="The Visual Editor is an exciting feature added in 6.0.0." >}}
 
 ## Types
 
@@ -44,7 +44,7 @@ Below is a more detailed description of how the **Visual Editor** can be used fo
 
 ## Line
 
-![Using the Visual Editor to build a Line chart type.](/media/docs/grafana/panels-visualizations/business-charts/line-basic.png)
+{{< figure src="/media/docs/grafana/panels-visualizations/business-charts/line-basic.png" class="border" alt="Using the Visual Editor to build a Line chart type." >}}
 
 1. Required data frame. You need to have at least two columns of data. At least one column should be numerical.
 
@@ -79,7 +79,7 @@ return {
 
 ## Bar
 
-![Using the Visual Editor to build a Bar chart type.](/media/docs/grafana/panels-visualizations/business-charts/bar-basic.png)
+{{< figure src="/media/docs/grafana/panels-visualizations/business-charts/bar-basic.png" class="border" alt="Using the Visual Editor to build a Bar chart type." >}}
 
 1. Required data frame. You need to have at least two columns of data. At least one column should be numerical.
 
@@ -121,7 +121,7 @@ The chart usually displays two or more quantitative variables for comparison.
 
 Here, we compare the allocated and actual budgets in six categories (company departments).
 
-![Using the Visual Editor to build a Radar chart type.](/media/docs/grafana/panels-visualizations/business-charts/radar-basic.png)
+{{< figure src="/media/docs/grafana/panels-visualizations/business-charts/radar-basic.png" class="border" alt="Using the Visual Editor to build a Radar chart type." >}}
 
 1. Required data frame. You need to have at least two columns of data. At least one column should be numerical. In this example, there are two numerical columns.
 
@@ -164,7 +164,7 @@ A sunburst chart is a circular diagram displaying pieces of a whole on multiple 
 
 Data for the sunburst chart should include levels. These levels represent the hierarchical structure of the data. The top level typically represents the set of main categories, and each further level decomposes the previous one, providing a more detailed view of the data.
 
-![Using the Visual Editor to build a Sunburst chart type.](/media/docs/grafana/panels-visualizations/business-charts/sunburst-basic.png)
+{{< figure src="/media/docs/grafana/panels-visualizations/business-charts/sunburst-basic.png" class="border" alt="Using the Visual Editor to build a Sunburst chart type." >}}
 
 1. Required data frame. For a meaningful sunburst, you need at least two levels(two columns) of data.
 
@@ -206,7 +206,7 @@ return {
 
 The boxplot is a chart depicting a variable distribution in a compact way where you can compare it over time or between multiple entities.
 
-![Using the Visual Editor to build a Boxplot chart type.](/media/docs/grafana/panels-visualizations/business-charts/boxplot-basic.png)
+{{< figure src="/media/docs/grafana/panels-visualizations/business-charts/boxplot-basic.png" class="border" alt="Using the Visual Editor to build a Boxplot chart type." >}}
 
 1. Required data frame. For each distribution, you provide the minimum, the first quartile (25% mark), the median, the third quartile (75% mark), and maximum values.
 
@@ -243,7 +243,7 @@ return {
 
 The scatter (also known as scatter graph, scatter plot, scattergram) is a chart that uses Cartesian coordinates to depict a value for two variables.
 
-![Using the Visual Editor to build a Scatter chart type.](/media/docs/grafana/panels-visualizations/business-charts/scatter-basic.png)
+{{< figure src="/media/docs/grafana/panels-visualizations/business-charts/scatter-basic.png" class="border" alt="Using the Visual Editor to build a Scatter chart type." >}}
 
 1. Required data frame. One data frame should consist of three columns, X and Y coordinates and then a value to display. For instance:
 

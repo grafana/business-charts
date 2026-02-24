@@ -21,7 +21,7 @@ The `Sort by` transformation modifies the structure of the returned data frames 
 - Setting an array with values.
 - Getting sorted values for each array.
 
-![The Sort by transformation requires updating the Charts function to retrieve values.](/media/docs/grafana/panels-visualizations/business-charts/transformations.png)
+{{< figure src="/media/docs/grafana/panels-visualizations/business-charts/transformations.png" class="border" alt="The Sort by transformation requires updating the Charts function to retrieve values." >}}
 
 ### Example
 

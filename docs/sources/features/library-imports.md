@@ -41,7 +41,7 @@ import("https://esm.sh/echarts-stat@1.2.0").then(
 );
 ```
 
-![Scatter type graph with imported ecStat library.](/media/docs/grafana/panels-visualizations/business-charts/scatter-import-example.png)
+{{< figure src="/media/docs/grafana/panels-visualizations/business-charts/scatter-import-example.png" class="border" alt="Scatter type graph with imported ecStat library." >}}
 
 {{< collapse title="Full example" >}}
 
@@ -347,7 +347,7 @@ return import("https://esm.sh/@manufac/echarts-simple-transform@2.0.11").then(
 );
 ```
 
-![Boxplot type graph with imported ecSimpleTransform library.](/media/docs/grafana/panels-visualizations/business-charts/boxplot-import-example.png)
+{{< figure src="/media/docs/grafana/panels-visualizations/business-charts/boxplot-import-example.png" class="border" alt="Boxplot type graph with imported ecSimpleTransform library." >}}
 
 {{< collapse title="Full example" >}}
 

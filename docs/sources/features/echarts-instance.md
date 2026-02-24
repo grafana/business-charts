@@ -44,7 +44,7 @@ You can add elements (buttons, checkboxes, dropdown boxes, etc.) to the DOM (Doc
 
 You can add a button with an on-click event handler on top of the Business Charts panel.
 
-![Add a button to handle events in the Apache ECharts container.](/media/docs/grafana/panels-visualizations/business-charts/dom.png)
+{{< figure src="/media/docs/grafana/panels-visualizations/business-charts/dom.png" class="border" alt="Add a button to handle events in the Apache ECharts container." >}}
 
 ```js
 const myFunction = () => {
@@ -84,7 +84,7 @@ if (nodeList.length < 2) {
 
 Add a select box with an on-change event handler.
 
-![Add a select box with options and update the Apache ECharts options based on the user's selection.](/media/docs/grafana/panels-visualizations/business-charts/select.png)
+{{< figure src="/media/docs/grafana/panels-visualizations/business-charts/select.png" class="border" alt="Add a select box with options and update the Apache ECharts options based on the user's selection." >}}
 
 ```js
 //Get the DOM for the panel

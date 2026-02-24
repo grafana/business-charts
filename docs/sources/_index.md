@@ -58,7 +58,7 @@ grafana cli plugins install volkovlabs-echarts-panel
 - Provides 100+ ready-to-use examples at [echarts.volkovlabs.io](https://echarts.volkovlabs.io).
 - Supports the [Wordcloud extension](https://github.com/ecomfe/echarts-wordcloud).
 
-![A few examples of the Business Charts panel.](/media/docs/grafana/panels-visualizations/business-charts/business-charts.gif)
+{{< figure src="/media/docs/grafana/panels-visualizations/business-charts/business-charts.gif" class="border" alt="A few examples of the Business Charts panel." >}}
 
 ## Tutorial
 

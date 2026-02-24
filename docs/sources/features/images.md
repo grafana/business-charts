@@ -91,4 +91,4 @@ return {
 
 You should see the following visualization.
 
-![Display images using URL, Path, XML SVG and Base64 PNG.](/media/docs/grafana/panels-visualizations/business-charts/image-types.png)
+{{< figure src="/media/docs/grafana/panels-visualizations/business-charts/image-types.png" class="border" alt="Display images using URL, Path, XML SVG and Base64 PNG." >}}

@@ -23,7 +23,7 @@ You can get familiar with three types of variables in our [Grafana Crash Course]
 
 In the following example, we replaced the series's name with a value from the variable.
 
-![Replace Dashboard Variables.](/media/docs/grafana/panels-visualizations/business-charts/variables.png)
+{{< figure src="/media/docs/grafana/panels-visualizations/business-charts/variables.png" class="border" alt="Replace Dashboard Variables." >}}
 
 ### Example
 
