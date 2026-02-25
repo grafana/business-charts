@@ -11,15 +11,15 @@ labels:
 
 # Theme Editor
 
-Theme Editor allows using custom themes generated with [Theme Builder](https://echarts.apache.org/en/theme-builder.html).
+The Theme Editor lets you use custom themes generated with [Theme Builder](https://echarts.apache.org/en/theme-builder.html).
 
-![The Business Charts panel supports custom themes from Theme Builder.](/media/docs/grafana/panels-visualizations/business-charts/theme.png)
+{{< figure src="/media/docs/grafana/panels-visualizations/business-charts/theme.png" class="border" alt="The Business Charts panel supports custom themes from Theme Builder." >}}
 
 ## Theme Builder
 
 Theme Builder allows you to create fully customizable themes. Configuration is saved into the JSON file, which can be downloaded and inserted into Theme Editor.
 
-![Theme Builder allows creating custom themes for the Business Charts panel.](/media/docs/grafana/panels-visualizations/business-charts/theme-builder.png)
+{{< figure src="/media/docs/grafana/panels-visualizations/business-charts/theme-builder.png" class="border" alt="Theme Builder allows creating custom themes for the Business Charts panel." >}}
 
 ## Custom theme
 

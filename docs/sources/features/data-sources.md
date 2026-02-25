@@ -11,9 +11,9 @@ labels:
 
 # Data sources
 
-The Business Charts panel supports various data sources that you can use to query data for building charts.
+The Business Charts panel supports various data sources you can use to query data for building charts.
 
-The following code snippet demonstrates how you can retrieve data from your data source to use in the Business Charts panel.
+The following code snippet shows how to retrieve data from your data source for use in the Business Charts panel.
 
 ```javascript
 context.panel.data.series.map((s) => {
@@ -54,9 +54,9 @@ const series = context.panel.data.series.map((s) => {
 
 ## Pie chart using visual mode
 
-We use the [Business Input data source](/plugins/business-input/) for this example.
+We use the [Business Input data source](https://grafana.com/docs/plugins/marcusolsson-static-datasource/<PLUGINS_VERSION>/) for this example.
 
-![Build a Pie Chart using a data source.](/media/docs/grafana/panels-visualizations/business-charts/pie-chart.png)
+{{< figure src="/media/docs/grafana/panels-visualizations/business-charts/pie-chart.png" class="border" alt="Build a Pie Chart using a data source." >}}
 
 ### Example
 
@@ -93,7 +93,7 @@ The wind speed visualization is one of the advanced examples of what the Busines
 - The arrow color indicates the speed.
 - The direction where the arrow points indicates the wind direction.
 
-![Building a wind speed chart with custom arrows on the Grafana dashboard](/media/docs/grafana/panels-visualizations/business-charts/wind-speed.png)
+{{< figure src="/media/docs/grafana/panels-visualizations/business-charts/wind-speed.png" class="border" alt="Building a wind speed chart with custom arrows on the Grafana dashboard" >}}
 
 ### Example
 
@@ -149,7 +149,7 @@ return {
 
 We use the [Business Input data source](/plugins/business-input/) for this example.
 
-![Visualize a circular graph using a data source.](/media/docs/grafana/panels-visualizations/business-charts/circular-graph.png)
+{{< figure src="/media/docs/grafana/panels-visualizations/business-charts/circular-graph.png" class="border" alt="Visualize a circular graph using a data source." >}}
 
 ### Example
 

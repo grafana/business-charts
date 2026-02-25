@@ -11,11 +11,11 @@ labels:
 
 # Tutorials
 
-This page contains clear, step-by-step video tutorials that showcase new features and tackle the most common challenges our users face. Our goal is to make your experience with Business Suite as seamless and productive as possible.
+This page provides clear, step-by-step video tutorials that show new features and address common challenges users face. The goal is to make your experience with Business Suite seamless and productive.
 
 ## How to use Business Suite to create a release dashboard in Grafana
 
-In this video, Daria explains how the release dashboard has been configured and all the Business Suite panels used.
+This video explains how the release dashboard is configured and which Business Suite panels are used.
 
 {{< youtube id="tUGRQBBZoRQ" >}}
 
@@ -23,7 +23,7 @@ _How to create a business dashboard in Grafana_
 
 ## Visual Charts Editor in Business Charts 6.4.0
 
-The Visual Editor simplifies working with the Grafana data frames and facilitates intuitive data transmission into the Charts function. This video provides line, bar, radar, boxplot, and sunburst types tutorials.
+The Visual Editor simplifies working with Grafana data frames and makes it easy to send data to the Charts function. This video covers tutorials for line, bar, radar, boxplot, and sunburst chart types.
 
 {{< youtube id="vda3jbtLnMM" >}}
 
@@ -31,7 +31,7 @@ _Visual Charts Editor tutorial for Business Charts 6.4.0_
 
 ## Features overview of Business Charts 6.0.0
 
-This is the first video created about Business Charts after the plugin rebranding. It features dazzling chart examples followed by a high-level plugin architecture. Knowing the basics of plugin architecture will help you create your custom charts.
+This is the first video created after the Business Charts plugin rebranding. It features chart examples and provides a high-level overview of the plugin architecture. Understanding the basics of plugin architecture helps you create custom charts.
 
 {{< youtube id="adOjUxrfysc" >}}
 
@@ -77,15 +77,15 @@ _Histograms, Clustering. Regression in the Business Charts panel._
 
 ## Directed graph
 
-The Business Charts panel can render directed, undirected, and almost any other graph. Watch our tutorial to better understand the customization capabilities provided by the plugin.
+The Business Charts panel can render directed, undirected, and almost any other graph. Watch the tutorial to better understand the customization capabilities provided by the plugin.
 
-In two-part video tutorial, Daria explains how you can build and visualize directed graphs in Grafana with the Business Charts panel.
+This two-part video tutorial explains how you can build and visualize directed graphs in Grafana with the Business Charts panel.
 
 {{< youtube id="BcW7iyTadWE" >}}
 
 _Can the Business Charts render a directed graph?_
 
-![Display directed graphs in Grafana.](/media/docs/grafana/panels-visualizations/business-charts/graph.png)
+{{< figure src="/media/docs/grafana/panels-visualizations/business-charts/graph.png" class="border" alt="Display directed graphs in Grafana." >}}
 
 ### Part 1
 

@@ -15,7 +15,7 @@ labels:
 The Business Charts panel supports the extended result object starting from version 5.0.0.
 {{< /admonition >}}
 
-The extended result object allows you to return:
+The extended result object lets you return:
 
 - Configuration
 - Options

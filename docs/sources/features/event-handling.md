@@ -11,9 +11,9 @@ labels:
 
 # Event handling
 
-You can handle specific events while viewing charts, for example, handle mouse events or any other event with the `context.panel.chart` ( early `echartsInstance` ) instance.
+You can handle specific events while viewing charts, such as mouse events, using the `context.panel.chart` (formerly `echartsInstance`) instance.
 
-For more examples and detailed descriptions, please check the Apache ECharts documentation about [Events and Actions](https://apache.github.io/echarts-handbook/en/concepts/event/).
+For more examples and details, see the Apache ECharts documentation on [Events and Actions](https://apache.github.io/echarts-handbook/en/concepts/event/).
 
 ## Mouse click
 
@@ -46,7 +46,7 @@ The Data Zoom feature allows you to select a time period on the chart for zoomin
 
 Once the time range is selected, the event can trigger the update of the dashboard's time range using the `context.grafana.locationService` parameter similar to the functionality in native Time Series panel.
 
-![Data Zoom feature for Random Walk.](/media/docs/grafana/panels-visualizations/business-charts/data-zoom.png)
+{{< figure src="/media/docs/grafana/panels-visualizations/business-charts/data-zoom.png" class="border" alt="Data Zoom feature for Random Walk." >}}
 
 ### Example
 

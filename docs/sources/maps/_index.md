@@ -12,7 +12,7 @@ labels:
 
 # Supported maps
 
-The Business Charts panel allows you to use maps as a basis for generating charts and displaying the value distribution across geographical areas.
+The Business Charts panel lets you use maps as a basis for generating charts and displaying value distribution across geographical areas.
 
 | Section            | Description                                |
 | ------------------ | ------------------------------------------ |

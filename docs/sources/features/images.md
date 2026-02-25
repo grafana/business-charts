@@ -11,7 +11,7 @@ labels:
 
 # Raster and vector images
 
-A quick guide on how to use images in the Business Charts panel depending on the source type.
+This guide explains how to use images in the Business Charts panel, depending on the source type.
 
 {{< youtube id="ygFDhmbPU-Y" >}}
 
@@ -19,7 +19,7 @@ _The Business Charts panel supports base64 PNG and SVG (vector) images_
 
 ## Use Cases
 
-As Daria mentioned in the video tutorial, the typical cases when you may need to use images include:
+As mentioned in the video tutorial, the typical cases when you may need to use images include:
 
 - Data points
 - Simple labels
@@ -91,4 +91,4 @@ return {
 
 You should see the following visualization.
 
-![Display images using URL, Path, XML SVG and Base64 PNG.](/media/docs/grafana/panels-visualizations/business-charts/image-types.png)
+{{< figure src="/media/docs/grafana/panels-visualizations/business-charts/image-types.png" class="border" alt="Display images using URL, Path, XML SVG and Base64 PNG." >}}

@@ -12,12 +12,12 @@ labels:
 # Library imports
 
 {{< admonition type="note" >}}
-The Business Charts panel supports the npm library imports since version 6.0.0.
+The Business Charts panel supports NPM library imports starting from version 6.0.0.
 
-Since version 6.4.0 you can return `import` with options instead use `setOption(options)` method.
+Since version 6.4.0, you can return `import` with options instead of using the `setOption(options)` method.
 {{< /admonition >}}
 
-Additional NPM libraries can be imported to be used in Business Charts panel using `import` statement.
+You can import additional NPM libraries for use in the Business Charts panel using the `import` statement.
 
 ## ecStat library
 
@@ -41,7 +41,7 @@ import("https://esm.sh/echarts-stat@1.2.0").then(
 );
 ```
 
-![Scatter type graph with imported ecStat library.](/media/docs/grafana/panels-visualizations/business-charts/scatter-import-example.png)
+{{< figure src="/media/docs/grafana/panels-visualizations/business-charts/scatter-import-example.png" class="border" alt="Scatter type graph with imported ecStat library." >}}
 
 {{< collapse title="Full example" >}}
 
@@ -347,7 +347,7 @@ return import("https://esm.sh/@manufac/echarts-simple-transform@2.0.11").then(
 );
 ```
 
-![Boxplot type graph with imported ecSimpleTransform library.](/media/docs/grafana/panels-visualizations/business-charts/boxplot-import-example.png)
+{{< figure src="/media/docs/grafana/panels-visualizations/business-charts/boxplot-import-example.png" class="border" alt="Boxplot type graph with imported ecSimpleTransform library." >}}
 
 {{< collapse title="Full example" >}}
 

@@ -17,7 +17,7 @@ Streaming allows real-time data updates using streaming data sources and Grafana
 
 Grafana Live is a real-time messaging engine introduced in Grafana v8.0. With [Grafana Live](https://grafana.com/docs/grafana/latest/setup-grafana/set-up-grafana-live/), you can push event data to the application frontend upon an event occurrence.
 
-![The Business Charts panel allows displaying messages from Grafana Live real-time engine.](/media/docs/grafana/panels-visualizations/business-charts/live.png)
+{{< figure src="/media/docs/grafana/panels-visualizations/business-charts/live.png" class="border" alt="The Business Charts panel allows displaying messages from Grafana Live real-time engine." >}}
 
 ### Example
 
@@ -74,7 +74,7 @@ return {
 
 To stream real-time data, the [WebSocket Data Source for Grafana](https://grafana.com/grafana/plugins/golioth-websocket-datasource/) was used.
 
-![Streaming real-time events from Websocket Data source.](/media/docs/grafana/panels-visualizations/business-charts/websocket.png)
+{{< figure src="/media/docs/grafana/panels-visualizations/business-charts/websocket.png" class="border" alt="Streaming real-time events from Websocket Data source." >}}
 
 ### Server
 
@@ -175,7 +175,7 @@ return {
 
 Another example of displaying Grafana live data using Gauge.
 
-![Display gauge with the live data in real-time.](/media/docs/grafana/panels-visualizations/business-charts/gauge.png)
+{{< figure src="/media/docs/grafana/panels-visualizations/business-charts/gauge.png" class="border" alt="Display gauge with the live data in real-time." >}}
 
 ### Example
 

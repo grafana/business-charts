@@ -11,19 +11,19 @@ labels:
 
 # Grafana events
 
-Grafana uses an event bus to publish application events for notifying different parts of Grafana when the user interacts with the chart. Business Charts panel can react to these actions by subscribing to one or more events.
+Grafana uses an event bus to publish application events and notify different parts of Grafana when users interact with a chart. The Business Charts panel can react to these actions by subscribing to one or more events.
 
 {{< admonition type="note" >}}
-The Business Charts 5.0.0 allows you to unsubscribe from events to avoid memory leaks by returning an [extended result object](https://grafana.com/docs/plugins/volkovlabs-echarts-panel/<PLUGINS_VERSION>/features/extended-result/).
+Business Charts 5.0.0 lets you unsubscribe from events to avoid memory leaks by returning an [extended result object](https://grafana.com/docs/plugins/volkovlabs-echarts-panel/<PLUGINS_VERSION>/features/extended-result/).
 {{< /admonition >}}
 
 ## Predefined events
 
-A full list of events is available in our [Grafana Crash Course](https://volkovlabs.io/grafana/developer/eventbus/).
+A full list of events is available in the [Grafana Crash Course](https://volkovlabs.io/grafana/developer/eventbus/).
 
 ## Subscribe to events
 
-To subscribe and unsubscribe from events, you can create an extended result object.
+To subscribe and unsubscribe from events, create an extended result object.
 
 ```
 const subscription = context.grafana.eventBus.subscribe({ type: 'data-hover' }, () => {
@@ -40,9 +40,3 @@ return {
   }
 }
 ```
-
-## Panels interconnectivity in Grafana via EventBus
-
-This article describes the possibility of using ECharts Instance, Grafana Events, and Extended Result for panel communication by sending and receiving events in Grafana.
-
-[Panels interconnectivity in Grafana via EventBus](https://volkovlabs.io/blog/echarts-shared-crosshair-and-eventbus-20240520/)

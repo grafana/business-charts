@@ -12,7 +12,7 @@ labels:
 
 # Baidu maps
 
-Baidu Maps is loaded via API v3 and require an access key.
+Baidu Maps loads using API v3 and requires an access key.
 
 ## Access key
 
@@ -28,7 +28,7 @@ Try the panel with [Baidu Maps in the edit mode](https://echarts.volkovlabs.io/d
 - The `bmapReady` callback function is executed during the loading. You can update the name in the panel options.
 - During the loading, you can show an animation using the code below.
 
-![Baidu Maps is supported from Business Charts panel 3.6.0.](/media/docs/grafana/panels-visualizations/business-charts/baidu.png)
+{{< figure src="/media/docs/grafana/panels-visualizations/business-charts/baidu.png" class="border" alt="Baidu Maps is supported from Business Charts panel 3.6.0." >}}
 
 ## Example
 

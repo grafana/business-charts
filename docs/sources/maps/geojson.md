@@ -11,9 +11,9 @@ labels:
 
 # GeoJSON
 
-The Business Charts panel supports the world and USA GeoJSON maps. You can load additional maps dynamically.
+The Business Charts panel supports world and USA GeoJSON maps. You can load additional maps dynamically.
 
-![Website Analytics displays requests per country.](/media/docs/grafana/panels-visualizations/business-charts/geojson.png)
+{{< figure src="/media/docs/grafana/panels-visualizations/business-charts/geojson.png" class="border" alt="Website Analytics displays requests per country." >}}
 
 {{< admonition type="note" >}}
 Try the map on the [dashboard in the edit mode](https://echarts.volkovlabs.io/d/X1mkMIFVz/geo-map?orgId=1&editPanel=11).
@@ -94,7 +94,7 @@ return {
 
 The Business Charts panel can visualize connected data points retrieved from a data source on a GeoJSON map.
 
-![Visualize Scatter data points connected with lines on GeoJSON.](/media/docs/grafana/panels-visualizations/business-charts/geojson-scatter.png)
+{{< figure src="/media/docs/grafana/panels-visualizations/business-charts/geojson-scatter.png" class="border" alt="Visualize Scatter data points connected with lines on GeoJSON." >}}
 
 ```js
 let latitudes = [];
@@ -179,7 +179,7 @@ You can load additional GeoJSON maps dynamically from data source:
 - Set as a String field using Business Input data source.
 - Fetched from external URL using Infinity or JSON data sources.
 
-![Loading additional GeoJSON maps.](/media/docs/grafana/panels-visualizations/business-charts/geojson-canada.png)
+{{< figure src="/media/docs/grafana/panels-visualizations/business-charts/geojson-canada.png" class="border" alt="Loading additional GeoJSON maps." >}}
 
 JSON for Canada used in the example can be found [here](https://raw.githubusercontent.com/codeforamerica/click_that_hood/master/public/data/canada.geojson).
 
@@ -215,7 +215,7 @@ return {
 
 The Business Charts panel allows you to switch between GeoJSON maps with on-click or double-click event handlers.
 
-![Switching between GeoJSON maps using event handlers.](/media/docs/grafana/panels-visualizations/business-charts/geojson-onclick.png)
+{{< figure src="/media/docs/grafana/panels-visualizations/business-charts/geojson-onclick.png" class="border" alt="Switching between GeoJSON maps using event handlers." >}}
 
 ```js
 /**
