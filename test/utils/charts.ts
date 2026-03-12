@@ -1,16 +1,15 @@
 import { Locator } from '@playwright/test';
 import { DashboardPage, expect, Panel } from '@grafana/plugin-e2e';
+import * as semver from 'semver';
 import { TEST_IDS } from '../../src/constants/tests';
 import { getLocatorSelectors, LocatorSelectors } from './selectors';
 
 /**
- * Grafana versions that snapshots are validated against.
- * Semver entries match by major.minor (e.g. '12.4' matches '12.4.0', '12.4.1', etc.).
- * Non-semver entries match exactly (e.g. 'dev-preview-react19').
+ * Semver range of Grafana versions that snapshots are validated against.
  * Snapshots are generated using Docker Linux with these specific versions.
  * Other versions will skip screenshot comparison and only verify chart presence.
  */
-const SNAPSHOT_GRAFANA_VERSIONS = ['12.4', '13.0'];
+const SNAPSHOT_GRAFANA_VERSION_RANGE = '>=12.4.0 <12.5.0 || >=13.0.0 <13.1.0';
 
 /**
  * Panel Helper
@@ -42,22 +41,10 @@ export class PanelHelper {
     return expect(this.selectors.chart(), this.getMsg(`Check ${this.title} Presence`)).toBeVisible();
   }
 
-  /**
-   * Extract major.minor from a full version string (e.g. '12.4.0' -> '12.4')
-   */
-  private getMajorMinor(version: string): string {
-    const parts = version.split('.');
-    return `${parts[0]}.${parts[1]}`;
-  }
-
   public async compareScreenshot(name: string, options?: { maxDiffPixelRatio?: number }) {
-    const majorMinor = this.getMajorMinor(this.grafanaVersion);
-    const isMatchingVersion =
-      SNAPSHOT_GRAFANA_VERSIONS.includes(majorMinor) || SNAPSHOT_GRAFANA_VERSIONS.includes(this.grafanaVersion);
-
-    if (!isMatchingVersion) {
+    if (!semver.satisfies(this.grafanaVersion, SNAPSHOT_GRAFANA_VERSION_RANGE)) {
       console.log(
-        `Skipping screenshot comparison for ${this.title}: Grafana ${this.grafanaVersion} is not in snapshot versions [${SNAPSHOT_GRAFANA_VERSIONS.join(', ')}]`
+        `Skipping screenshot comparison for ${this.title}: Grafana ${this.grafanaVersion} does not satisfy ${SNAPSHOT_GRAFANA_VERSION_RANGE}`
       );
       return;
     }
