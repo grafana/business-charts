@@ -34,3 +34,4 @@ e2e-results/
 /blob-report/
 /playwright/.cache/
 /playwright/.auth/
+*-darwin.png
