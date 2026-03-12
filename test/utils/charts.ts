@@ -5,11 +5,19 @@ import { TEST_IDS } from '../../src/constants/tests';
 import { getLocatorSelectors, LocatorSelectors } from './selectors';
 
 /**
- * Semver range of Grafana versions that snapshots are validated against.
- * Snapshots are generated using Docker Linux with these specific versions.
- * Other versions will skip screenshot comparison and only verify chart presence.
+ * Map of semver ranges to snapshot directory names.
+ * Each entry defines a Grafana version range and the subdirectory
+ * within panel.spec.ts-snapshots/ that contains its baseline screenshots.
+ *
+ * Generate snapshots for a specific version using:
+ *   GRAFANA_VERSION=12.3.5 npm run test:e2e:update
  */
-const SNAPSHOT_GRAFANA_VERSION_RANGE = '>=12.4.0 <12.5.0';
+const SNAPSHOT_VERSIONS: Array<{ range: string; dir: string }> = [
+  { range: '>=12.1.0 <12.2.0', dir: 'v12.1' },
+  { range: '>=12.2.0 <12.3.0', dir: 'v12.2' },
+  { range: '>=12.3.0 <12.4.0', dir: 'v12.3' },
+  { range: '>=12.4.0 <12.5.0', dir: 'v12.4' },
+];
 
 /**
  * Panel Helper
@@ -33,6 +41,19 @@ export class PanelHelper {
     return `Panel: ${msg}`;
   }
 
+  /**
+   * Resolve the snapshot subdirectory for the current Grafana version.
+   * Returns the directory name or null if no match.
+   */
+  private getSnapshotDir(): string | null {
+    for (const { range, dir } of SNAPSHOT_VERSIONS) {
+      if (semver.satisfies(this.grafanaVersion, range)) {
+        return dir;
+      }
+    }
+    return null;
+  }
+
   public async checkIfNoErrors() {
     return expect(this.panel.getErrorIcon(), this.getMsg('Check If No Errors')).not.toBeVisible();
   }
@@ -42,14 +63,17 @@ export class PanelHelper {
   }
 
   public async compareScreenshot(name: string, options?: { maxDiffPixelRatio?: number }) {
-    if (!semver.satisfies(this.grafanaVersion, SNAPSHOT_GRAFANA_VERSION_RANGE)) {
-      console.log(
-        `Skipping screenshot comparison for ${this.title}: Grafana ${this.grafanaVersion} does not satisfy ${SNAPSHOT_GRAFANA_VERSION_RANGE}`
-      );
+    const snapshotDir = this.getSnapshotDir();
+
+    if (!snapshotDir) {
+      console.log(`Skipping screenshot comparison for ${this.title}: no snapshots for Grafana ${this.grafanaVersion}`);
       return;
     }
 
-    await expect(this.selectors.chart(), this.getMsg(`Check ${this.title} Screenshot`)).toHaveScreenshot(name, options);
+    await expect(this.selectors.chart(), this.getMsg(`Check ${this.title} Screenshot`)).toHaveScreenshot(
+      [snapshotDir, name],
+      options
+    );
   }
 
   public async checkAlert() {
