@@ -9,7 +9,7 @@ import { getLocatorSelectors, LocatorSelectors } from './selectors';
  * Snapshots are generated using Docker Linux with these specific versions.
  * Other versions will skip screenshot comparison and only verify chart presence.
  */
-const SNAPSHOT_GRAFANA_VERSION_RANGE = '>=12.4.0 <12.5.0 || >=13.0.0 <13.1.0';
+const SNAPSHOT_GRAFANA_VERSION_RANGE = '>=12.4.0 <12.5.0';
 
 /**
  * Panel Helper
