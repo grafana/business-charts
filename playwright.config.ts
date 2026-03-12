@@ -17,8 +17,6 @@ export default defineConfig<PluginOptions>({
   testDir: './test',
   /* Run tests in files in parallel */
   fullyParallel: true,
-  /* Use snapshot names without platform suffix */
-  snapshotPathTemplate: '{testDir}/{testFileName}-snapshots/{arg}{-projectName}{ext}',
   /* Fail the build on CI if you accidentally left test.only in the source code. */
   forbidOnly: !!process.env.CI,
   /* Retry flaky tests */
