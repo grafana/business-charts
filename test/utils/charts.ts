@@ -31,8 +31,11 @@ export class PanelHelper {
     return expect(this.selectors.chart(), this.getMsg(`Check ${this.title} Presence`)).toBeVisible();
   }
 
-  public async compareScreenshot(name: string) {
-    return expect(this.selectors.chart(), this.getMsg(`Check ${this.title} Screenshot`)).toHaveScreenshot(name);
+  public async compareScreenshot(name: string, options?: { maxDiffPixelRatio?: number }) {
+    return expect(this.selectors.chart(), this.getMsg(`Check ${this.title} Screenshot`)).toHaveScreenshot(
+      name,
+      options
+    );
   }
 
   public async checkAlert() {
