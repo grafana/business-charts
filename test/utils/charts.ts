@@ -4,11 +4,13 @@ import { TEST_IDS } from '../../src/constants/tests';
 import { getLocatorSelectors, LocatorSelectors } from './selectors';
 
 /**
- * Grafana major.minor versions that snapshots are validated against.
+ * Grafana versions that snapshots are validated against.
+ * Semver entries match by major.minor (e.g. '12.4' matches '12.4.0', '12.4.1', etc.).
+ * Non-semver entries match exactly (e.g. 'dev-preview-react19').
  * Snapshots are generated using Docker Linux with these specific versions.
  * Other versions will skip screenshot comparison and only verify chart presence.
  */
-const SNAPSHOT_GRAFANA_VERSIONS = ['12.4', '12.5', '12.6'];
+const SNAPSHOT_GRAFANA_VERSIONS = ['12.4', '12.5', 'dev-preview-react19'];
 
 /**
  * Panel Helper
@@ -50,8 +52,10 @@ export class PanelHelper {
 
   public async compareScreenshot(name: string, options?: { maxDiffPixelRatio?: number }) {
     const majorMinor = this.getMajorMinor(this.grafanaVersion);
+    const isMatchingVersion =
+      SNAPSHOT_GRAFANA_VERSIONS.includes(majorMinor) || SNAPSHOT_GRAFANA_VERSIONS.includes(this.grafanaVersion);
 
-    if (!SNAPSHOT_GRAFANA_VERSIONS.includes(majorMinor)) {
+    if (!isMatchingVersion) {
       console.log(
         `Skipping screenshot comparison for ${this.title}: Grafana ${this.grafanaVersion} is not in snapshot versions [${SNAPSHOT_GRAFANA_VERSIONS.join(', ')}]`
       );
