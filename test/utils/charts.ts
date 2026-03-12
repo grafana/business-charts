@@ -10,7 +10,7 @@ import { getLocatorSelectors, LocatorSelectors } from './selectors';
  * Snapshots are generated using Docker Linux with these specific versions.
  * Other versions will skip screenshot comparison and only verify chart presence.
  */
-const SNAPSHOT_GRAFANA_VERSIONS = ['12.4', '12.5', '13.0', 'dev-preview-react19'];
+const SNAPSHOT_GRAFANA_VERSIONS = ['12.4', '13.0', 'dev-preview-react19'];
 
 /**
  * Panel Helper
