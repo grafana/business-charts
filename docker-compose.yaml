@@ -29,7 +29,7 @@ services:
       - ./test:/app/test
       - ./playwright-report:/app/playwright-report
     depends_on:
-      - grafana
+      grafana:
         condition: service_healthy
     profiles:
       - playwright
