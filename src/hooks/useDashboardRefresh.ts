@@ -7,11 +7,13 @@ import { useCallback } from 'react';
  */
 export const useDashboardRefresh = () => {
   return useCallback(() => {
+    const sceneContext = window.__grafanaSceneContext as Parameters<typeof sceneGraph.getTimeRange>[0] | undefined;
+
     /**
      * Refresh on scene dashboard
      */
-    if (window.__grafanaSceneContext) {
-      return sceneGraph.getTimeRange(window.__grafanaSceneContext)?.onRefresh();
+    if (sceneContext) {
+      return sceneGraph.getTimeRange(sceneContext)?.onRefresh();
     }
 
     /**

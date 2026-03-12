@@ -3,18 +3,29 @@ import * as echarts from 'echarts';
 import { MAP_API } from './constants';
 import { BaiduOptions, GaodeOptions, GoogleOptions } from './types';
 
+type WebpackRequireContext = {
+  keys(): string[];
+  (id: string): unknown;
+};
+
+type RequireWithContext = NodeJS.Require & {
+  context(path: string, deep?: boolean, filter?: RegExp): WebpackRequireContext;
+};
+
 /**
  * Register maps
  */
 export const registerMaps = () => {
-  const maps = require.context('./maps', false, /\.json/);
+  const requireWithContext = require as RequireWithContext;
+  const maps = requireWithContext.context('./maps', false, /\.json/);
+
   maps.keys().map((m: string) => {
     const matched = m.match(/\.\/([0-9a-zA-Z_]*)\.json/);
     if (!matched || echarts.getMap(matched[1])) {
       return;
     }
 
-    echarts.registerMap(matched[1], maps(m));
+    echarts.registerMap(matched[1], maps(m) as Parameters<typeof echarts.registerMap>[1]);
   });
 };
 
