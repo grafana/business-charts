@@ -4,6 +4,13 @@ import { TEST_IDS } from '../../src/constants/tests';
 import { getLocatorSelectors, LocatorSelectors } from './selectors';
 
 /**
+ * Grafana versions that snapshots are validated against.
+ * Snapshots are generated using Docker Linux with these specific versions.
+ * Other versions will skip screenshot comparison and only verify chart presence.
+ */
+const SNAPSHOT_GRAFANA_VERSIONS = ['12.4.0', '12.5.0', '12.6.0'];
+
+/**
  * Panel Helper
  */
 export class PanelHelper {
@@ -11,12 +18,14 @@ export class PanelHelper {
   private readonly panel: Panel;
   private readonly title: string;
   private readonly selectors: LocatorSelectors<typeof TEST_IDS.panel>;
+  private readonly grafanaVersion: string;
 
-  constructor(dashboardPage: DashboardPage, panelTitle: string) {
+  constructor(dashboardPage: DashboardPage, panelTitle: string, grafanaVersion: string) {
     this.panel = dashboardPage.getPanelByTitle(panelTitle);
     this.title = panelTitle;
     this.locator = this.panel.locator;
     this.selectors = getLocatorSelectors(TEST_IDS.panel)(this.locator);
+    this.grafanaVersion = grafanaVersion;
   }
 
   private getMsg(msg: string): string {
@@ -32,24 +41,14 @@ export class PanelHelper {
   }
 
   public async compareScreenshot(name: string, options?: { maxDiffPixelRatio?: number }) {
-    try {
-      await expect(this.selectors.chart(), this.getMsg(`Check ${this.title} Screenshot`)).toHaveScreenshot(
-        name,
-        options
+    if (!SNAPSHOT_GRAFANA_VERSIONS.includes(this.grafanaVersion)) {
+      console.log(
+        `Skipping screenshot comparison for ${this.title}: Grafana ${this.grafanaVersion} is not in snapshot versions [${SNAPSHOT_GRAFANA_VERSIONS.join(', ')}]`
       );
-    } catch (error) {
-      /**
-       * Skip screenshot dimension mismatches caused by different Grafana versions
-       * rendering panels at slightly different heights
-       */
-      if (error instanceof Error && error.message.includes('Expected an image')) {
-        console.log(
-          `Skipping screenshot comparison for ${this.title}: image dimensions differ across Grafana versions`
-        );
-        return;
-      }
-      throw error;
+      return;
     }
+
+    await expect(this.selectors.chart(), this.getMsg(`Check ${this.title} Screenshot`)).toHaveScreenshot(name, options);
   }
 
   public async checkAlert() {

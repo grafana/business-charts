@@ -7,7 +7,12 @@ test.describe('Business Charts Panel', () => {
     expect(grafanaVersion).toEqual(grafanaVersion);
   });
 
-  test('Should add empty default chart', async ({ readProvisionedDashboard, gotoDashboardPage, page }) => {
+  test('Should add empty default chart', async ({
+    readProvisionedDashboard,
+    gotoDashboardPage,
+    grafanaVersion,
+    page,
+  }) => {
     test.setTimeout(60000);
 
     /**
@@ -29,14 +34,19 @@ test.describe('Business Charts Panel', () => {
     /**
      * Should add empty visualization without errors
      */
-    const panel = new PanelHelper(dashboardPage, 'Business Chart Test');
+    const panel = new PanelHelper(dashboardPage, 'Business Chart Test', grafanaVersion);
     await panel.checkIfNoErrors();
     await panel.checkPresence();
 
     await panel.compareScreenshot('empty.png');
   });
 
-  test('Should display error message', async ({ readProvisionedDashboard, gotoDashboardPage, page }) => {
+  test('Should display error message', async ({
+    readProvisionedDashboard,
+    gotoDashboardPage,
+    grafanaVersion,
+    page,
+  }) => {
     /**
      * Go To Panels dashboard e2e.json
      * return dashboardPage
@@ -48,7 +58,7 @@ test.describe('Business Charts Panel', () => {
     /**
      * Check Presence
      */
-    const panel = new PanelHelper(dashboardPage, 'Error panel');
+    const panel = new PanelHelper(dashboardPage, 'Error panel', grafanaVersion);
 
     await panel.checkIfNoErrors();
     await panel.checkPresence();
@@ -56,7 +66,7 @@ test.describe('Business Charts Panel', () => {
   });
 
   test.describe('Chart types', () => {
-    test('Should display Line Chart', async ({ gotoDashboardPage, readProvisionedDashboard, page }) => {
+    test('Should display Line Chart', async ({ gotoDashboardPage, readProvisionedDashboard, grafanaVersion, page }) => {
       /**
        * Go To Panels dashboard e2e.json
        * return dashboardPage
@@ -68,14 +78,19 @@ test.describe('Business Charts Panel', () => {
       /**
        * Check Presence
        */
-      const panel = new PanelHelper(dashboardPage, 'Line Chart (code editor)');
+      const panel = new PanelHelper(dashboardPage, 'Line Chart (code editor)', grafanaVersion);
 
       await panel.checkIfNoErrors();
       await panel.checkPresence();
       await panel.compareScreenshot('line-screenshot.png');
     });
 
-    test('Should display Radar Chart', async ({ gotoDashboardPage, readProvisionedDashboard, page }) => {
+    test('Should display Radar Chart', async ({
+      gotoDashboardPage,
+      readProvisionedDashboard,
+      grafanaVersion,
+      page,
+    }) => {
       /**
        * Go To Panels dashboard e2e.json
        * return dashboardPage
@@ -87,14 +102,14 @@ test.describe('Business Charts Panel', () => {
       /**
        * Check Presence
        */
-      const panel = new PanelHelper(dashboardPage, 'Radar Chart (visual editor)');
+      const panel = new PanelHelper(dashboardPage, 'Radar Chart (visual editor)', grafanaVersion);
 
       await panel.checkIfNoErrors();
       await panel.checkPresence();
       await panel.compareScreenshot('radar-screenshot.png');
     });
 
-    test('Should display Bar Chart', async ({ gotoDashboardPage, readProvisionedDashboard, page }) => {
+    test('Should display Bar Chart', async ({ gotoDashboardPage, readProvisionedDashboard, grafanaVersion, page }) => {
       /**
        * Go To Panels dashboard e2e.json
        * return dashboardPage
@@ -106,14 +121,19 @@ test.describe('Business Charts Panel', () => {
       /**
        * Check Presence
        */
-      const panel = new PanelHelper(dashboardPage, 'Bar Chart (code editor)');
+      const panel = new PanelHelper(dashboardPage, 'Bar Chart (code editor)', grafanaVersion);
 
       await panel.checkIfNoErrors();
       await panel.checkPresence();
       await panel.compareScreenshot('bar-screenshot.png');
     });
 
-    test('Should display Boxplot Chart', async ({ gotoDashboardPage, readProvisionedDashboard, page }) => {
+    test('Should display Boxplot Chart', async ({
+      gotoDashboardPage,
+      readProvisionedDashboard,
+      grafanaVersion,
+      page,
+    }) => {
       /**
        * Go To Panels dashboard e2e.json
        * return dashboardPage
@@ -125,14 +145,19 @@ test.describe('Business Charts Panel', () => {
       /**
        * Check Presence
        */
-      const panel = new PanelHelper(dashboardPage, 'Boxplot (visual editor)');
+      const panel = new PanelHelper(dashboardPage, 'Boxplot (visual editor)', grafanaVersion);
 
       await panel.checkIfNoErrors();
       await panel.checkPresence();
       await panel.compareScreenshot('boxplot-screenshot.png');
     });
 
-    test('Should display Boxplot Chart code editor', async ({ gotoDashboardPage, readProvisionedDashboard, page }) => {
+    test('Should display Boxplot Chart code editor', async ({
+      gotoDashboardPage,
+      readProvisionedDashboard,
+      grafanaVersion,
+      page,
+    }) => {
       /**
        * Go To Panels dashboard e2e.json
        * return dashboardPage
@@ -144,14 +169,19 @@ test.describe('Business Charts Panel', () => {
       /**
        * Check Presence
        */
-      const panel = new PanelHelper(dashboardPage, 'Boxplot (code editor)');
+      const panel = new PanelHelper(dashboardPage, 'Boxplot (code editor)', grafanaVersion);
 
       await panel.checkIfNoErrors();
       await panel.checkPresence();
       await panel.compareScreenshot('boxplot-code-screenshot.png');
     });
 
-    test('Should display Scatter Chart ', async ({ gotoDashboardPage, readProvisionedDashboard, page }) => {
+    test('Should display Scatter Chart ', async ({
+      gotoDashboardPage,
+      readProvisionedDashboard,
+      grafanaVersion,
+      page,
+    }) => {
       /**
        * Go To Panels dashboard e2e.json
        * return dashboardPage
@@ -163,7 +193,7 @@ test.describe('Business Charts Panel', () => {
       /**
        * Check Presence
        */
-      const panel = new PanelHelper(dashboardPage, 'Scatter');
+      const panel = new PanelHelper(dashboardPage, 'Scatter', grafanaVersion);
 
       await panel.checkIfNoErrors();
       await panel.checkPresence();
