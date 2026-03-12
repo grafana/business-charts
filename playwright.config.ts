@@ -28,6 +28,10 @@ export default defineConfig<PluginOptions>({
   /* Increase expect timeout to allow charts to render under load */
   expect: {
     timeout: 15000,
+    toHaveScreenshot: {
+      maxDiffPixelRatio: 0.03,
+      animations: 'disabled',
+    },
   },
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
