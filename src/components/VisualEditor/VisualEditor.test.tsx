@@ -1,10 +1,13 @@
 import { toDataFrame } from '@grafana/data';
+import { DragDropContext, Draggable, Droppable } from '@hello-pangea/dnd';
 import { fireEvent, render, screen } from '@testing-library/react';
 import { getJestSelectors } from '@volkovlabs/jest-selectors';
 import React from 'react';
 
 import { TEST_IDS } from '../../constants';
 import { VisualEditor } from './VisualEditor';
+
+jest.mock('@hello-pangea/dnd');
 
 /**
  * Properties
@@ -15,6 +18,22 @@ type Props = React.ComponentProps<typeof VisualEditor>;
  * Visual Editor
  */
 describe('Visual Editor', () => {
+  beforeEach(() => {
+    jest.mocked(DragDropContext).mockImplementation(({ children }: any) => children);
+    jest.mocked(Droppable).mockImplementation(({ children }: any) => children({ droppableProps: {} }));
+    jest.mocked(Draggable).mockImplementation(({ children }: any) =>
+      children(
+        {
+          draggableProps: {
+            style: {},
+          },
+          dragHandleProps: {},
+        },
+        { isDragging: false }
+      )
+    );
+  });
+
   /**
    * Create On Change Handler
    */
