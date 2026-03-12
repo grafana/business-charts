@@ -2,12 +2,21 @@
 // generally used by snapshots, but can affect specific tests
 process.env.TZ = 'UTC';
 
-const { grafanaESModules, nodeModulesToTransform } = require('./.config/jest/utils');
-
 module.exports = {
-  // Jest configuration provided by @grafana/create-plugin
+  // Jest configuration provided by Grafana scaffolding
   ...require('./.config/jest.config'),
-  // Inform jest to only transform specific node_module packages.
-  transformIgnorePatterns: [nodeModulesToTransform([...grafanaESModules, 'echarts', 'zrender', 'echarts-wordcloud'])],
-  watchPathIgnorePatterns: ['node_modules'],
+  moduleNameMapper: {
+    ...require('./.config/jest.config').moduleNameMapper,
+    '^@/(.*)$': '<rootDir>/src/$1',
+  },
+
+  /**
+   * Reset mocks implementation between tests
+   */
+  resetMocks: true,
+
+  /**
+   * Randomize the order of the tests to exclude dependencies between tests
+   */
+  randomize: true,
 };

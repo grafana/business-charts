@@ -21,7 +21,7 @@ jest.mock('../../maps', () => ({
 }));
 
 /**
- * Mock @volkovlabs/components
+ * Mock dashboard refresh hook
  */
 jest.mock('../../hooks/useDashboardRefresh', () => ({
   useDashboardRefresh: jest.fn(),

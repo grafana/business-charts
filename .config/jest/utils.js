@@ -14,21 +14,21 @@ const nodeModulesToTransform = (moduleNames) => `node_modules\/(?!.*(${moduleNam
 const grafanaESModules = [
   '.pnpm', // Support using pnpm symlinked packages
   '@grafana/schema',
+  '@wojtekmaj/date-utils',
   'd3',
   'd3-color',
   'd3-force',
   'd3-interpolate',
   'd3-scale-chromatic',
+  'get-user-locale',
+  'marked',
+  'memoize',
+  'mimic-function',
   'ol',
-  'react-colorful',
   'react-calendar',
+  'react-colorful',
   'rxjs',
   'uuid',
-  'marked',
-  'mimic-function',
-  'get-user-locale',
-  'memoize',
-  '@wojtekmaj',
 ];
 
 module.exports = {

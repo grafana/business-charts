@@ -1,7 +1,6 @@
 import { StandardEditorProps } from '@grafana/data';
 import { getTemplateSrv } from '@grafana/runtime';
 import { CodeEditor, CodeEditorSuggestionItem, CodeEditorSuggestionItemKind } from '@grafana/ui';
-import { AutosizeCodeEditor } from '@volkovlabs/components';
 import type * as monacoType from 'monaco-editor/esm/vs/editor/editor.api';
 import React from 'react';
 
@@ -13,6 +12,7 @@ import {
   TEST_IDS,
   VISUAL_CODE_EDITOR_SUGGESTIONS,
 } from '../../constants';
+import { AutosizeCodeEditor } from '../AutosizeCodeEditor/AutosizeCodeEditor';
 import { PanelOptions } from '../../types';
 
 /**
