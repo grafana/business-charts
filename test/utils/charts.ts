@@ -4,11 +4,11 @@ import { TEST_IDS } from '../../src/constants/tests';
 import { getLocatorSelectors, LocatorSelectors } from './selectors';
 
 /**
- * Grafana versions that snapshots are validated against.
+ * Grafana major.minor versions that snapshots are validated against.
  * Snapshots are generated using Docker Linux with these specific versions.
  * Other versions will skip screenshot comparison and only verify chart presence.
  */
-const SNAPSHOT_GRAFANA_VERSIONS = ['12.4.0', '12.5.0', '12.6.0'];
+const SNAPSHOT_GRAFANA_VERSIONS = ['12.4', '12.5', '12.6'];
 
 /**
  * Panel Helper
@@ -40,8 +40,18 @@ export class PanelHelper {
     return expect(this.selectors.chart(), this.getMsg(`Check ${this.title} Presence`)).toBeVisible();
   }
 
+  /**
+   * Extract major.minor from a full version string (e.g. '12.4.0' -> '12.4')
+   */
+  private getMajorMinor(version: string): string {
+    const parts = version.split('.');
+    return `${parts[0]}.${parts[1]}`;
+  }
+
   public async compareScreenshot(name: string, options?: { maxDiffPixelRatio?: number }) {
-    if (!SNAPSHOT_GRAFANA_VERSIONS.includes(this.grafanaVersion)) {
+    const majorMinor = this.getMajorMinor(this.grafanaVersion);
+
+    if (!SNAPSHOT_GRAFANA_VERSIONS.includes(majorMinor)) {
       console.log(
         `Skipping screenshot comparison for ${this.title}: Grafana ${this.grafanaVersion} is not in snapshot versions [${SNAPSHOT_GRAFANA_VERSIONS.join(', ')}]`
       );
