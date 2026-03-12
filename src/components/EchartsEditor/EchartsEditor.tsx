@@ -12,8 +12,8 @@ import {
   TEST_IDS,
   VISUAL_CODE_EDITOR_SUGGESTIONS,
 } from '../../constants';
-import { AutosizeCodeEditor } from '../AutosizeCodeEditor/AutosizeCodeEditor';
 import { PanelOptions } from '../../types';
+import { AutosizeCodeEditor } from '../AutosizeCodeEditor/AutosizeCodeEditor';
 
 /**
  * Properties

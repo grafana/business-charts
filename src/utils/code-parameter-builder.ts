@@ -9,6 +9,8 @@ type CodeParametersNode = {
  * Defines a single item exposed in the context payload.
  */
 export class CodeParameterItem<T> {
+  declare readonly typeMarker?: T;
+
   constructor(
     public readonly detail: string,
     public readonly kind: CodeEditorSuggestionItemKind = CodeEditorSuggestionItemKind.Property
