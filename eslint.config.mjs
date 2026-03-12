@@ -21,13 +21,6 @@ export default defineConfig(
   eslintConfig,
   prettierConfig,
   {
-    languageOptions: {
-      parser: tsParser,
-      parserOptions: {
-        project: ['tsconfig.json'],
-        sourceType: 'module',
-      },
-    },
     rules: {
       '@typescript-eslint/no-empty-object-type': 'off',
       'react-hooks/component-hook-factories': 'off',
@@ -43,6 +36,29 @@ export default defineConfig(
       'react-hooks/set-state-in-render': 'off',
       'react-hooks/static-components': 'off',
       'react-hooks/use-memo': 'off',
+    },
+  },
+  {
+    files: ['**/*.{js,jsx,cjs,mjs}'],
+    rules: {
+      '@typescript-eslint/no-deprecated': 'off',
+    },
+  },
+  {
+    files: ['websocket/**/*.js'],
+    rules: {
+      '@typescript-eslint/no-require-imports': 'off',
+      'no-console': 'off',
+    },
+  },
+  {
+    files: ['**/*.{ts,tsx}'],
+    languageOptions: {
+      parser: tsParser,
+      parserOptions: {
+        project: ['tsconfig.json'],
+        sourceType: 'module',
+      },
     },
   },
   globalIgnores([
