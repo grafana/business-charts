@@ -1,11 +1,52 @@
 import { toDataFrame } from '@grafana/data';
-import { DragDropContext, DropResult } from '@hello-pangea/dnd';
+import { DragDropContext, Draggable, Droppable, DropResult } from '@hello-pangea/dnd';
 import { act, fireEvent, render, screen, within } from '@testing-library/react';
 import { getJestSelectors } from '@volkovlabs/jest-selectors';
 import React from 'react';
 
 import { TEST_IDS } from '../../constants';
 import { DatasetEditor } from './DatasetEditor';
+
+jest.mock('@hello-pangea/dnd');
+
+/**
+ * Mock Select to provide a native control for predictable test interactions.
+ */
+jest.mock('@grafana/ui', () => {
+  const actual = jest.requireActual('@grafana/ui');
+
+  return {
+    ...actual,
+    Select: ({ value, options = [], onChange, 'aria-label': ariaLabel }: any) => {
+      const normalizedOptions = options.map((option: any) =>
+        typeof option === 'string' ? { label: option, value: option } : option
+      );
+
+      return (
+        <select
+          aria-label={ariaLabel}
+          value={value ?? ''}
+          onChange={(event) => {
+            const selectedValue = event.currentTarget.value;
+            const matchedOption = normalizedOptions.find((option: any) => `${option.value}` === selectedValue);
+            if (!matchedOption) {
+              return;
+            }
+
+            onChange(matchedOption);
+          }}
+        >
+          <option value="" />
+          {normalizedOptions.map((option: any) => (
+            <option key={`${option.value}`} value={option.value}>
+              {option.label}
+            </option>
+          ))}
+        </select>
+      );
+    },
+  };
+});
 
 /**
  * Properties
@@ -16,6 +57,24 @@ type Props = React.ComponentProps<typeof DatasetEditor>;
  * Dataset Editor
  */
 describe('Dataset Editor', () => {
+  beforeEach(() => {
+    jest.mocked(DragDropContext).mockImplementation(({ children }: any) => children);
+    jest.mocked(Droppable).mockImplementation(({ children }: any) => children({ droppableProps: {} }));
+    jest.mocked(Draggable).mockImplementation(({ children }: any) => (
+      <div data-testid="draggable">
+        {children(
+          {
+            draggableProps: {
+              style: {},
+            },
+            dragHandleProps: {},
+          },
+          { isDragging: false }
+        )}
+      </div>
+    ));
+  });
+
   /**
    * Create On Change Handler
    */

@@ -626,7 +626,7 @@ describe('Visual Editor Utils', () => {
       });
     });
 
-    it('Should return 0 value for min max if value doesn`t have min or max', () => {
+    it('Should return 0 value for min max if value does not have min or max', () => {
       const series = [
         {
           fields: [

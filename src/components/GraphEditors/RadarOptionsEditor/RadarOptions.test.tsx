@@ -8,6 +8,49 @@ import { RadarShapeType } from '../../../types';
 import { RadarOptionsEditor } from './RadarOptionsEditor';
 
 /**
+ * Mock Select to provide a native control that testing-library can query by label.
+ */
+jest.mock('@grafana/ui', () => {
+  const actual = jest.requireActual('@grafana/ui');
+
+  return {
+    ...actual,
+    Select: ({ value, options = [], onChange, isClearable, inputId, 'data-testid': dataTestId }: any) => {
+      const normalizedValue = typeof value === 'string' ? value : value?.value ?? '';
+      const normalizedOptions = options.map((option: any) =>
+        typeof option === 'string' ? { label: option, value: option } : option
+      );
+
+      return (
+        <select
+          id={inputId}
+          data-testid={dataTestId}
+          value={normalizedValue}
+          onChange={(event) => {
+            const selectedValue = event.currentTarget.value;
+
+            if (isClearable && selectedValue === 'clear') {
+              onChange(null);
+              return;
+            }
+
+            const matchedOption = normalizedOptions.find((option: any) => `${option.value}` === selectedValue);
+            onChange(matchedOption || { value: selectedValue, label: selectedValue });
+          }}
+        >
+          {isClearable && <option value="clear">clear</option>}
+          {normalizedOptions.map((option: any) => (
+            <option key={`${option.value}`} value={option.value}>
+              {option.label}
+            </option>
+          ))}
+        </select>
+      );
+    },
+  };
+});
+
+/**
  * Properties
  */
 type Props = React.ComponentProps<typeof RadarOptionsEditor>;

@@ -1,6 +1,6 @@
 import { AlertErrorPayload, AlertPayload, AppEvents, LoadingState, toDataFrame } from '@grafana/data';
 import { getAppEvents } from '@grafana/runtime';
-import { act, render, screen } from '@testing-library/react';
+import { act, render, screen, waitFor } from '@testing-library/react';
 import { useDashboardRefresh } from '../../hooks/useDashboardRefresh';
 import * as echarts from 'echarts';
 import React from 'react';
@@ -21,7 +21,7 @@ jest.mock('../../maps', () => ({
 }));
 
 /**
- * Mock @volkovlabs/components
+ * Mock dashboard refresh hook
  */
 jest.mock('../../hooks/useDashboardRefresh', () => ({
   useDashboardRefresh: jest.fn(),
@@ -74,12 +74,12 @@ jest.mock('echarts/extension/bmap/bmap', () => ({
 /**
  * Mock echarts-extension-amap
  */
-jest.mock('echarts-extension-amap');
+jest.mock('echarts-extension-amap', () => ({}));
 
 /**
  * Mock echarts-extension-gmap
  */
-jest.mock('echarts-extension-gmap');
+jest.mock('echarts-extension-gmap', () => ({}));
 
 /**
  * Panel
@@ -87,6 +87,17 @@ jest.mock('echarts-extension-gmap');
 describe('Panel', () => {
   beforeEach(() => {
     jest.clearAllMocks();
+    jest.mocked(echarts.init).mockImplementation(
+      () =>
+        ({
+          setOption: jest.fn(),
+          on: jest.fn(),
+          off: jest.fn(),
+          clear: jest.fn(),
+          dispose: jest.fn(),
+          resize: jest.fn(),
+        }) as any
+    );
   });
 
   /**
@@ -409,33 +420,41 @@ describe('Panel', () => {
       expect(loadBaidu).not.toHaveBeenCalled();
     });
 
-    it('Should load json maps if options.map=JSON', () => {
+    it('Should load json maps if options.map=JSON', async () => {
       render(getComponent({ options: { map: Map.JSON } }));
-      expect(registerMaps).toHaveBeenCalled();
+      await waitFor(() => {
+        expect(registerMaps).toHaveBeenCalled();
+      });
       expect(loadGaode).not.toHaveBeenCalled();
       expect(loadGoogle).not.toHaveBeenCalled();
       expect(loadBaidu).not.toHaveBeenCalled();
     });
 
-    it('Should load google maps if options.map=GMAP', () => {
+    it('Should load google maps if options.map=GMAP', async () => {
       render(getComponent({ options: { map: Map.GMAP } }));
-      expect(loadGoogle).toHaveBeenCalled();
+      await waitFor(() => {
+        expect(loadGoogle).toHaveBeenCalled();
+      });
       expect(registerMaps).not.toHaveBeenCalled();
       expect(loadGaode).not.toHaveBeenCalled();
       expect(loadBaidu).not.toHaveBeenCalled();
     });
 
-    it('Should load baidu maps if options.map=BMAP', () => {
+    it('Should load baidu maps if options.map=BMAP', async () => {
       render(getComponent({ options: { map: Map.BMAP } }));
-      expect(loadBaidu).toHaveBeenCalled();
+      await waitFor(() => {
+        expect(loadBaidu).toHaveBeenCalled();
+      });
       expect(registerMaps).not.toHaveBeenCalled();
       expect(loadGaode).not.toHaveBeenCalled();
       expect(loadGoogle).not.toHaveBeenCalled();
     });
 
-    it('Should load gaode maps if options.map=AMAP', () => {
+    it('Should load gaode maps if options.map=AMAP', async () => {
       render(getComponent({ options: { map: Map.AMAP } }));
-      expect(loadGaode).toHaveBeenCalled();
+      await waitFor(() => {
+        expect(loadGaode).toHaveBeenCalled();
+      });
       expect(registerMaps).not.toHaveBeenCalled();
       expect(loadGoogle).not.toHaveBeenCalled();
       expect(loadBaidu).not.toHaveBeenCalled();
@@ -462,18 +481,22 @@ describe('Panel', () => {
       });
     });
 
-    it('Should show errors if unable to register maps', () => {
+    it('Should show errors if unable to register maps', async () => {
       render(
         getComponent({
           options: { map: Map.JSON },
         })
       );
-      expect(screen.getByText(error.message)).toBeInTheDocument();
+      await waitFor(() => {
+        expect(screen.getByText(error.message)).toBeInTheDocument();
+      });
     });
 
-    it('Should show stack if unable to register maps', () => {
+    it('Should show stack if unable to register maps', async () => {
       render(getComponent({ options: { map: Map.JSON } }));
-      expect(screen.getByText(error.stack)).toBeInTheDocument();
+      await waitFor(() => {
+        expect(screen.getByText(error.stack)).toBeInTheDocument();
+      });
     });
   });
 
@@ -552,7 +575,7 @@ describe('Panel', () => {
       expect(setOptionMock).toHaveBeenCalledWith(expect.objectContaining({}), true);
     });
 
-    it('Should call unsubscribeFunction for v2 result', () => {
+    it('Should call unsubscribeFunction for v2 result', async () => {
       const unsubscribe = jest.fn();
       const eventBus = {
         subscribe: jest.fn(() => ({
@@ -572,10 +595,15 @@ describe('Panel', () => {
         }
       `;
       const { rerender } = render(getComponent({ options: { getOption }, eventBus }));
+      await waitFor(() => {
+        expect(eventBus.subscribe).toHaveBeenCalled();
+      });
 
       rerender(getComponent({ options: { getOption }, eventBus }));
 
-      expect(unsubscribe).toHaveBeenCalled();
+      await waitFor(() => {
+        expect(unsubscribe).toHaveBeenCalled();
+      });
     });
 
     it('Should apply result from visual editor code', () => {

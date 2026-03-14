@@ -1,12 +1,12 @@
 import { AlertPayload, EventBus, GrafanaTheme2, InterpolateFunction, PanelData } from '@grafana/data';
 import { LocationService } from '@grafana/runtime';
 import { CodeEditorSuggestionItemKind } from '@grafana/ui';
-import { CodeParameterItem, CodeParametersBuilder } from '@volkovlabs/components';
 import { ECharts } from 'echarts';
 import * as echarts from 'echarts';
 import echartsStat from 'echarts-stat';
 
 import { RadarChartOptions, SeriesItem } from '../types';
+import { CodeParameterItem, CodeParametersBuilder } from './code-parameter-builder';
 
 /**
  * Base Code Parameters Config

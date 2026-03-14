@@ -4,6 +4,15 @@ import { Map, Theme } from './constants';
 import { plugin } from './module';
 
 /**
+ * Mock components to avoid loading ESM-only echarts extensions in this unit test.
+ */
+jest.mock('./components', () => ({
+  EchartsEditor: jest.fn(),
+  EchartsPanel: jest.fn(),
+  VisualEditor: jest.fn(),
+}));
+
+/**
  * Skip Register Maps
  */
 jest.mock('./maps', () => ({
@@ -26,12 +35,21 @@ describe('plugin', () => {
   /**
    * Builder
    */
-  const builder: any = {
-    addCustomEditor: jest.fn().mockImplementation(() => builder),
-    addSliderInput: jest.fn().mockImplementation(() => builder),
-    addRadio: jest.fn().mockImplementation(() => builder),
-    addTextInput: jest.fn().mockImplementation(() => builder),
+  const createBuilder = () => {
+    const builder: any = {};
+
+    builder.addCustomEditor = jest.fn().mockImplementation(() => builder);
+    builder.addSliderInput = jest.fn().mockImplementation(() => builder);
+    builder.addRadio = jest.fn().mockImplementation(() => builder);
+    builder.addTextInput = jest.fn().mockImplementation(() => builder);
+
+    return builder;
   };
+  let builder: any;
+
+  beforeEach(() => {
+    builder = createBuilder();
+  });
 
   it('Should be instance of PanelPlugin', () => {
     expect(plugin).toBeInstanceOf(PanelPlugin);
@@ -52,10 +70,6 @@ describe('plugin', () => {
   });
 
   describe('Inputs visibility', () => {
-    beforeEach(() => {
-      builder.addTextInput.mockClear();
-    });
-
     const addInputImplementation =
       (config: { map?: Map; themeEditor?: { name: Theme } }, result: string[]) => (input: any) => {
         if (input.showIf && input.showIf(config)) {

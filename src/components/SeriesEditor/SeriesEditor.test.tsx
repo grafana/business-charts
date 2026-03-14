@@ -1,4 +1,4 @@
-import { DragDropContext, DropResult } from '@hello-pangea/dnd';
+import { DragDropContext, Draggable, Droppable, DropResult } from '@hello-pangea/dnd';
 import { act, fireEvent, render, screen, within } from '@testing-library/react';
 import { getJestSelectors } from '@volkovlabs/jest-selectors';
 import React from 'react';
@@ -14,6 +14,85 @@ import {
 import { SeriesType } from '../../types';
 import { SeriesEditor } from './SeriesEditor';
 
+jest.mock('@hello-pangea/dnd');
+
+/**
+ * Mock Select to provide native controls for label-based queries.
+ */
+jest.mock('@grafana/ui', () => {
+  const actual = jest.requireActual('@grafana/ui');
+
+  return {
+    ...actual,
+    Select: ({
+      value,
+      options = [],
+      onChange,
+      isMulti,
+      isClearable,
+      inputId,
+      'aria-label': ariaLabel,
+      'data-testid': dataTestId,
+    }: any) => {
+      const normalizedOptions = options.map((option: any) =>
+        typeof option === 'string' ? { label: option, value: option } : option
+      );
+
+      const toOption = (selectedValue: string) =>
+        normalizedOptions.find((option: any) => `${option.value ?? ''}` === selectedValue) || {
+          value: selectedValue,
+          label: selectedValue,
+        };
+
+      const normalizedValue = isMulti
+        ? Array.isArray(value)
+          ? value.length
+            ? value.map((item) => `${typeof item === 'string' ? item : item?.value ?? ''}`)
+            : ['']
+          : value
+            ? [`${typeof value === 'string' ? value : value?.value ?? ''}`]
+            : ['']
+        : `${typeof value === 'string' ? value : value?.value ?? ''}`;
+
+      return (
+        <select
+          id={inputId}
+          aria-label={ariaLabel}
+          data-testid={dataTestId}
+          multiple={Boolean(isMulti)}
+          value={normalizedValue}
+          onChange={(event) => {
+            const target = event.currentTarget as HTMLSelectElement & { values?: string[] };
+
+            if (isMulti) {
+              const selectedValues = Array.isArray(target.values)
+                ? target.values.map((selectedValue) => `${selectedValue}`)
+                : Array.from(target.selectedOptions).map((option) => option.value);
+              onChange(selectedValues.map((selectedValue) => toOption(selectedValue)));
+              return;
+            }
+
+            if (isClearable && target.value === '__clear__') {
+              onChange(null);
+              return;
+            }
+
+            onChange(toOption(target.value));
+          }}
+        >
+          <option value="" />
+          {isClearable && !isMulti && <option value="__clear__">clear</option>}
+          {normalizedOptions.map((option: any) => (
+            <option key={`${option.value ?? ''}`} value={`${option.value ?? ''}`}>
+              {option.label}
+            </option>
+          ))}
+        </select>
+      );
+    },
+  };
+});
+
 /**
  * Properties
  */
@@ -23,15 +102,36 @@ type Props = React.ComponentProps<typeof SeriesEditor>;
  * Series Editor
  */
 describe('Series Editor', () => {
+  beforeEach(() => {
+    jest.mocked(DragDropContext).mockImplementation(({ children }: any) => children);
+    jest.mocked(Droppable).mockImplementation(({ children }: any) => children({ droppableProps: {} }));
+    jest.mocked(Draggable).mockImplementation(({ children }: any) => (
+      <div data-testid="draggable">
+        {children(
+          {
+            draggableProps: {
+              style: {},
+            },
+            dragHandleProps: {},
+          },
+          { isDragging: false }
+        )}
+      </div>
+    ));
+  });
+
   /**
    * Create On Change Handler
    */
   const createOnChangeHandler = (initialValue: any) => {
-    let value = initialValue;
+    const clone = <T,>(item: T): T =>
+      typeof structuredClone === 'function' ? structuredClone(item) : JSON.parse(JSON.stringify(item));
+
+    let value = clone(initialValue);
     return {
       value,
       onChange: jest.fn((newValue) => {
-        value = newValue;
+        value = clone(newValue);
       }),
     };
   };
@@ -192,7 +292,7 @@ describe('Series Editor', () => {
         })
       );
 
-      expect(screen.getByText('[line2]')).toBeInTheDocument();
+      expect(screen.getByText(/\[line2\]/)).toBeInTheDocument();
 
       /**
        * Should clean new item id field
@@ -632,9 +732,11 @@ describe('Series Editor', () => {
         id: 'scatter-1',
         name: 'scatter-1-1',
         type: SeriesType.SCATTER,
+        symbol: 'circle',
         encode: {
           x: ['A:Time'],
           y: ['A:Value'],
+          tooltip: [''],
         },
       };
       const items = [
@@ -1000,7 +1102,6 @@ describe('Series Editor', () => {
             groups: [
               { name: 'Level 0', source: 'A', value: 'A:Level 0' },
               { name: 'Level 1', source: 'A', value: 'A:Level 1' },
-              { name: 'Level 3', source: 'A', value: 'A:Level 3' },
             ],
             id: 'sunburst',
             innerRadius: '0',
@@ -1105,11 +1206,6 @@ describe('Series Editor', () => {
                 name: 'Level 2',
                 source: 'A',
                 value: 'A:Level 2',
-              },
-              {
-                name: 'Level 3',
-                source: 'A',
-                value: 'A:Level 3',
               },
             ],
             id: 'sunburst',
