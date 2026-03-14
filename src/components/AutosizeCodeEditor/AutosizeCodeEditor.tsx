@@ -23,7 +23,7 @@ export const AutosizeCodeEditor: React.FC<Props> = ({
   const content = typeof value === 'string' ? value : '';
   const lineCount = content.split('\n').length + 1;
   const boundedLines = Math.min(Math.max(lineCount, minLines), maxLines);
-  const computedHeight = `${boundedLines * estimatedLineHeight}px`;
+  const computedHeight = boundedLines * estimatedLineHeight;
 
   return <CodeEditor value={value} height={height ?? computedHeight} {...restProps} />;
 };
