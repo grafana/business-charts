@@ -20,7 +20,7 @@ on:
         default: false
         type: boolean
 
-permissions: {}
+permissions: read-all
 
 jobs:
   cd:
