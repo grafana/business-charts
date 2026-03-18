@@ -1,5 +1,5 @@
 import { AlertErrorPayload, AlertPayload, AppEvents, LoadingState, toDataFrame } from '@grafana/data';
-import { getAppEvents } from '@grafana/runtime';
+import { getAppEvents, locationService } from '@grafana/runtime';
 import { act, render, screen, waitFor } from '@testing-library/react';
 import { useDashboardRefresh } from '../../hooks/useDashboardRefresh';
 import * as echarts from 'echarts';
@@ -39,9 +39,16 @@ jest.mock('echarts', () => ({
  * Mock @grafana/runtime
  */
 jest.mock('@grafana/runtime', () => ({
-  ...jest.requireActual('@grafana/runtime'),
   getAppEvents: jest.fn(),
+  locationService: {
+    partial: jest.fn(),
+  },
 }));
+
+/**
+ * Mock echarts/theme/v5
+ */
+jest.mock('echarts/theme/v5', () => ({}));
 
 /**
  * Mock echarts-liquidfill
@@ -290,6 +297,12 @@ describe('Panel', () => {
    * Theme
    */
   describe('Theme', () => {
+    it('Should apply the ECharts v5 compatibility theme', () => {
+      render(getComponent({ options: { themeEditor: { name: Theme.V5, config: '{}' } } }));
+
+      expect(echarts.init).toHaveBeenCalledWith(screen.getByTestId(TEST_IDS.panel.chart), Theme.V5, expect.anything());
+    });
+
     it('Should apply custom theme', () => {
       const themeConfigJson = '123';
 
@@ -501,6 +514,29 @@ describe('Panel', () => {
   });
 
   describe('Code Execution', () => {
+    it('Should expose location service in the execution context', () => {
+      const setOptionMock = jest.fn();
+      jest.mocked(echarts.init).mockImplementation(
+        () =>
+          ({
+            setOption: setOptionMock,
+            on: jest.fn(),
+            off: jest.fn(),
+          }) as any
+      );
+
+      render(
+        getComponent({
+          options: {
+            getOption: 'return { hasLocationService: typeof context.grafana.locationService.partial === "function" }',
+          },
+        })
+      );
+
+      expect(setOptionMock).toHaveBeenCalledWith(expect.objectContaining({ hasLocationService: true }), true);
+      expect(locationService.partial).not.toHaveBeenCalled();
+    });
+
     it('Should apply result for v1 result', () => {
       const getOption = `
         return {

@@ -2,6 +2,14 @@
 
 All notable changes to **Business Charts** will be documented in this file. This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [Unreleased]
+
+### Enhancements
+
+- Upgraded to **Apache ECharts 6.0.0**.
+- Added an optional **Apache ECharts v5 compatibility theme** to reduce visual regressions after upgrading.
+- Added package metadata needed for local install, build, and test workflows with the current Grafana dependencies.
+
 ## [7.2.0] - 2025-10-22
 
 ### Project Updates

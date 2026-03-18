@@ -41,7 +41,6 @@ jest.mock('../AutosizeCodeEditor/AutosizeCodeEditor', () => ({
  * Mock @grafana/runtime
  */
 jest.mock('@grafana/runtime', () => ({
-  ...jest.requireActual('@grafana/runtime'),
   getTemplateSrv: jest.fn(),
 }));
 

@@ -12,6 +12,7 @@ export enum Renderer {
 export enum Theme {
   CUSTOM = 'custom',
   DEFAULT = 'default',
+  V5 = 'v5',
 }
 
 /**
@@ -19,6 +20,12 @@ export enum Theme {
  */
 export const THEME_OPTIONS = [
   { value: Theme.DEFAULT, label: 'Default', description: 'Default ECharts theme', icon: 'star' },
+  {
+    value: Theme.V5,
+    label: 'V5 Compatibility',
+    description: 'Restore the Apache ECharts 5 default theme.',
+    icon: 'history',
+  },
   {
     value: Theme.CUSTOM,
     label: 'Custom',

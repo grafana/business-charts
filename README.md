@@ -26,7 +26,8 @@ This project is currently maintained by Grafana Labs. We welcome pull requests a
   - [Wordcloud](https://github.com/ecomfe/echarts-wordcloud): Create engaging word cloud charts.
 - **Real-Time Updates**: Support for streaming data sources and Grafana Live.
 - **Theming**: Seamlessly adapts to Grafana’s light and dark themes.
-- **ECharts Version**: Powered by [Apache ECharts 5.5.1](https://github.com/apache/echarts/releases/tag/5.5.1).
+- **Theme Compatibility**: Includes an optional Apache ECharts v5 compatibility theme for existing dashboards.
+- **ECharts Version**: Powered by [Apache ECharts 6.0.0](https://github.com/apache/echarts/releases/tag/6.0.0).
 
 ## 📋 Requirements
 
