@@ -37,6 +37,7 @@ services:
         condition: service_healthy
     profiles:
       - playwright
+      - production
 
   grafana-dev:
     extends:
