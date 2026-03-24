@@ -6,9 +6,9 @@ services:
     ports:
       - 3000:3000/tcp
     environment:
-      - GF_DEFAULT_APP_MODE=development
-      - GF_DASHBOARDS_DEFAULT_HOME_DASHBOARD_PATH=/etc/grafana/provisioning/dashboards/echarts/home.json
-      - GF_PLUGINS_PREINSTALL=marcusolsson-static-datasource,golioth-websocket-datasource,marcusolsson-json-datasource
+      ANONYMOUS_AUTH_ENABLED: false
+      GF_DASHBOARDS_DEFAULT_HOME_DASHBOARD_PATH: /etc/grafana/provisioning/dashboards/echarts/home.json
+      GF_PLUGINS_PREINSTALL: marcusolsson-static-datasource,golioth-websocket-datasource,marcusolsson-json-datasource
     volumes:
       - ./dist:/var/lib/grafana/plugins/volkovlabs-echarts-panel
       - ./provisioning:/etc/grafana/provisioning
@@ -18,13 +18,17 @@ services:
       interval: 30s
       timeout: 5s
       retries: 5
+    profiles:
+      - production
 
   playwright:
     build:
       context: .
       dockerfile: test/Dockerfile
     environment:
-      - GRAFANA_URL=http://grafana:3000
+      GRAFANA_URL: http://grafana:3000
+      GF_DASHBOARDS_DEFAULT_HOME_DASHBOARD_PATH: /etc/grafana/provisioning/dashboards/echarts/home.json
+      GF_PLUGINS_PREINSTALL: marcusolsson-static-datasource,golioth-websocket-datasource,marcusolsson-json-datasource
     volumes:
       - ./test:/app/test
       - ./playwright-report:/app/playwright-report
@@ -33,3 +37,31 @@ services:
         condition: service_healthy
     profiles:
       - playwright
+
+  grafana-dev:
+    extends:
+      file: .config/docker-compose-base.yaml
+      service: grafana
+    container_name: 'grafana-business-charts-panel-dev'
+    build:
+      args:
+        ANONYMOUS_AUTH_ENABLED: true
+        DEVELOPMENT: true
+        GRAFANA_IMAGE: grafana-enterprise-dev
+    ports:
+      - 3000:3000/tcp
+    environment:
+      GF_DEFAULT_APP_MODE: development
+      GF_DASHBOARDS_DEFAULT_HOME_DASHBOARD_PATH: /etc/grafana/provisioning/dashboards/echarts/home.json
+      GF_PLUGINS_PREINSTALL: marcusolsson-static-datasource,golioth-websocket-datasource,marcusolsson-json-datasource
+    volumes:
+      - ./dist:/var/lib/grafana/plugins/volkovlabs-echarts-panel
+      - ./provisioning:/etc/grafana/provisioning
+      - ./echarts:/etc/grafana/provisioning/dashboards/echarts
+    profiles:
+      - dev
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://localhost:3000/login"]
+      interval: 30s
+      timeout: 5s
+      retries: 5
