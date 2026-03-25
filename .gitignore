@@ -35,6 +35,5 @@ e2e-results/
 /playwright/.cache/
 /playwright/.auth/
 *-darwin.png
-.gitnexus/
 
 mise.toml
