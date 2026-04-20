@@ -35,7 +35,7 @@
     "@testing-library/react": "^16.3.2",
     "@types/jest": "^30.0.0",
     "@types/lodash": "^4.17.24",
-    "@types/node": "^24.0.0",
+    "@types/node": "^24.10.1",
     "@types/semver": "^7.7.1",
     "@types/uuid": "^10.0.0",
     "@volkovlabs/eslint-config": "^2.0.0",
