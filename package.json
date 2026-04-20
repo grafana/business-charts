@@ -64,7 +64,7 @@
     "tsconfig-paths": "^4.2.0",
     "typescript": "5.9.3",
     "util": "^0.12.5",
-    "webpack": "^5.101.0",
+    "webpack": "^5.106.2",
     "webpack-cli": "^6.0.0",
     "webpack-livereload-plugin": "^3.0.2",
     "webpack-subresource-integrity": "^5.1.0",
