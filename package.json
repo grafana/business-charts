@@ -26,7 +26,7 @@
     "@grafana/eslint-config": "^9.0.0",
     "@grafana/plugin-e2e": "^3.4.4",
     "@grafana/tsconfig": "^2.0.1",
-    "@playwright/test": "^1.58.2",
+    "@playwright/test": "^1.59.1",
     "@stylistic/eslint-plugin": "^5.5.0",
     "@swc/core": "^1.15.18",
     "@swc/helpers": "^0.5.19",
