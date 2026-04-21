@@ -11,18 +11,20 @@ labels:
 
 # Exploring annotations
 
-Annotations in Grafana bring your dashboards to life by highlighting key events. They encompass three core elements:
+Annotations in Grafana bring your dashboards to life by highlighting key events.
+They encompass three core elements:
 
 - Native annotations
 - Alerts
 - Annotation queries
 
-Curious about how they stack up? The schema below breaks it down.
+Curious about how they stack up?
+The schema below breaks it down.
 
-{{< figure src="/media/docs/grafana/panels-visualizations/crash-courses/annotations.png" class="border" alt="Comparing Annotations, Alerts, and Annotation Queries in Grafana." >}}
+{{< figure src="/media/docs/grafana/panels-visualizations/crash-courses/annotations.png" class="border" alt="Comparing annotations, alerts, and annotation queries in Grafana." >}}
 
 {{< admonition type="note" >}}
-**Key distinction.** Native annotations and Alerts are stored as records in Grafana’s configuration database, while annotation queries are custom requests to fetch and display them on your dashboard.
+Native annotations and alerts are stored as records in the Grafana configuration database, while annotation queries are custom requests to fetch and display them on your dashboard.
 {{< /admonition >}}
 
 ## Understanding annotation queries
@@ -30,13 +32,14 @@ Curious about how they stack up? The schema below breaks it down.
 Annotation queries come in two flavors:
 
 - **Built-in**: Basic functionality out of the box.
-- **User-defined**: Flexible queries that can tap into any database—or even Grafana’s own storage with the [Business Satellite](/plugins/business-satellite/) data source.
+- **User-defined**: Flexible queries that can tap into any database—or even Grafana storage with the [Business Satellite](https://grafana.com/grafana/plugins/volkovlabs-grapi-datasource/) data source.
 
 Check out the dataflow schema below for a closer look.
 
-{{< figure src="/media/docs/grafana/panels-visualizations/crash-courses/alerts-schema.png" class="border" alt="Dataflow of Annotations, Alerts, and Annotation Queries." >}}
+{{< figure src="/media/docs/grafana/panels-visualizations/crash-courses/alerts-schema.png" class="border" alt="Dataflow of annotations, alerts, and annotation queries." >}}
 
-Despite their names, native annotations and Alerts share a lot under the hood. With the [Business Satellite data source](/plugins/business-satellite), you can manage both seamlessly.
+Despite their names, native annotations and Alerts share a lot under the hood.
+With the [Business Satellite data source](https://grafana.com/grafana/plugins/volkovlabs-grapi-datasource/), you can manage both seamlessly.
 
 ## Annotation types explained
 
@@ -46,16 +49,14 @@ Dive into the video below for a walkthrough of the comparative schema.
 
 ## Hands-on tutorial: annotations and alerts with timescale
 
-This is hands-down the best way to master Grafana annotations. Follow along as I guide you through the dataflow schema with step-by-step instructions—learn by doing!
+This is hands-down the best way to master Grafana annotations.
+Follow along as the video guides you through the dataflow schema with step-by-step instructions.
 
 {{< youtube id="bmOkirtC65w" >}}
 
 ## Power up with business satellite
 
-We built the [Business Satellite data source](/plugins/business-satellite) to tackle a real-world production challenge. It lets you pull native annotations and Alerts from local or remote Grafana instances, with flexible filtering options. See it in action in the tutorial above.
+The [Business Satellite data source](https://grafana.com/grafana/plugins/volkovlabs-grapi-datasource/) helps tackle a real-world production challenge.
+It lets you pull native annotations and Alerts from local or remote Grafana instances, with flexible filtering options. See it in action in the tutorial above.
 
 {{< figure src="/media/docs/grafana/panels-visualizations/crash-courses/alerts.png" class="border" alt="Visualizing built-in and user-defined annotation queries on a time-series graph." >}}
-
-## Prefer reading? Check the blog post
-
-If videos aren’t your thing, our blog post covers the same ground from a fresh perspective. Dig in!
