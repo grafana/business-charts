@@ -11,15 +11,14 @@ labels:
 
 # Exploring annotations
 
-Annotations in Grafana bring your dashboards to life by highlighting key events.
+Annotations in Grafana highlight key events on your dashboards.
 They encompass three core elements:
 
 - Native annotations
 - Alerts
 - Annotation queries
 
-Curious about how they stack up?
-The schema below breaks it down.
+The following diagram compares them.
 
 {{< figure src="/media/docs/grafana/panels-visualizations/crash-courses/annotations.png" class="border" alt="Comparing annotations, alerts, and annotation queries in Grafana." >}}
 
@@ -27,36 +26,36 @@ The schema below breaks it down.
 Native annotations and alerts are stored as records in the Grafana configuration database, while annotation queries are custom requests to fetch and display them on your dashboard.
 {{< /admonition >}}
 
-## Understanding annotation queries
+## Annotation queries
 
 Annotation queries come in two flavors:
 
 - **Built-in**: Basic functionality out of the box.
 - **User-defined**: Flexible queries that can tap into any database—or even Grafana storage with the [Business Satellite](https://grafana.com/grafana/plugins/volkovlabs-grapi-datasource/) data source.
 
-Check out the dataflow schema below for a closer look.
+Refer to the dataflow schema below for detail.
 
 {{< figure src="/media/docs/grafana/panels-visualizations/crash-courses/alerts-schema.png" class="border" alt="Dataflow of annotations, alerts, and annotation queries." >}}
 
-Despite their names, native annotations and Alerts share a lot under the hood.
+Despite their names, native annotations and alerts share a lot under the hood.
 With the [Business Satellite data source](https://grafana.com/grafana/plugins/volkovlabs-grapi-datasource/), you can manage both seamlessly.
 
-## Annotation types explained
+## Annotation types
 
-Dive into the video below for a walkthrough of the comparative schema.
+The following video walks through the comparative schema.
 
 {{< youtube id="4asWJ_Dhcmw" >}}
 
-## Hands-on tutorial: annotations and alerts with timescale
+## Hands-on tutorial: annotations and alerts with Timescale
 
-This is hands-down the best way to master Grafana annotations.
-Follow along as the video guides you through the dataflow schema with step-by-step instructions.
+This tutorial offers step-by-step practice with Grafana annotations.
+Follow the video through the dataflow schema to see how each piece fits together.
 
 {{< youtube id="bmOkirtC65w" >}}
 
-## Power up with business satellite
+## Business Satellite
 
 The [Business Satellite data source](https://grafana.com/grafana/plugins/volkovlabs-grapi-datasource/) helps tackle a real-world production challenge.
-It lets you pull native annotations and Alerts from local or remote Grafana instances, with flexible filtering options. See it in action in the tutorial above.
+It lets you pull native annotations and alerts from local or remote Grafana instances, with flexible filtering options. For a demo, refer to the tutorial above.
 
 {{< figure src="/media/docs/grafana/panels-visualizations/crash-courses/alerts.png" class="border" alt="Visualizing built-in and user-defined annotation queries on a time-series graph." >}}
