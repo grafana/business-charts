@@ -19,7 +19,7 @@ Business Charts 5.0.0 lets you unsubscribe from events to avoid memory leaks by 
 
 ## Predefined events
 
-A full list of events is available in the [Grafana Crash Course](https://volkovlabs.io/grafana/developer/eventbus/).
+A full list of events is available in the [Grafana Crash Course](https://grafana.com/docs/plugins/volkovlabs-echarts-panel/<PLUGINS_VERSION>/eventbus/).
 
 ## Subscribe to events
 
