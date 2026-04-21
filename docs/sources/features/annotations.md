@@ -17,7 +17,7 @@ Annotations is a general term for several Grafana artifacts:
 - Alerts
 - Annotation queries
 
-The differences between annotation types are explained in the how-to tutorial in the [Grafana Crash Course](https://grafana.com/docs/plugins/volkovlabs-echarts-panel/<PLUGINS_VERSION>/annotations/).
+The differences between annotation types are explained in the how-to tutorial in the [Grafana Crash Course](https://grafana.com/docs/plugins/volkovlabs-echarts-panel/<PLUGINS_VERSION>/exploring-annotations/).
 
 ## Mark lines
 
