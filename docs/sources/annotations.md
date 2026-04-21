@@ -18,7 +18,7 @@ They encompass three core elements:
 - Alerts
 - Annotation queries
 
-The following diagram compares them.
+The following diagram compares them:
 
 {{< figure src="/media/docs/grafana/panels-visualizations/crash-courses/annotations.png" class="border" alt="Comparing annotations, alerts, and annotation queries in Grafana." >}}
 
@@ -33,16 +33,16 @@ Annotation queries come in two flavors:
 - **Built-in**: Basic functionality out of the box.
 - **User-defined**: Flexible queries that can tap into any database—or even Grafana storage with the [Business Satellite](https://grafana.com/grafana/plugins/volkovlabs-grapi-datasource/) data source.
 
-Refer to the dataflow schema below for detail.
+Refer to the dataflow schema below for detail:
 
 {{< figure src="/media/docs/grafana/panels-visualizations/crash-courses/alerts-schema.png" class="border" alt="Dataflow of annotations, alerts, and annotation queries." >}}
 
-Despite their names, native annotations and alerts share a lot under the hood.
+Despite their names, native annotations and alerts share many underlying similarities.
 With the [Business Satellite data source](https://grafana.com/grafana/plugins/volkovlabs-grapi-datasource/), you can manage both seamlessly.
 
 ## Annotation types
 
-The following video walks through the comparative schema.
+The following video walks through the comparative schema:
 
 {{< youtube id="4asWJ_Dhcmw" >}}
 
