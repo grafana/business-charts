@@ -1,5 +1,5 @@
 ---
-title: Grafana events
+title: Exploring Grafana events
 description: Learn how to use Grafana's EventBus and its predefined events to react to UI and dashboard actions in your plugins.
 keywords:
   - event bus
@@ -12,7 +12,7 @@ labels:
     - oss
 ---
 
-# Grafana events
+# Exploring Grafana events
 
 Grafana leverages an _event bus_ to broadcast application events, enabling different parts of the system to respond when a user interacts with the interface.
 This mechanism facilitates real-time communication across components.
