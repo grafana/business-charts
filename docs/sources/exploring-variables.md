@@ -1,6 +1,12 @@
 ---
 title: Exploring variables
 description: Learn how dashboard, global, and environment variables work in Grafana, how they differ, and where to find more examples.
+keywords:
+  - variables
+  - dashboard variables
+  - global variables
+  - environment variables
+  - dashboards
 weight: 690
 labels:
   products:
@@ -25,7 +31,7 @@ This video walks through dashboard, global, and environment variables step by st
 ## Dashboard variables
 
 Dashboard variables live within a single dashboard, powering filters and dynamic controls.
-They are your go-to for tailoring what users see.
+They're your go-to for tailoring what users see.
 
 {{< figure src="/media/docs/grafana/panels-visualizations/business-charts/variables-edit.png" class="border" alt="Different types of dashboard variables." >}}
 
@@ -51,7 +57,7 @@ For the full list, refer to [Grafana global variable documentation](https://graf
 ## Environment variables
 
 Environment variables pull from the system where Grafana runs (for example, operating system or device settings).
-Dashboards cannot read them directly by default.
+Dashboards can't read them directly by default.
 To use them, add a data source that exposes environment variables to Grafana.
 
 ## Variables at a glance

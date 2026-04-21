@@ -1,6 +1,11 @@
 ---
 title: Exploring annotations
 description: Learn how native annotations, alerts, and annotation queries work in Grafana and how they appear on your dashboards.
+keywords:
+  - annotations
+  - alerts
+  - annotation queries
+  - dashboards
 weight: 630
 labels:
   products:

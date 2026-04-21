@@ -1,9 +1,12 @@
 ---
 title: Exploring Grafana events
-description: Learn how to use Grafana's EventBus and its predefined events to react to UI and dashboard actions in your plugins.
+description: Learn how to use the Grafana EventBus and its predefined events to react to UI and dashboard actions in your plugins.
 keywords:
   - event bus
   - eventbus
+  - predefined events
+  - subscribe
+  - UI events
 weight: 660
 labels:
   products:
