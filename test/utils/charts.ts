@@ -42,17 +42,6 @@ export class PanelHelper {
   }
 
   /**
-   * In Grafana 13+, the panel header and body are siblings under a common parent.
-   * Navigate up one level so our test IDs can be found in both header and body.
-   */
-  private getPanelContainer(): Locator {
-    if (semver.gte(this.grafanaVersion, '13.0.0')) {
-      return this.locator.locator('..');
-    }
-    return this.locator;
-  }
-
-  /**
    * Resolve the snapshot subdirectory for the current Grafana version.
    * Returns the directory name or null if no match.
    */
@@ -70,10 +59,7 @@ export class PanelHelper {
   }
 
   public async checkPresence() {
-    return expect(
-      this.getPanelContainer().getByTestId(TEST_IDS.panel.chart),
-      this.getMsg(`Check ${this.title} Presence`)
-    ).toBeVisible();
+    return expect(this.selectors.chart(), this.getMsg(`Check ${this.title} Presence`)).toBeVisible();
   }
 
   public async compareScreenshot(name: string, options?: { maxDiffPixelRatio?: number }) {
@@ -91,9 +77,6 @@ export class PanelHelper {
   }
 
   public async checkAlert() {
-    return expect(
-      this.getPanelContainer().getByTestId(TEST_IDS.panel.error),
-      this.getMsg(`Check ${this.title} Alert`)
-    ).toBeVisible();
+    return expect(this.selectors.error(), this.getMsg(`Check ${this.title} Alert`)).toBeVisible();
   }
 }
