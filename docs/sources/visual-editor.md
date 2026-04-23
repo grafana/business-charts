@@ -15,10 +15,6 @@ The Visual editor simplifies working with Grafana data frames and makes it easy 
 
 The Visual Editor helps you work with datasets, but you still need the Charts function for advanced use cases.
 
-{{< youtube id="vda3jbtLnMM" >}}
-
-_Visual Charts Editor tutorial for Business Charts 6.4.0_
-
 This feature is in beta. It works for all charts enabled in the **Type** drop-down list.
 
 {{< figure src="/media/docs/grafana/panels-visualizations/business-charts/type-location.png" class="border" alt="The Type dropdown location." >}}

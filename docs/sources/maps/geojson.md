@@ -19,14 +19,6 @@ The Business Charts panel supports world and USA GeoJSON maps. You can load addi
 Try the map on the [dashboard in the edit mode](https://echarts.volkovlabs.io/d/X1mkMIFVz/geo-map?orgId=1&editPanel=11).
 {{< /admonition >}}
 
-## Tutorial
-
-You can watch the following video to better understand how to use GeoJSON maps.
-
-{{< youtube id="0EyFmMlIXPo" >}}
-
-_How to tell the story with Grafana dashboard. Business Charts, Bar Chart, Logs, and Heatmap._
-
 ## Metrics with values
 
 ```js
