@@ -62,6 +62,9 @@ test.describe('Business Charts Panel', () => {
 
     await panel.checkIfNoErrors();
     await panel.checkPresence();
+    // e2e-errors.json's visualEditor.code references a non-existent
+    // context.editors.series (intentional typo with trailing 's') so the
+    // plugin renders its in-panel alert. Do not "fix" that typo.
     await panel.checkAlert();
   });
 
