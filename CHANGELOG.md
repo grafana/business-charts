@@ -20,12 +20,8 @@ All notable changes to **Business Charts** will be documented in this file. This
 
 ### Tooling
 
-- Added `.markdownlint.yaml` config.
-- Added `.markdownlint-cli2.yaml` excluding generated output (`dist/`, `playwright-report/`),
-  externally-managed trees (`.config/`, `docs/`), and files with pre-existing issues
-  (`CLAUDE.md`, `README.md`, `NOTICES.md`) from markdown linting. Replaces the
-  `no-inline-html` allowed-elements exception and `MD041` disable comment used to accommodate
-  the `<include>` directive in `CLAUDE.md`.
+- Added `.markdownlint-cli2.yaml` with project markdown lint rules and ignores. Replaces
+  `.markdownlint.yaml`.
 - Added `CLAUDE.md` and `AGENTS.md` with development guidance.
 
 ## [7.2.0] - 2025-10-22
