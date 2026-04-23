@@ -2,6 +2,12 @@
 
 All notable changes to **Business Charts** will be documented in this file. This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [Unreleased]
+
+### CI/CD
+
+- Updated `grafana/plugin-ci-workflows` to `v7.2.0` in CI and CD workflows.
+
 ## [7.2.0] - 2025-10-22
 
 ### Project Updates

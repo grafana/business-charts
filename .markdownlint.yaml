@@ -1,0 +1,4 @@
+line-length:
+  line_length: 120
+no-duplicate-heading:
+  siblings_only: true
