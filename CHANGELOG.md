@@ -17,6 +17,7 @@ All notable changes to **Business Charts** will be documented in this file. This
   leaving the newly added panel above the fold at the Desktop Chrome viewport.
 - Chart screenshot comparisons are skipped on Grafana 13+ until stable baselines exist
   (`SNAPSHOT_VERSIONS` in `test/utils/charts.ts` has no 13.x entry; tracked in #80).
+- Trimmed trailing whitespace in the `Should display Scatter Chart` E2E test name.
 
 ### Tooling
 
