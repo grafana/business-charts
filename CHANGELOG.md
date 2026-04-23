@@ -15,8 +15,8 @@ All notable changes to **Business Charts** will be documented in this file. This
   dashboard (`e2e-empty.json`) with a small placeholder panel (`intentional spacing`). The placeholder keeps
   the dashboard toolbar `Add button` visible (Grafana 13 hides it on truly empty dashboards) while still
   leaving the newly added panel above the fold at the Desktop Chrome viewport.
-- Skipped chart screenshot comparisons on Grafana 13+ until stable baselines exist (`compareScreenshot`
-  in `test/utils/charts.ts`).
+- Chart screenshot comparisons are skipped on Grafana 13+ until stable baselines exist
+  (`SNAPSHOT_VERSIONS` in `test/utils/charts.ts` has no 13.x entry; tracked in #80).
 
 ### Tooling
 
