@@ -17,6 +17,8 @@ All notable changes to **Business Charts** will be documented in this file. This
 ### Tooling
 
 - Added `.markdownlint.yaml` config.
+- Added `.markdownlint-cli2.yaml` excluding `CLAUDE.md` from markdown linting (replaces the
+  `no-inline-html` allowed-elements exception and `MD041` disable comment).
 - Added `CLAUDE.md` and `AGENTS.md` with development guidance.
 
 ## [7.2.0] - 2025-10-22
