@@ -1,7 +1,7 @@
 {
   "name": "business-charts",
   "description": "Powerful visualizations powered by Apache ECharts",
-  "version": "7.2.4",
+  "version": "7.2.5",
   "scripts": {
     "build": "webpack -c ./.config/webpack/webpack.config.ts --env production",
     "dev": "webpack -w -c ./.config/webpack/webpack.config.ts --env development",
