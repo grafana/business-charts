@@ -11,6 +11,8 @@ All notable changes to **Business Charts** will be documented in this file. This
 - Improved test Dockerfile with absolute `WORKDIR`, layer caching, and `npm ci`.
 - Fixed E2E tests for Grafana 13: stubbed the "What's new" splash-screen user-storage endpoint and split the
   error panel into its own above-the-fold dashboard (`e2e-errors.json`).
+- Fixed "Should add empty default chart" E2E test on Grafana 13 by pointing it at a new empty provisioned
+  dashboard (`e2e-empty.json`) so the added panel renders above the fold at the Desktop Chrome viewport.
 
 ### Tooling
 
