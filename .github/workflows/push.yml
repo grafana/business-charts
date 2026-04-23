@@ -23,5 +23,6 @@ jobs:
       run-playwright-docker: true
       playwright-docker-compose-file: docker-compose.yaml
       upload-playwright-artifacts: true
-      run-playwright-with-skip-grafana-dev-image: true
+      run-playwright-with-skip-grafana-dev-image: false
+      run-playwright-with-skip-grafana-react-19-preview-image: false
       signature-type: community
