@@ -9,7 +9,8 @@ All notable changes to **Business Charts** will be documented in this file. This
 - Updated `grafana/plugin-ci-workflows` to `v7.2.0` in CI and CD workflows.
 - Updated `@grafana/plugin-e2e` to `3.5.1` and `@playwright/test` to `1.59.1`.
 - Improved test Dockerfile with absolute `WORKDIR`, layer caching, and `npm ci`.
-- Fixed E2E tests for Grafana 13: stubbed the "What's new" splash-screen user-storage endpoint and split the error panel into its own above-the-fold dashboard (`e2e-errors.json`).
+- Fixed E2E tests for Grafana 13: stubbed the "What's new" splash-screen user-storage endpoint and split the
+  error panel into its own above-the-fold dashboard (`e2e-errors.json`).
 
 ### Tooling
 
