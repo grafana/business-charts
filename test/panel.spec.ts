@@ -4,7 +4,8 @@ import { PanelHelper } from './utils';
 test.beforeEach(async ({ page }) => {
   // Grafana 13+ shows a "What's new in Grafana" splash modal on first visit.
   // The modal blocks dashboard panels from rendering, so return a dismissed
-  // state for the user-storage endpoint that gates it.
+  // state for the user-storage endpoint that gates it. The `:*` tail matches
+  // Kubernetes-style verb subresources (e.g. `:status`).
   await page.route('**/apis/userstorage.grafana.app/**/user-storage/grafana-splash-screen:*', async (route) => {
     if (route.request().method() !== 'GET') {
       return route.continue();
@@ -36,7 +37,7 @@ test.describe('Business Charts Panel', () => {
     test.setTimeout(60000);
 
     /**
-     * Go To Panels dashboard e2e.json
+     * Go To Panels dashboard e2e-empty.json
      * return dashboardPage
      */
     const dashboard = await readProvisionedDashboard({ fileName: 'e2e-empty.json' });
@@ -68,7 +69,7 @@ test.describe('Business Charts Panel', () => {
     page,
   }) => {
     /**
-     * Go To Panels dashboard e2e.json
+     * Go To Panels dashboard e2e-errors.json
      * return dashboardPage
      */
     const dashboard = await readProvisionedDashboard({ fileName: 'e2e-errors.json' });

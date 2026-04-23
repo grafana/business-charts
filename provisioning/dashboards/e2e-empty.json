@@ -18,14 +18,12 @@
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
-  "id": 6,
   "links": [],
   "panels": [
     {
       "gridPos": { "h": 2, "w": 4, "x": 0, "y": 0 },
       "id": 1,
       "options": { "content": "", "mode": "markdown" },
-      "pluginVersion": "11.0.0",
       "title": "intentional spacing",
       "transparent": true,
       "type": "text"
