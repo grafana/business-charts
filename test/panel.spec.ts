@@ -1,27 +1,6 @@
 import { test, expect } from '@grafana/plugin-e2e';
 import { PanelHelper } from './utils';
 
-test.beforeEach(async ({ page }) => {
-  // Grafana 13+ shows a "What's new in Grafana" splash modal on first visit.
-  // The modal blocks dashboard panels from rendering, so return a dismissed
-  // state for the user-storage endpoint that gates it. The `:*` tail matches
-  // Kubernetes-style verb subresources (e.g. `:status`).
-  await page.route('**/apis/userstorage.grafana.app/**/user-storage/grafana-splash-screen:*', async (route) => {
-    if (route.request().method() !== 'GET') {
-      return route.continue();
-    }
-    await route.fulfill({
-      status: 200,
-      contentType: 'application/json',
-      body: JSON.stringify({
-        kind: 'UserStorage',
-        apiVersion: 'userstorage.grafana.app/v0alpha1',
-        spec: { data: { dismissedVersion: '99.0.0' } },
-      }),
-    });
-  });
-});
-
 test.describe('Business Charts Panel', () => {
   test('Check grafana version', async ({ grafanaVersion }) => {
     console.log('Grafana version: ', grafanaVersion);
