@@ -179,7 +179,7 @@ test.describe('Business Charts Panel', () => {
       await panel.compareScreenshot('boxplot-code-screenshot.png');
     });
 
-    test('Should display Scatter Chart ', async ({
+    test('Should display Scatter Chart', async ({
       gotoDashboardPage,
       readProvisionedDashboard,
       grafanaVersion,
