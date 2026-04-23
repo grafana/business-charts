@@ -25,6 +25,7 @@
         "type": "marcusolsson-static-datasource",
         "uid": "4ytGZmF4k"
       },
+      "description": "E2E fixture: visualEditor.code references context.editors.series (intentional typo, note trailing 's') so the plugin renders its in-panel alert, which the 'Should display error message' test asserts via checkAlert().",
       "fieldConfig": {
         "defaults": {},
         "overrides": []
@@ -66,8 +67,7 @@
         }
       ],
       "title": "Error panel",
-      "type": "volkovlabs-echarts-panel",
-      "description": "E2E fixture: visualEditor.code references context.editors.series (intentional typo, note trailing 's') so the plugin renders its in-panel alert, which the 'Should display error message' test asserts via checkAlert()."
+      "type": "volkovlabs-echarts-panel"
     }
   ],
   "preload": false,

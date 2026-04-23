@@ -21,9 +21,17 @@
   "links": [],
   "panels": [
     {
-      "gridPos": { "h": 2, "w": 4, "x": 0, "y": 0 },
+      "gridPos": {
+        "h": 2,
+        "w": 4,
+        "x": 0,
+        "y": 0
+      },
       "id": 1,
-      "options": { "content": "", "mode": "markdown" },
+      "options": {
+        "content": "",
+        "mode": "markdown"
+      },
       "title": "intentional spacing",
       "transparent": true,
       "type": "text"
