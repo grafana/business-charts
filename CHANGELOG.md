@@ -7,6 +7,13 @@ All notable changes to **Business Charts** will be documented in this file. This
 ### CI/CD
 
 - Updated `grafana/plugin-ci-workflows` to `v7.2.0` in CI and CD workflows.
+- Updated `@grafana/plugin-e2e` to `3.5.1` and `@playwright/test` to `1.59.1`.
+- Improved test Dockerfile with absolute `WORKDIR`, layer caching, and `npm ci`.
+
+### Tooling
+
+- Added `.markdownlint.yaml` config.
+- Added `CLAUDE.md` and `AGENTS.md` with development guidance.
 
 ## [7.2.0] - 2025-10-22
 
