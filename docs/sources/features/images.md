@@ -13,13 +13,9 @@ labels:
 
 This guide explains how to use images in the Business Charts panel, depending on the source type.
 
-{{< youtube id="ygFDhmbPU-Y" >}}
-
-_The Business Charts panel supports base64 PNG and SVG (vector) images_
-
 ## Use Cases
 
-As mentioned in the video tutorial, the typical cases when you may need to use images include:
+The typical cases when you may need to use images include:
 
 - Data points
 - Simple labels

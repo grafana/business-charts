@@ -28,10 +28,6 @@ The Business Charts plugin lets you add interactive and customizable charts to y
 
 Install the Business Charts panel from the [Grafana Plugins catalog](https://grafana.com/grafana/plugins/volkovlabs-echarts-panel/) or use the Grafana command line tool.
 
-{{< youtube id="1qYzHfPXJF8" >}}
-
-_Install Business Suite plugins in Cloud, OSS, and Enterprise. Get started with the Business Suite._
-
 To install using the command line, run:
 
 ```sh
@@ -60,18 +56,6 @@ grafana cli plugins install volkovlabs-echarts-panel
 
 {{< figure src="/media/docs/grafana/panels-visualizations/business-charts/business-charts.gif" class="border" alt="A few examples of the Business Charts panel." >}}
 
-## Tutorial
-
-This is the first video created about Business Charts after the plugin rebranding. It features dazzling chart examples followed by a high-level plugin architecture. Knowing the basics of plugin architecture will help you create your custom charts.
-
-To get you started quicker the [web resource](https://echarts.volkovlabs.io/) has numerous ready-to-use examples. This video demonstrates how to work with this resource.
-
-The main obstacle for many plugin users is the data transmission from the Grafana data frame(s) into the [Charts function](https://grafana.com/docs/plugins/volkovlabs-echarts-panel/<PLUGINS_VERSION>/charts-function/). In addition to the resource with how-to examples, this video introduces the Visual Editor - the mechanism created to simplify the transmission.
-
-{{< youtube id="adOjUxrfysc" >}}
-
-There are many other tutorials that you can find helpful. You can review all related to this plugin tutorials [here](https://grafana.com/docs/plugins/volkovlabs-echarts-panel/<PLUGINS_VERSION>/tutorials/).
-
 ## Documentation
 
 | Section                       | Description                                                              |
@@ -81,7 +65,6 @@ There are many other tutorials that you can find helpful. You can review all rel
 | [Examples](https://grafana.com/docs/plugins/volkovlabs-echarts-panel/<PLUGINS_VERSION>/examples/)          | Explains how to get started with the Apache ECharts Examples in Grafana. |
 | [Features](https://grafana.com/docs/plugins/volkovlabs-echarts-panel/<PLUGINS_VERSION>/features/)          | Demonstrates the Business Charts panel features.                         |
 | [Maps](https://grafana.com/docs/plugins/volkovlabs-echarts-panel/<PLUGINS_VERSION>/maps/)                  | Demonstrates how to work with different maps.                            |
-| [Tutorials](https://grafana.com/docs/plugins/volkovlabs-echarts-panel/<PLUGINS_VERSION>/tutorials/)        | Tutorials for the Business Charts panel.                                 |
 | [Release notes](https://grafana.com/docs/plugins/volkovlabs-echarts-panel/<PLUGINS_VERSION>/release/)      | Stay up to date with the latest features and updates.                    |
 
 ## Acknowledgment

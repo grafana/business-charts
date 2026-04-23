@@ -45,22 +45,9 @@ Refer to the dataflow schema below for detail:
 Despite their names, native annotations and alerts share many underlying similarities.
 With the [Business Satellite data source](https://grafana.com/grafana/plugins/volkovlabs-grapi-datasource/), you can manage both seamlessly.
 
-## Annotation types
-
-The following video walks through the comparative schema:
-
-{{< youtube id="4asWJ_Dhcmw" >}}
-
-## Hands-on tutorial: annotations and alerts with Timescale
-
-This tutorial offers step-by-step practice with Grafana annotations.
-Follow the video through the dataflow schema to see how each piece fits together.
-
-{{< youtube id="bmOkirtC65w" >}}
-
 ## Business Satellite
 
 The [Business Satellite data source](https://grafana.com/grafana/plugins/volkovlabs-grapi-datasource/) helps tackle a real-world production challenge.
-It lets you pull native annotations and alerts from local or remote Grafana instances, with flexible filtering options. For a demo, refer to the tutorial above.
+It lets you pull native annotations and alerts from local or remote Grafana instances, with flexible filtering options.
 
 {{< figure src="/media/docs/grafana/panels-visualizations/crash-courses/alerts.png" class="border" alt="Visualizing built-in and user-defined annotation queries on a time-series graph." >}}

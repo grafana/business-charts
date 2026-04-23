@@ -22,12 +22,6 @@ This page breaks them down and shows how they fit into your Grafana deployment.
 
 {{< figure src="/media/docs/grafana/panels-visualizations/business-charts/variables.png" class="border" alt="Three layers of variables in Grafana." >}}
 
-## Your video guide to variables
-
-This video walks through dashboard, global, and environment variables step by step:
-
-{{< youtube id="sczRq2lI3e4" >}}
-
 ## Dashboard variables
 
 Dashboard variables live within a single dashboard, powering filters and dynamic controls.
