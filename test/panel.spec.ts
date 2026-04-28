@@ -16,10 +16,10 @@ test.describe('Business Charts Panel', () => {
     test.setTimeout(60000);
 
     /**
-     * Go To Panels dashboard e2e.json
+     * Go To Panels dashboard e2e-empty.json
      * return dashboardPage
      */
-    const dashboard = await readProvisionedDashboard({ fileName: 'e2e.json' });
+    const dashboard = await readProvisionedDashboard({ fileName: 'e2e-empty.json' });
     const dashboardPage = await gotoDashboardPage({ uid: dashboard.uid });
 
     /**
@@ -48,10 +48,10 @@ test.describe('Business Charts Panel', () => {
     page,
   }) => {
     /**
-     * Go To Panels dashboard e2e.json
+     * Go To Panels dashboard e2e-errors.json
      * return dashboardPage
      */
-    const dashboard = await readProvisionedDashboard({ fileName: 'e2e.json' });
+    const dashboard = await readProvisionedDashboard({ fileName: 'e2e-errors.json' });
     const dashboardPage = await gotoDashboardPage({ uid: dashboard.uid });
     await page.waitForLoadState('networkidle');
 
@@ -62,6 +62,9 @@ test.describe('Business Charts Panel', () => {
 
     await panel.checkIfNoErrors();
     await panel.checkPresence();
+    // e2e-errors.json's visualEditor.code references a non-existent
+    // context.editors.series (intentional typo with trailing 's') so the
+    // plugin renders its in-panel alert. Do not "fix" that typo.
     await panel.checkAlert();
   });
 
@@ -176,7 +179,7 @@ test.describe('Business Charts Panel', () => {
       await panel.compareScreenshot('boxplot-code-screenshot.png');
     });
 
-    test('Should display Scatter Chart ', async ({
+    test('Should display Scatter Chart', async ({
       gotoDashboardPage,
       readProvisionedDashboard,
       grafanaVersion,

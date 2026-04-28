@@ -1,0 +1,108 @@
+{
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": {
+          "type": "grafana",
+          "uid": "-- Grafana --"
+        },
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "type": "dashboard"
+      }
+    ]
+  },
+  "editable": true,
+  "fiscalYearStartMonth": 0,
+  "graphTooltip": 0,
+  "links": [],
+  "panels": [
+    {
+      "datasource": {
+        "type": "marcusolsson-static-datasource",
+        "uid": "4ytGZmF4k"
+      },
+      "description": "E2E fixture: visualEditor.code references context.editors.series (intentional typo, note trailing 's') so the plugin renders its in-panel alert, which the 'Should display error message' test asserts via checkAlert().",
+      "fieldConfig": {
+        "defaults": {},
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 11,
+        "w": 13,
+        "x": 0,
+        "y": 0
+      },
+      "id": 1,
+      "options": {
+        "editor": {
+          "format": "auto"
+        },
+        "editorMode": "visual",
+        "map": "none",
+        "renderer": "canvas",
+        "visualEditor": {
+          "code": "return {\n  dataset: context.editor.dataset,\n  series: context.editors.series,\n  xAxis: {\n    type: 'time',\n  },\n  yAxis: {\n    type: 'value',\n    min: 'dataMin',\n  },\n}\n",
+          "dataset": [],
+          "series": [
+            {
+              "encode": {
+                "x": [],
+                "y": []
+              },
+              "id": "Test",
+              "name": "Test",
+              "type": "line",
+              "uid": "38b1ba26-9174-4aed-bc04-a1500af898da"
+            }
+          ]
+        }
+      },
+      "targets": [
+        {
+          "refId": "A"
+        }
+      ],
+      "title": "Error panel",
+      "type": "volkovlabs-echarts-panel"
+    }
+  ],
+  "preload": false,
+  "refresh": "",
+  "schemaVersion": 40,
+  "tags": [],
+  "templating": {
+    "list": [
+      {
+        "current": {
+          "text": "Sales",
+          "value": "Sales"
+        },
+        "label": "Variable",
+        "name": "var",
+        "options": [
+          {
+            "selected": true,
+            "text": "Sales",
+            "value": "Sales"
+          }
+        ],
+        "query": "Sales",
+        "type": "textbox"
+      }
+    ]
+  },
+  "time": {
+    "from": "now-6h",
+    "to": "now"
+  },
+  "timepicker": {},
+  "timezone": "",
+  "title": "E2E Testing - Errors",
+  "uid": "e2e-errors-9ab1",
+  "version": 16,
+  "weekStart": ""
+}
