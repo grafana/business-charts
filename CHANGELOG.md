@@ -8,7 +8,7 @@ All notable changes to **Business Charts** will be documented in this file. This
 
 - Updated CI/CD workflows.
 - Added pull request coverage and file-changes summary reports.
-- Added `AGENTS.md` and `CLAUDE.md` with development guidance.
+- Updated development documentation.
 - Updated development scripts.
 
 ## [7.2.0] - 2025-10-22
