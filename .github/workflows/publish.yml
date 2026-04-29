@@ -24,9 +24,53 @@ on:
 permissions: {}
 
 jobs:
+  stamp-changelog:
+    name: Stamp changelog
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      id-token: write
+    steps:
+      - name: Get secrets from Vault
+        id: get-secrets
+        uses: grafana/shared-workflows/actions/get-vault-secrets@f1614b210386ac420af6807a997ac7f6d96e477a # get-vault-secrets/v1.3.1
+        with:
+          vault_instance: ops
+          common_secrets: |
+            GITHUB_APP_ID=plugins-platform-bot-app:app-id
+            GITHUB_APP_PRIVATE_KEY=plugins-platform-bot-app:private-key
+          export_env: false
+      - name: Generate GitHub App token
+        id: app-token
+        uses: actions/create-github-app-token@f8d387b68d61c58ab83c6c016672934102569859 # v3.0.0
+        with:
+          app-id: ${{ fromJSON(steps.get-secrets.outputs.secrets).GITHUB_APP_ID }}
+          private-key: ${{ fromJSON(steps.get-secrets.outputs.secrets).GITHUB_APP_PRIVATE_KEY }}
+          owner: ${{ github.repository_owner }}
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        with:
+          ref: ${{ github.event.inputs.branch }}
+          token: ${{ steps.app-token.outputs.token }}
+      - name: Replace [Unreleased] with version and date
+        run: |
+          grep -q "## \[Unreleased\]" CHANGELOG.md || { echo "No [Unreleased] heading found — already stamped?"; exit 1; }
+          VERSION=$(node -p "require('./package.json').version")
+          DATE=$(date -u +%Y-%m-%d)
+          sed -i "s/## \[Unreleased\]/## [$VERSION] - $DATE/" CHANGELOG.md
+      - name: Commit changelog stamp
+        env:
+          BRANCH: ${{ github.event.inputs.branch }}
+        run: |
+          git config user.name 'grafana-plugins-platform-bot[bot]'
+          git config user.email '144369747+grafana-plugins-platform-bot[bot]@users.noreply.github.com'
+          git add CHANGELOG.md
+          git diff --staged --quiet || git commit -m "chore: stamp changelog for release"
+          git push origin HEAD:$BRANCH
+
   cd:
     name: CD
-    uses: grafana/plugin-ci-workflows/.github/workflows/cd.yml@ci-cd-workflows/v7.2.0
+    needs: stamp-changelog
+    uses: grafana/plugin-ci-workflows/.github/workflows/cd.yml@ci-cd-workflows/v7.3.1
     permissions:
       contents: write
       pull-requests: read

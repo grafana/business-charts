@@ -1,6 +1,7 @@
 config:
   line-length:
     line_length: 120
+    tables: false
   no-duplicate-heading:
     siblings_only: true
 ignores:

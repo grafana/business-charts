@@ -19,11 +19,16 @@ All notable changes to **Business Charts** will be documented in this file. This
   (`SNAPSHOT_VERSIONS` in `test/utils/charts.ts` has no 13.x entry; tracked in #80).
 - Trimmed trailing whitespace in the `Should display Scatter Chart` E2E test name.
 
+- Updated CI/CD workflows to `v7.3.1`; added changelog stamping on release.
+- Added pull request coverage and file-changes summary reports.
+
 ### Tooling
 
 - Added `.markdownlint-cli2.yaml` with project markdown lint rules and ignores. Replaces
   `.markdownlint.yaml`.
 - Added `CLAUDE.md` and `AGENTS.md` with development guidance.
+- Added `markdownlint` and `spellcheck` npm scripts.
+- Updated development scripts.
 
 ## [7.2.0] - 2025-10-22
 
