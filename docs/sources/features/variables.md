@@ -17,7 +17,7 @@ Use the `context.grafana.replaceVariables()` function to replace dashboard and g
 const email = context.grafana.replaceVariables("${__user.email}");
 ```
 
-You can get familiar with three types of variables in the [Grafana Crash Course](https://volkovlabs.io/grafana/variables/).
+You can get familiar with three types of variables in the [Grafana Crash Course](https://grafana.com/docs/plugins/volkovlabs-echarts-panel/<PLUGINS_VERSION>/exploring-variables/).
 
 ## Replace variables
 

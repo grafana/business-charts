@@ -63,6 +63,8 @@ export class PanelHelper {
   }
 
   public async compareScreenshot(name: string, options?: { maxDiffPixelRatio?: number }) {
+    // Grafana 13+ has no entry in SNAPSHOT_VERSIONS yet, so getSnapshotDir returns null and the
+    // comparison is skipped until stable baselines exist (see issue #80).
     const snapshotDir = this.getSnapshotDir();
 
     if (!snapshotDir) {

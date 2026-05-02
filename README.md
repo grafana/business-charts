@@ -59,7 +59,6 @@ Dive into detailed guides to make the most of Business Charts:
 | [Examples](https://grafana.com/docs/plugins/volkovlabs-echarts-panel/latest/examples/)          | Start with ready-made Apache ECharts examples.     |
 | [Features](https://grafana.com/docs/plugins/volkovlabs-echarts-panel/latest/features/)          | Explore all plugin capabilities.                   |
 | [Maps](https://grafana.com/docs/plugins/volkovlabs-echarts-panel/latest/maps/)                  | Learn to work with various map types.              |
-| [Tutorials](hhttps://grafana.com/docs/plugins/volkovlabs-echarts-panel/latest/tutorials/)        | Follow step-by-step guides.                        |
 | [Release Notes](https://grafana.com/grafana/plugins/volkovlabs-echarts-panel/?tab=changelog)      | Stay updated with the latest features and fixes.   |
 
 ## 🙏 Acknowledgments

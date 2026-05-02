@@ -9,6 +9,26 @@ All notable changes to **Business Charts** will be documented in this file. This
 - Upgraded to **Apache ECharts 6.0.0**.
 - Added an optional **Apache ECharts v5 compatibility theme** to reduce visual regressions after upgrading.
 - Added package metadata needed for local install, build, and test workflows with the current Grafana dependencies.
+### CI/CD
+
+- Updated `grafana/plugin-ci-workflows` to `v7.2.0` in CI and CD workflows.
+- Updated `@grafana/plugin-e2e` to `3.5.1` and `@playwright/test` to `1.59.1`.
+- Improved test Dockerfile with absolute `WORKDIR`, layer caching, and `npm ci`.
+- Fixed the `Should display error message` E2E test on Grafana 13 by splitting the error panel into its
+  own above-the-fold dashboard (`e2e-errors.json`).
+- Fixed "Should add empty default chart" E2E test on Grafana 13 by pointing it at a dedicated provisioned
+  dashboard (`e2e-empty.json`) with a small placeholder panel (`intentional spacing`). The placeholder keeps
+  the dashboard toolbar `Add button` visible (Grafana 13 hides it on truly empty dashboards) while still
+  leaving the newly added panel above the fold at the Desktop Chrome viewport.
+- Chart screenshot comparisons are skipped on Grafana 13+ until stable baselines exist
+  (`SNAPSHOT_VERSIONS` in `test/utils/charts.ts` has no 13.x entry; tracked in #80).
+- Trimmed trailing whitespace in the `Should display Scatter Chart` E2E test name.
+
+### Tooling
+
+- Added `.markdownlint-cli2.yaml` with project markdown lint rules and ignores. Replaces
+  `.markdownlint.yaml`.
+- Added `CLAUDE.md` and `AGENTS.md` with development guidance.
 
 ## [7.2.0] - 2025-10-22
 

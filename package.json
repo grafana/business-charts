@@ -1,7 +1,7 @@
 {
   "name": "business-charts",
   "description": "Powerful visualizations powered by Apache ECharts",
-  "version": "7.2.4",
+  "version": "7.2.5",
   "scripts": {
     "build": "webpack -c ./.config/webpack/webpack.config.ts --env production",
     "dev": "webpack -w -c ./.config/webpack/webpack.config.ts --env development",
@@ -25,9 +25,9 @@
   "devDependencies": {
     "@openfeature/web-sdk": "^1.7.3",
     "@grafana/eslint-config": "^9.0.0",
-    "@grafana/plugin-e2e": "^3.4.4",
+    "@grafana/plugin-e2e": "^3.5.1",
     "@grafana/tsconfig": "^2.0.1",
-    "@playwright/test": "^1.58.2",
+    "@playwright/test": "^1.59.1",
     "@stylistic/eslint-plugin": "^5.5.0",
     "@stylistic/eslint-plugin-ts": "^4.4.1",
     "@swc/core": "^1.15.18",
