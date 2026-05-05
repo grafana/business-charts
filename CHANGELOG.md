@@ -10,6 +10,7 @@ All notable changes to **Business Charts** will be documented in this file. This
 - Added pull request coverage and file-changes summary reports.
 - Updated development documentation.
 - Updated development scripts.
+- Added `.npmrc` with `ignore-scripts=true` to disable lifecycle scripts and mitigate supply-chain attack risk.
 
 ## [7.2.0] - 2025-10-22
 
