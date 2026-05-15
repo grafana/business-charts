@@ -8,10 +8,14 @@ on:
 
 permissions: {}
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   ci:
     name: CI
-    uses: grafana/plugin-ci-workflows/.github/workflows/ci.yml@ci-cd-workflows/v7.2.0
+    uses: grafana/plugin-ci-workflows/.github/workflows/ci.yml@ci-cd-workflows/v7.3.1
     permissions:
       contents: read
       pull-requests: read
@@ -19,6 +23,7 @@ jobs:
       attestations: write
     with:
       plugin-version-suffix: ${{ github.event_name == 'pull_request' && github.event.pull_request.head.sha || '' }}
+      run-playwright-with-grafana-dependency: '>=12.3'
       run-playwright: false
       run-playwright-docker: true
       playwright-docker-compose-file: docker-compose.yaml

@@ -21,12 +21,15 @@ npm run build                  # production build
 npm run lint                   # ESLint check
 npm run lint:fix               # auto-fix lint issues
 npm run typecheck              # TypeScript check (no emit)
+npm run markdownlint             # markdownlint-cli2 on AGENTS.md, CHANGELOG.md, README.md
+npm run spellcheck               # cspell on all source files
 
 # Tests
 npm run test                   # Jest watch mode (only changed files)
 npm run test:ci                # Jest with coverage (CI)
 npm run test:e2e               # Playwright E2E tests (headless)
 npm run test:e2e:docker        # Playwright tests via Docker Compose
+npm run test:e2e:dev             # Playwright interactive UI
 
 # Run a single Jest test file
 npx jest src/utils/data-frame.test.ts
@@ -173,9 +176,10 @@ When removing or renaming panel options, update `src/migration.ts`:
 - Grafana API docs: <https://grafana.com/developers/plugin-tools/llms.txt>
 - **Always run `npm run typecheck`** when `src/` files are changed; fix all errors before committing.
 - **Always run `npm run lint`** before committing; fix errors with `npm run lint:fix`.
-- **Always run `npx markdownlint-cli2`** on any `.md` file you create or modify and fix all reported issues before committing.
-- **Always run cspell before committing:** `npx cspell -c cspell.config.json "**/*.{ts,tsx,js,md,yml,yaml,json}"`.
-  Add new legitimate words to `cspell.config.json`.
+- **Always run `npm run markdownlint`** on any `.md` file you create or modify and fix all reported issues
+  before committing.
+- **Always run `npm run spellcheck`** before committing. Fix any issues and add new words to
+  `cspell.config.json` if they are legitimate.
 - **Always update `CHANGELOG.md` before committing.** Every commit must include the corresponding changelog entry.
 - **NEVER commit unless the user explicitly asks.**
 - **NEVER push unless the user explicitly asks.** Never chain `git commit && git push`. Always wait for explicit push instruction.
