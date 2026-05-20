@@ -59,7 +59,7 @@ jobs:
   cd:
     name: CD
     needs: stamp-changelog
-    uses: grafana/plugin-ci-workflows/.github/workflows/cd.yml@ci-cd-workflows/v7.3.1
+    uses: grafana/plugin-ci-workflows/.github/workflows/cd.yml@ci-cd-workflows/v8.0.0
     permissions:
       contents: write
       pull-requests: read
