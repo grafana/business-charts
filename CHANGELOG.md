@@ -2,7 +2,7 @@
 
 All notable changes to **Business Charts** will be documented in this file. This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [7.2.1] - 2026-05-21
+## [7.2.5] - 2026-05-21
 
 ### Project Updates
 
