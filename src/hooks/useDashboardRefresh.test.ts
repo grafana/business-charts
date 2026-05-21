@@ -18,7 +18,6 @@ jest.mock('@grafana/scenes', () => ({
  * Mock @grafana/runtime
  */
 jest.mock('@grafana/runtime', () => ({
-  ...jest.requireActual('@grafana/runtime'),
   getAppEvents: jest.fn(),
 }));
 

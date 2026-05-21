@@ -2,6 +2,7 @@ import 'echarts-liquidfill';
 import 'echarts-wordcloud';
 import 'echarts-gl';
 import 'echarts/extension/bmap/bmap';
+import 'echarts/theme/v5';
 import 'echarts-extension-amap';
 import 'echarts-extension-gmap';
 
@@ -89,6 +90,13 @@ export const EchartsPanel: React.FC<Props> = ({ options, data, width, height, re
      * Theme
      */
     let echartsTheme = theme.isDark ? 'dark' : undefined;
+
+    /**
+     * Register ECharts v5 compatibility theme
+     */
+    if (options.themeEditor.name === Theme.V5) {
+      echartsTheme = Theme.V5;
+    }
 
     /**
      * Register Custom ECharts Theme
