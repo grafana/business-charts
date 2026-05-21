@@ -5,7 +5,7 @@ on:
   workflow_dispatch:
     inputs:
       branch:
-        description: Branch or tag to publish from. Can be used to deploy PRs to dev
+        description: Branch to publish from. Can be used to deploy PRs to dev
         default: main
       environment:
         description: Environment to publish to
@@ -14,7 +14,6 @@ on:
         options:
           - 'dev'
           - 'ops'
-          - 'prod-canary'
           - 'prod'
       docs-only:
         description: Only publish docs, do not publish the plugin
@@ -24,41 +23,38 @@ on:
 permissions: {}
 
 jobs:
-  stamp-changelog:
-    name: Stamp changelog
+  check-changelog:
+    name: Check changelog
     runs-on: ubuntu-latest
     permissions:
-      contents: write
-      id-token: write
+      contents: read
     steps:
-      - name: Generate GitHub App token
-        id: app-token
-        uses: grafana/shared-workflows/actions/create-github-app-token@259ba21cb3ff07724f331e26d926d655d24b317b # create-github-app-token/v0.2.3
-        with:
-          github_app: grafana-plugins-platform-bot
       - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
         with:
           ref: ${{ github.event.inputs.branch }}
-          token: ${{ steps.app-token.outputs.token }}
-      - name: Replace [Unreleased] with version and date
+      - name: Verify CHANGELOG.md has no [Unreleased] section
         run: |
-          grep -q "## \[Unreleased\]" CHANGELOG.md || { echo "No [Unreleased] heading found — already stamped?"; exit 1; }
-          VERSION=$(node -p "require('./package.json').version")
-          DATE=$(date -u +%Y-%m-%d)
-          sed -i "s/## \[Unreleased\]/## [$VERSION] - $DATE/" CHANGELOG.md
-      - name: Commit changelog stamp
-        env:
-          BRANCH: ${{ github.event.inputs.branch }}
-        run: |
-          git config user.name 'grafana-plugins-platform-bot[bot]'
-          git config user.email '144369747+grafana-plugins-platform-bot[bot]@users.noreply.github.com'
-          git add CHANGELOG.md
-          git diff --staged --quiet || git commit -m "chore: stamp changelog for release"
-          git push origin HEAD:$BRANCH
+          UNRELEASED_LINE=$(grep -n "^## \[Unreleased\]" CHANGELOG.md | head -1 | cut -d: -f1)
+          RELEASE_LINE=$(grep -n "^## \[[0-9]" CHANGELOG.md | head -1 | cut -d: -f1)
+
+          # No [Unreleased] section — nothing to check
+          if [ -z "$UNRELEASED_LINE" ]; then
+            exit 0
+          fi
+
+          # [Unreleased] is below the latest release — fine
+          if [ -n "$RELEASE_LINE" ] && [ "$UNRELEASED_LINE" -gt "$RELEASE_LINE" ]; then
+            exit 0
+          fi
+
+          VERSION=$(jq -r '.version' package.json)
+          echo "Error: CHANGELOG.md contains an [Unreleased] section."
+          echo "A released version is required and must match package.json (${VERSION})."
+          exit 1
 
   cd:
     name: CD
-    needs: stamp-changelog
+    needs: check-changelog
     uses: grafana/plugin-ci-workflows/.github/workflows/cd.yml@ci-cd-workflows/v8.0.0
     permissions:
       contents: write

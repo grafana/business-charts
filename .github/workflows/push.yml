@@ -19,8 +19,8 @@ jobs:
     permissions:
       contents: read
       pull-requests: read
-      id-token: write
       attestations: write
+      id-token: write
     with:
       plugin-version-suffix: ${{ github.event_name == 'pull_request' && github.event.pull_request.head.sha || '' }}
       run-playwright-with-grafana-dependency: '>=12.3'
