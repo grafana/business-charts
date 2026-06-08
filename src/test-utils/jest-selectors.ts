@@ -56,7 +56,7 @@ export const getJestSelectors =
        * @param args
        */
       const getElement = (noThrowOnNotFound = false, ...args: unknown[]) => {
-        const getValue = typeof selector === 'object' && 'selector' in selector ? selector.selector : selector;
+        const getValue = selector != null && typeof selector === 'object' && 'selector' in selector ? selector.selector : selector;
         const value = typeof getValue === 'function' ? getValue(...args) : getValue;
 
         if (value.startsWith('data-testid') || enforceTestIdSelectorForKeys.includes(key as keyof TSelectors)) {
