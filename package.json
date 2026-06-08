@@ -41,8 +41,6 @@
     "@types/node": "^24.0.0",
     "@types/semver": "^7.7.1",
     "@types/uuid": "^10.0.0",
-    "@volkovlabs/eslint-config": "^2.0.0",
-    "@volkovlabs/jest-selectors": "^1.5.0",
     "copy-webpack-plugin": "^14.0.0",
     "cspell": "^10.0.0",
     "css-loader": "^7.1.4",

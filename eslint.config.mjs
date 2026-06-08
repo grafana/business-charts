@@ -3,7 +3,6 @@ import { defineConfig, globalIgnores } from 'eslint/config';
 import prettierConfig from 'eslint-config-prettier/flat';
 import grafanaConfig from '@grafana/eslint-config/flat.js';
 import reactHooksPlugin from 'eslint-plugin-react-hooks';
-import eslintConfig from '@volkovlabs/eslint-config';
 
 const normalizedGrafanaConfig = grafanaConfig.map((config) => {
   if (Array.isArray(config?.plugins) && config.plugins.includes('react-hooks')) {
@@ -18,7 +17,6 @@ const normalizedGrafanaConfig = grafanaConfig.map((config) => {
  */
 export default defineConfig(
   ...normalizedGrafanaConfig,
-  eslintConfig,
   prettierConfig,
   {
     rules: {

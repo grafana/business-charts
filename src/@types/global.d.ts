@@ -5,19 +5,16 @@ interface Window {
   /**
    * Gaode Maps
    */
-  // eslint-disable-next-line @typescript-eslint/naming-convention
   AMap?: unknown;
 
   /**
    * Baidu Maps
    */
-  // eslint-disable-next-line @typescript-eslint/naming-convention
   BMap?: unknown;
 
   /**
    * Grafana scene context used by dashboard refresh.
    */
-  // eslint-disable-next-line @typescript-eslint/naming-convention
   __grafanaSceneContext?: unknown;
 }
 

@@ -2,6 +2,12 @@
 
 All notable changes to **Business Charts** will be documented in this file. This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## Unreleased
+
+### Project Updates
+
+- Removed dependencies on `@volkovlabs/eslint-config` and `@volkovlabs/jest-selectors`. Jest selector helpers (`getJestSelectors`, `createSelector`) are now inlined under `src/test-utils/jest-selectors.ts`. ESLint now relies solely on `@grafana/eslint-config`, with existing rule violations captured in `eslint-suppressions.json`.
+
 ## [7.2.5] - 2026-05-21
 
 ### Project Updates
