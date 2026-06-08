@@ -1,0 +1,7 @@
+{
+  "src/test-utils/jest-selectors.ts": {
+    "no-redeclare": {
+      "count": 2
+    }
+  }
+}
