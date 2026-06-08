@@ -6,7 +6,7 @@ import 'echarts-extension-amap';
 import 'echarts-extension-gmap';
 
 import { css, cx } from '@emotion/css';
-import { AlertErrorPayload, AlertPayload, AppEvents, LoadingState, PanelProps } from '@grafana/data';
+import { AlertErrorPayload, AlertPayload, AppEvents, getValueFormat, formattedValueToString, LoadingState, PanelProps } from '@grafana/data';
 import { getAppEvents, locationService } from '@grafana/runtime';
 import { Alert, useStyles2, useTheme2 } from '@grafana/ui';
 import * as echarts from 'echarts';
@@ -207,6 +207,8 @@ export const EchartsPanel: React.FC<Props> = ({ options, data, width, height, re
             notifySuccess,
             notifyError,
             refresh: () => refreshDashboard(),
+            getValueFormat,
+            formattedValueToString,
           },
           panel: {
             data,
