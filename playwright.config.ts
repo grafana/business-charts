@@ -20,7 +20,9 @@ export default defineConfig<PluginOptions>({
   /* Fail the build on CI if you accidentally left test.only in the source code. */
   forbidOnly: !!process.env.CI,
   /* Retry flaky tests */
-  retries: 2,
+  retries: 1,
+  /* Number of workers to use for parallelization */
+  workers: 1,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
   reporter: 'html',
   /* Increase expect timeout to allow charts to render under load */
@@ -35,6 +37,11 @@ export default defineConfig<PluginOptions>({
   use: {
     /* Base URL to use in actions like `await page.goto('/')`. */
     baseURL: process.env.GRAFANA_URL || 'http://localhost:3000',
+
+    /* Browser channel to launch (e.g. `chrome` to use a locally installed Google Chrome).
+     * Set `PLAYWRIGHT_CHANNEL=chrome` to run against system Chrome and skip the bundled Chromium download.
+     * Left undefined in CI/Docker so the bundled Chromium is used. See https://playwright.dev/docs/browsers#google-chrome--microsoft-edge. */
+    channel: process.env.PLAYWRIGHT_CHANNEL || undefined,
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'on-first-retry',
