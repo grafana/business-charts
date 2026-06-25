@@ -16,7 +16,7 @@ The Business Charts panel supports world and USA GeoJSON maps. You can load addi
 {{< figure src="/media/docs/grafana/panels-visualizations/business-charts/geojson.png" class="border" alt="Website Analytics displays requests per country." >}}
 
 {{< admonition type="note" >}}
-Try the map on the [dashboard in the edit mode](https://echarts.volkovlabs.io/d/X1mkMIFVz/geo-map?orgId=1&editPanel=11).
+After starting the local development environment (see [Examples](https://grafana.com/docs/plugins/volkovlabs-echarts-panel/<PLUGINS_VERSION>/examples/)), try the [World Population (2022) panel in edit mode](http://localhost:3000/d/X1mkMIFVz/geo-map?orgId=1&editPanel=11) on the **Geo/Map** dashboard in the **echarts** folder.
 {{< /admonition >}}
 
 ## Metrics with values

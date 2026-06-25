@@ -51,7 +51,7 @@ grafana cli plugins install volkovlabs-echarts-panel
 - Supports real-time data updates using streaming data sources and Grafana Live.
 - Supports light and dark themes adjusted to the Grafana theme.
 - Based on [Apache ECharts 5.5.1](https://github.com/apache/echarts/releases/tag/5.5.1).
-- Provides 100+ ready-to-use examples at [echarts.volkovlabs.io](https://echarts.volkovlabs.io).
+- Includes recovered example dashboards in the [`echarts/`](https://github.com/grafana/business-charts/tree/main/echarts) directory. See [Examples](https://grafana.com/docs/plugins/volkovlabs-echarts-panel/<PLUGINS_VERSION>/examples/) for how to browse and copy Charts function code.
 - Supports the [Wordcloud extension](https://github.com/ecomfe/echarts-wordcloud).
 
 {{< figure src="/media/docs/grafana/panels-visualizations/business-charts/business-charts.gif" class="border" alt="A few examples of the Business Charts panel." >}}

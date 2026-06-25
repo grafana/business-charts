@@ -20,7 +20,7 @@ You can get the access key at [https://console.cloud.google.com/apis/credentials
 
 ## Demo
 
-Try the panel with [Google Maps in the edit mode](https://echarts.volkovlabs.io/d/X1mkMIFVz/geo-map?orgId=1&editPanel=13).
+After starting the local development environment (see [Examples](https://grafana.com/docs/plugins/volkovlabs-echarts-panel/<PLUGINS_VERSION>/examples/)), try the [Google Map panel in edit mode](http://localhost:3000/d/X1mkMIFVz/geo-map?orgId=1&editPanel=13) on the **Geo/Map** dashboard in the **echarts** folder.
 
 ## Features
 
