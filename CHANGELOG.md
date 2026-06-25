@@ -6,6 +6,11 @@ All notable changes to **Business Charts** will be documented in this file. This
 
 ### Project Updates
 
+- Enabled `foldersFromFilesStructure` for dashboard provisioning so the recovered Apache ECharts example dashboards
+  load into a dedicated "echarts" folder instead of the General folder in local development.
+- Updated the Examples documentation to describe the recovered `echarts/` dashboards and how to browse them locally.
+- Removed the defunct `echarts.volkovlabs.io` link from the plugin documentation index.
+- Updated map documentation demo links to point at the recovered **Geo/Map** example dashboard in local development.
 - Removed dependencies on `@volkovlabs/eslint-config` and `@volkovlabs/jest-selectors`. Jest selector helpers (`getJestSelectors`, `createSelector`) are now inlined under `src/test-utils/jest-selectors.ts`. ESLint now relies solely on `@grafana/eslint-config`, with existing rule violations captured in `eslint-suppressions.json`.
 
 ## [7.2.5] - 2026-05-21
