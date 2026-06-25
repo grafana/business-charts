@@ -17,6 +17,11 @@ const SNAPSHOT_VERSIONS: Array<{ range: string; dir: string }> = [
   { range: '>=12.2.0 <12.3.0', dir: 'v12.2' },
   { range: '>=12.3.0 <12.4.0', dir: 'v12.3' },
   { range: '>=12.4.0 <12.5.0', dir: 'v12.4' },
+  { range: '>=13.0.0 <13.1.0', dir: 'v13.0' },
+  { range: '>=13.1.0 <13.2.0', dir: 'v13.1' },
+  { range: '>=13.2.0 <13.3.0', dir: 'v13.2' },
+  { range: '>=13.3.0 <13.4.0', dir: 'v13.3' },
+  { range: '>=13.4.0 <13.5.0', dir: 'v13.4' },
 ];
 
 /**
@@ -63,8 +68,6 @@ export class PanelHelper {
   }
 
   public async compareScreenshot(name: string, options?: { maxDiffPixelRatio?: number }) {
-    // Grafana 13+ has no entry in SNAPSHOT_VERSIONS yet, so getSnapshotDir returns null and the
-    // comparison is skipped until stable baselines exist (see issue #80).
     const snapshotDir = this.getSnapshotDir();
 
     if (!snapshotDir) {
