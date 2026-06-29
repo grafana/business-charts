@@ -6,7 +6,6 @@ All notable changes to **Business Charts** will be documented in this file. This
 
 ### Added
 
-- Added `start:react19` script to run the plugin against the Grafana React 19 preview image.
 - Added `test:e2e:debug` and `test:e2e:local:chrome` scripts for interactive and system-Chrome Playwright runs.
 - Added E2E screenshot baselines for Grafana 13.0 (`test/panel.spec.ts-snapshots/v13.0/`).
 - Added Grafana 13.x snapshot version mappings in E2E tests.
