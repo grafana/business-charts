@@ -4,9 +4,26 @@ All notable changes to **Business Charts** will be documented in this file. This
 
 ## Unreleased
 
+### Added
+
+- Added `test:e2e:debug` and `test:e2e:local:chrome` scripts for interactive and system-Chrome Playwright runs.
+- Added E2E screenshot baselines for Grafana 13.0 (`test/panel.spec.ts-snapshots/v13.0/`).
+- Added Grafana 13.x snapshot version mappings in E2E tests.
+
+### Changed
+
+- Upgraded `@grafana/scenes` from 6.57.2 to 8.6.0.
+- Upgraded `@grafana/data`, `@grafana/runtime`, and `@grafana/ui` from 12.4.1 to 13.0.2.
+- Pinned all npm dependency versions (removed caret ranges).
+- Updated Playwright config to run with one worker, one retry, and optional `PLAYWRIGHT_CHANNEL` for local system Chrome.
+- Added `min-release-age=3` to `.npmrc` alongside `ignore-scripts=true`.
+
 ### Project Updates
 
-- Removed dependencies on `@volkovlabs/eslint-config` and `@volkovlabs/jest-selectors`. Jest selector helpers (`getJestSelectors`, `createSelector`) are now inlined under `src/test-utils/jest-selectors.ts`. ESLint now relies solely on `@grafana/eslint-config`, with existing rule violations captured in `eslint-suppressions.json`.
+- Removed dependencies on `@volkovlabs/eslint-config` and `@volkovlabs/jest-selectors`.
+- Inlined Jest selector helpers (`getJestSelectors`, `createSelector`) under `src/test-utils/jest-selectors.ts`.
+- ESLint now relies solely on `@grafana/eslint-config`, with existing rule violations captured in
+  `eslint-suppressions.json`.
 
 ## [7.2.5] - 2026-05-21
 
