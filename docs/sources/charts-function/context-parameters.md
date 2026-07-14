@@ -234,6 +234,40 @@ const variable = context.grafana.replaceVariables("${variable}");
 console.log(variable.toUpperCase());
 ```
 
+### `getValueFormat(formatterId)`
+
+Gets a grafana value formatter by id. [Source of truth for the formatter IDs can be found here](https://github.com/grafana/grafana/blob/main/packages/grafana-data/src/valueFormats/categories.ts)
+
+#### Usage
+
+```javascript
+context.grafana.getValueFormat(formatterIdHere)
+```
+
+#### Example
+
+```javascript
+const formatter = context.grafana.getValueFormat("currencyEUR")
+console.log(context.grafana.formattedValueToString(formatter(3200))) // €3.20K
+```
+
+### `formattedValueToString`
+
+Converts a grafana `FormattedValue` to a string. You likely want to get such a value using `getValueFormat(id)(value)`.
+
+#### Usage
+
+```javascript
+context.grafana.formattedValueToString({ text: "", suffix: "", prefix: "" })
+```
+
+#### Example
+
+```javascript
+const formatter = context.grafana.getValueFormat("currencyEUR")
+console.log(context.grafana.formattedValueToString(formatter(3200))) // €3.20K
+```
+
 ### `grafana.theme`
 
 Contains grafana Theme object.
