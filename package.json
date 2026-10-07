@@ -37,7 +37,7 @@
     "@swc/helpers": "0.5.19",
     "@swc/jest": "0.2.39",
     "@testing-library/jest-dom": "6.9.1",
-    "@testing-library/react": "16.3.2",
+    "@testing-library/react": "16.3.3",
     "@types/jest": "30.0.0",
     "@types/lodash": "4.17.24",
     "@types/node": "24.0.0",
