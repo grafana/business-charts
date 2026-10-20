@@ -1,4 +1,4 @@
-import { AlertPayload, EventBus, GrafanaTheme2, InterpolateFunction, PanelData } from '@grafana/data';
+import { AlertPayload, EventBus, formattedValueToString, getValueFormat, GrafanaTheme2, InterpolateFunction, PanelData } from '@grafana/data';
 import { LocationService } from '@grafana/runtime';
 import { CodeEditorSuggestionItemKind } from '@grafana/ui';
 import { ECharts } from 'echarts';
@@ -41,6 +41,14 @@ const baseParametersConfig = {
         ),
         refresh: new CodeParameterItem<() => void>(
           'Refresh dashboard panels using application events.',
+          CodeEditorSuggestionItemKind.Method
+        ),
+        getValueFormat: new CodeParameterItem<typeof getValueFormat>(
+          'Gets a value formatter by id',
+          CodeEditorSuggestionItemKind.Method
+        ),
+        formattedValueToString: new CodeParameterItem<typeof formattedValueToString>(
+          'Converts a formatted value to string',
           CodeEditorSuggestionItemKind.Method
         ),
       },
