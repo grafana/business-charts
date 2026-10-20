@@ -1,10 +1,10 @@
 ---
 title: Exploring variables
-description: Learn how dashboard, global, and environment variables work in Grafana, how they differ, and where to find more examples.
+description: Learn how dashboard, built-in, and environment variables work in Grafana, how they differ, and where to find more examples.
 keywords:
   - variables
   - dashboard variables
-  - global variables
+  - built-in variables
   - environment variables
   - dashboards
 weight: 690
@@ -17,7 +17,7 @@ labels:
 
 # Exploring variables
 
-Variables in Grafana come in three types: dashboard, global, and environment.
+Variables in Grafana come in three types: dashboard, built-in, and environment.
 This page breaks them down and shows how they fit into your Grafana deployment.
 
 {{< figure src="/media/docs/grafana/panels-visualizations/business-charts/variables.png" class="border" alt="Three layers of variables in Grafana." >}}
@@ -29,9 +29,9 @@ They're your go-to for tailoring what users see.
 
 {{< figure src="/media/docs/grafana/panels-visualizations/business-charts/variables-edit.png" class="border" alt="Different types of dashboard variables." >}}
 
-## Global variables
+## Built-in variables
 
-Global variables tap into Grafana-wide settings, ready to use across your dashboards.
+Built-in variables tap into Grafana-wide settings, ready to use across your dashboards.
 This is a list of the most common ones:
 
 | Variable          | Description                        |
@@ -46,7 +46,7 @@ This is a list of the most common ones:
 | `${__user.id}`    | ID of the current user             |
 | `${__user.login}` | Login handle of the current user   |
 
-For the full list, refer to [Grafana global variable documentation](https://grafana.com/docs/grafana/<GRAFANA_VERSION>/visualizations/dashboards/variables/add-template-variables/#global-variables).
+For the full list, refer to [Grafana built-in variable documentation](https://grafana.com/docs/grafana/<GRAFANA_VERSION>/visualizations/dashboards/variables/built-in-variables).
 
 ## Environment variables
 
