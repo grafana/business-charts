@@ -35,7 +35,7 @@ export default defineConfig<PluginOptions>({
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
     /* Base URL to use in actions like `await page.goto('/')`. */
-    baseURL: process.env.GRAFANA_URL || 'http://localhost:3000',
+    baseURL: process.env.GRAFANA_URL || 'http://localhost:3001',
 
     /**
      * Browser channel to launch (e.g. `chrome` to use a locally installed Google Chrome).
