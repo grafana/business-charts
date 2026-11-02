@@ -12,6 +12,7 @@ test.describe('Business Charts Panel', () => {
     gotoDashboardPage,
     grafanaVersion,
     page,
+    selectors,
   }) => {
     test.setTimeout(60000);
 
@@ -27,6 +28,20 @@ test.describe('Business Charts Panel', () => {
      */
     const editPage = await dashboardPage.addPanel();
     await page.waitForLoadState('networkidle');
+
+    /**
+     * Grafana 12.4 opens the visualization picker on a new panel. plugin-e2e 3.15.4 setVisualization() clicks
+     * the picker toggle whenever it is visible, which closes the open picker and times out. Close it first.
+     */
+    const vizPickerToggle = editPage.getByGrafanaSelector(selectors.components.PanelEditor.toggleVizPicker);
+    const allVisualizationsTab = editPage.getByGrafanaSelector(
+      selectors.components.Tab.title(selectors.constants.Tab.title)
+    );
+    if ((await vizPickerToggle.isVisible()) && (await allVisualizationsTab.isVisible())) {
+      await vizPickerToggle.click();
+      await expect(allVisualizationsTab).toBeHidden();
+    }
+
     await editPage.setVisualization('Business Charts');
     await editPage.setPanelTitle('Business Chart Test');
     await editPage.backToDashboard();
